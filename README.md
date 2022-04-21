@@ -24,3 +24,7 @@ npm run build
 ### Versions
 1. Simple Version with raw PHP -
 1. Version with OOP PHP -
+
+### Demo
+
+![Demo Plugin](https://i.ibb.co/NpVYrxN/wp-react-kit.png "Demo in WordPress plugin")
