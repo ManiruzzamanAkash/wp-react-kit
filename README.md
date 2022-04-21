@@ -22,7 +22,7 @@ npm run build
 ```
 
 ### Versions
-1. Simple Version with raw PHP -
+1. Simple Version with raw PHP - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimple
 1. Version with OOP PHP -
 
 ### Demo
