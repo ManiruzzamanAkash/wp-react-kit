@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AACI;EACI;EACA;EACA;AAAR,C","sources":["webpack://jobplace/./src/style/main.scss"],"sourcesContent":["#jobplace {\n    .app-title {\n        font-size: 1.5em;\n        font-weight: bold;\n        margin-bottom: 1em;\n    }\n}"],"names":[],"sourceRoot":""}
