@@ -1,5 +1,5 @@
 # wp-react-kit
-A simple starter kit to work in WordPress with React easily in a minute.
+A simple starter kit to work in WordPress with WP-script, React, Eslint, i18n easily in a minute.
 
 ----
 
@@ -23,10 +23,15 @@ npm run build
 
 ### Versions
 1. Simple Version with raw PHP - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimple
+
 File structure:
 
 ![Demo Version](https://i.ibb.co/3fmYfks/wp-react-kit-simple-version.png "Demo in Simple Version")
-1. Version with OOP PHP -
+
+2. Simple Version with EsLint and i18n Setup - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimpleEslint
+
+
+3. Version with OOP PHP -
 
 ### Demo
 
