@@ -1,5 +1,5 @@
 # wp-react-kit
-A simple starter kit to work in WordPress with WP-script, React, Eslint, i18n easily in a minute.
+A simple starter kit to work in WordPress with WP-script, React, React Router, Eslint, i18n easily in a minute.
 
 ----
 
@@ -30,9 +30,12 @@ File structure:
 
 2. Simple Version with EsLint and i18n Setup - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimpleEslint
 
+3. Simple Version with EsLint, i18n and React Router Setup - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vReactRouter
 
-3. Version with OOP PHP -
-
-### Demo
+### Demo with Simple Version
 
 ![Demo Plugin](https://i.ibb.co/NpVYrxN/wp-react-kit.png "Demo in WordPress plugin")
+
+### Demo With React Router & Menu
+
+![Demo Plugin](https://i.ibb.co/vPp9Mm9/Wp-Scripts-Demo.png "Demo in WordPress plugin")
