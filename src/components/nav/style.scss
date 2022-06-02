@@ -1,0 +1,23 @@
+.job-place-navbar {
+    ul {
+        list-style: none;
+
+        li {
+            display: inline-block;
+
+            a {
+                text-decoration: none;
+                margin-right: 1px;
+                padding: 10px 20px;
+                background: #1d2327;
+                color: #fff;
+                transition: 0.4s;
+
+                &:hover {
+                    background: #fff;
+                    color: #1d2327;
+                }
+            }
+        }
+    }
+}

@@ -1,20 +1,30 @@
 /**
  * External dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 /**
  * Internal dependencies
  */
-import Dashboard from './components/Dashboard';
+import NavLinks from './components/nav/NavLinks';
+import routes from './routes/index';
 
 const App = () => {
     return (
-        <div>
-            <h2 className="app-title">{__('Job Place App', 'job-place')}</h2>
-            <hr />
-            <Dashboard />
-        </div>
+        <HashRouter>
+            <div>
+                <NavLinks />
+                <Routes>
+                    {routes.map((route, index) => (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={<route.element />}
+                        />
+                    ))}
+                </Routes>
+            </div>
+        </HashRouter>
     );
 };
 

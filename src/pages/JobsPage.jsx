@@ -3,18 +3,18 @@
  */
 import { __ } from '@wordpress/i18n';
 
-const Dashboard = () => {
+const JobsPage = () => {
     return (
         <div className="dashboard">
             <div className="card">
-                <h3>{__('Dashboard', 'jobplace')}</h3>
+                <h3>{__('Jobs', 'jobplace')}</h3>
                 <p>
-                    {__('Edit Dashboard component at ', 'jobplace')}
-                    <code>src/components/Dashboard.jsx</code>
+                    {__('Edit JobsPage component at ', 'jobplace')}
+                    <code>src/pages/JobsPage.jsx</code>
                 </p>
             </div>
         </div>
     );
 };
 
-export default Dashboard;
+export default JobsPage;
