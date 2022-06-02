@@ -13,6 +13,7 @@
   "devDependencies": {
     "@wordpress/eslint-plugin": "^12.4.0",
     "@wordpress/i18n": "^4.10.0",
-    "@wordpress/scripts": "^22.5.0"
+    "@wordpress/scripts": "^22.5.0",
+    "react-router-dom": "^6.3.0"
   }
 }
