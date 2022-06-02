@@ -1,16 +1,20 @@
-import React from 'react'
+/**
+ * External dependencies
+ */
+import { __ } from '@wordpress/i18n';
 
 const Dashboard = () => {
     return (
-        <div className='dashboard'>
+        <div className="dashboard">
             <div className="card">
-                <h3>Dashboard</h3>
+                <h3>{__('Dashboard', 'job-place')}</h3>
                 <p>
-                    Edit Dashboard component at <code>src/components/Dashboard.jsx</code>
+                    {__('Edit Dashboard component at ', 'job-place')}
+                    <code>src/components/Dashboard.jsx</code>
                 </p>
             </div>
         </div>
-     );
-}
+    );
+};
 
 export default Dashboard;
