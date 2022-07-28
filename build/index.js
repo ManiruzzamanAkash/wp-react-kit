@@ -135,7 +135,11 @@ __webpack_require__.r(__webpack_exports__);
 
  // Render the App component into the DOM
 
-(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], null), document.getElementById('jobplace'));
+const jobPlaceElement = document.getElementById('jobplace');
+
+if (jobPlaceElement) {
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], null), jobPlaceElement);
+}
 
 /***/ }),
 

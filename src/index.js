@@ -12,4 +12,8 @@ import App from './App';
 import './style/main.scss';
 
 // Render the App component into the DOM
-render(<App />, document.getElementById('jobplace'));
+const jobPlaceElement = document.getElementById('jobplace');
+
+if (jobPlaceElement) {
+    render(<App />, jobPlaceElement);
+}
