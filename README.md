@@ -17,6 +17,9 @@ composer install
 # Start development mode
 npm start
 
+# Start development with hot reload (Frontend components will be updated automatically if any changes are made)
+npm run start:hot
+
 # To run in production
 npm run build
 ```
