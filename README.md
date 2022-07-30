@@ -70,6 +70,9 @@ File structure:
 4. Version with PostCSS and Tailwind CSS Setup -
 https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vTailwindCss
 
+5. Version with PHPCS setup -
+https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPHPCS
+
 ### Demo with Simple Version
 
 ![Demo Plugin](https://i.ibb.co/NpVYrxN/wp-react-kit.png "Demo in WordPress plugin")
