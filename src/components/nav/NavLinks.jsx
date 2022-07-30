@@ -21,7 +21,7 @@ const NavLinks = () => {
                         {__('Home', 'jobplace')}
                     </Link>
                 </li>
-                <li>
+                <li className="inline-block">
                     <Link
                         to="/jobs"
                         className="bg-[#1d2327] text-white mr-0.5 py-2.5 px-5 transition text-center hover:text-white hover:font-bold"
