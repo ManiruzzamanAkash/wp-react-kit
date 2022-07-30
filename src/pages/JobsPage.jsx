@@ -6,8 +6,8 @@ import { __ } from '@wordpress/i18n';
 const JobsPage = () => {
     return (
         <div className="dashboard">
-            <div className="card">
-                <h3>{__('Jobs', 'jobplace')}</h3>
+            <div className="card p-5">
+                <h3 className="text-lg">{__('Jobs', 'jobplace')}</h3>
                 <p>
                     {__('Edit JobsPage component at ', 'jobplace')}
                     <code>src/pages/JobsPage.jsx</code>
