@@ -1,5 +1,5 @@
 # wp-react-kit
-A simple starter kit to work in WordPress with WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, i18n easily in a minute.
+A simple starter kit to work in WordPress with WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, i18n, PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -41,41 +41,82 @@ Or, it could be your custom processed URL.
 vendor/bin/phpcs .
 ```
 
-**Or, get specific file errors of the project:**
-```sh
-vendor/bin/phpcs job-place.php
-```
-
 **Fix all errors of the project:**
 ```sh
 vendor/bin/phpcbf .
 ```
 
-**Or, fix specific file errors of the project:**
+<details>
+    <summary>Options for specific files:</summary>
+
+**Get specific file errors of the project:**
+```sh
+vendor/bin/phpcs job-place.php
+```
+
+
+**Fix specific file errors of the project:**
 ```sh
 vendor/bin/phpcbf job-place.php
 ```
+</details>
+
 
 ### Versions
-1. Simple Version with raw PHP - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimple
+<details>
+    <summary>Simple Version with raw PHP</summary>
 
-File structure:
+https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimple
+</details>
 
-![Demo Version](https://i.ibb.co/3fmYfks/wp-react-kit-simple-version.png "Demo in Simple Version")
+<details>
+    <summary>Version with EsLint and i18n Setup</summary>
 
-2. Version with EsLint and i18n Setup - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimpleEslint
+https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimpleEslint
+</details>
 
-3. Version with EsLint, i18n and React Router Setup - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vReactRouter
 
-4. Version with PostCSS and Tailwind CSS Setup -
+<details>
+    <summary>Version with EsLint, i18n and React Router Setup</summary>
+
+https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vReactRouter
+</details>
+
+<details>
+    <summary>Version with PostCSS and Tailwind CSS Setup</summary>
+
 https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vTailwindCss
+</details>
 
-5. Version with PHPCS setup -
+<details>
+    <summary>Version with PHPCS setup</summary>
+
 https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPHPCS
+</details>
+
+<details>
+    <summary>Version with PHP OOP Architecture</summary>
+
+https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPhpOOP
+</details>
+
+
+
+### File structure:
+<details>
+    <summary>Simple Version Code-Structure:</summary>
+
+![Simple Version](https://i.ibb.co/3fmYfks/wp-react-kit-simple-version.png "Demo in Simple Version")
+</details>
 
 ### Demo with Simple Version
 
+<details>
+    <summary>Demo in WordPress plugin:</summary>
+
 ![Demo Plugin](https://i.ibb.co/NpVYrxN/wp-react-kit.png "Demo in WordPress plugin")
+</details>
+
 
 ### Demo With React Router & Menu
 
