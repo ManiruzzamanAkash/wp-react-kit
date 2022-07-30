@@ -9,8 +9,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude( 'languages' )
     ->exclude( 'src' )
     ->exclude( 'bin' )
-    ->in( __DIR__ )
-;
+    ->in( __DIR__ );
 
 $config = PhpCsFixer\Config::create()
     ->registerCustomFixers( [
@@ -20,7 +19,6 @@ $config = PhpCsFixer\Config::create()
     ->setRiskyAllowed( true )
     ->setUsingCache( false )
     ->setRules( WeDevs\Fixer\Fixer::rules() )
-    ->setFinder( $finder )
-;
+    ->setFinder( $finder );
 
 return $config;
