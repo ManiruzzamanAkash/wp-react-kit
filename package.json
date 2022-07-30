@@ -1,7 +1,7 @@
 {
   "name": "jobplace",
-  "version": "1.0.0",
-  "description": "A Job posting platform made by WordPress",
+  "version": "0.2.0",
+  "description": "A Job posting platform made by WordPress and best architectures",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
