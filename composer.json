@@ -3,38 +3,16 @@
     "description": "A Job posting platform made by WordPress",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Akash\\Jobplace\\": "includes/"
+        }
+    },
     "authors": [
         {
             "name": "ManiruzzamanAkash",
             "email": "manirujjamanakash@gmail.com"
         }
     ],
-    "config": {
-        "platform": {
-            "php": "7.0.0"
-        },
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
-    "require": {},
-    "require-dev": {
-        "wp-coding-standards/wpcs": "dev-master",
-        "dealerdirect/phpcodesniffer-composer-installer": "dev-master",
-        "tareq1988/wp-php-cs-fixer": "dev-master",
-        "phpcompatibility/phpcompatibility-wp": "dev-master"
-    },
-    "autoload": {
-        "psr-4": {
-            "Akash\\Jobplace\\": "includes/"
-        }
-    },
-    "scripts": {
-        "phpcs": [
-            "phpcs -p -s"
-        ],
-        "phpcbf": [
-            "phpcbf -p"
-        ]
-    }
+    "require": {}
 }

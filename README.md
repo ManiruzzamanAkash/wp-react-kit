@@ -34,28 +34,6 @@ Where, `/wpex` is the project root folder inside `/htdocs`.
 
 Or, it could be your custom processed URL.
 
-### PHP Coding Standards - PHPCS
-
-**Get all errors of the project:**
-```sh
-vendor/bin/phpcs .
-```
-
-**Or, get specific file errors of the project:**
-```sh
-vendor/bin/phpcs job-place.php
-```
-
-**Fix all errors of the project:**
-```sh
-vendor/bin/phpcbf .
-```
-
-**Or, fix specific file errors of the project:**
-```sh
-vendor/bin/phpcbf job-place.php
-```
-
 ### Versions
 1. Simple Version with raw PHP - https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vSimple
 

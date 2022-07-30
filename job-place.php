@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:       Job Place
  * Description:       A Job posting platform made by WordPress.
@@ -25,7 +24,8 @@ function jobplace_init_menu() {
     $slug          = 'jobplace';
     $menu_position = 50;
     $capability    = 'manage_options';
-    add_menu_page( esc_attr__( 'Job Place', 'jobplace' ), esc_attr__( 'Job Place', 'jobplace' ), $capability, $slug, 'jobplace_admin_page', 'dashicons-filter', $menu_position );
+
+    add_menu_page( esc_attr__( 'Job Place', 'jobplace'), esc_attr__( 'Job Place', 'jobplace'), $capability, $slug, 'jobplace_admin_page', 'dashicons-filter', $menu_position );
 
     if ( current_user_can( $capability ) ) {
         $submenu[ $slug ][] = [ esc_attr__( 'Home', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
@@ -50,12 +50,11 @@ add_action( 'admin_enqueue_scripts', 'jobplace_admin_enqueue_scripts' );
  * @return void
  */
 function jobplace_admin_enqueue_scripts() {
-
     /**
      * Enqueue styles.
      */
-    wp_enqueue_style( 'jobplace-style', plugin_dir_url( __FILE__ ) . 'build/index.css', [], '1.0.0' );
-    wp_enqueue_style( 'jobplace-component-style', plugin_dir_url( __FILE__ ) . 'build/style-index.css', [], '1.0.0' );
+    wp_enqueue_style( 'jobplace-style', plugin_dir_url( __FILE__ ) . 'build/index.css' );
+    wp_enqueue_style( 'jobplace-component-style', plugin_dir_url( __FILE__ ) . 'build/style-index.css' );
 
     /**
      * Enqueue scripts
