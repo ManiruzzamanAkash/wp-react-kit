@@ -34,6 +34,13 @@ Where, `/wpex` is the project root folder inside `/htdocs`.
 
 Or, it could be your custom processed URL.
 
+### Version & Changelogs
+**v0.3.0 - 02/08/2022**
+
+1. Necessary traits to handle - sanitization, query.
+1. Advanced setup for migration, seeder, REST API.
+1. Jobs, Job Types REST API developed.
+
 ### PHP Coding Standards - PHPCS
 
 **Get all errors of the project:**
@@ -60,7 +67,6 @@ vendor/bin/phpcs job-place.php
 vendor/bin/phpcbf job-place.php
 ```
 </details>
-
 
 ### Versions
 <details>
@@ -99,8 +105,6 @@ https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPHPCS
 
 https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPhpOOP
 </details>
-
-
 
 ### File structure:
 <details>
