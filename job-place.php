@@ -4,8 +4,8 @@
  * Plugin Name:       Job Place
  * Description:       A Job posting platform made by WordPress.
  * Requires at least: 5.8
- * Requires PHP:      7.0
- * Version:           0.2.0
+ * Requires PHP:      7.3
+ * Version:           0.3.0
  * Author:            Maniruzzaman Akash<manirujjamanakash@gmail.com>
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ final class Job_Place {
      *
      * @var string
      */
-    const VERSION = '0.2.0';
+    const VERSION = '0.3.0';
 
     /**
      * Plugin slug.
@@ -63,8 +63,8 @@ final class Job_Place {
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
         register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
 
-        add_action( 'woocommerce_loaded', [ $this, 'init_plugin' ] );
-        add_action( 'woocommerce_flush_rewrite_rules', [ $this, 'flush_rewrite_rules' ] );
+        add_action( 'wp_loaded', [ $this, 'flush_rewrite_rules' ] );
+        $this->init_plugin();
     }
 
     /**
@@ -164,7 +164,8 @@ final class Job_Place {
      * @return void
      */
     public function activate() {
-        //
+        // Run the installer to create necessary migrations and seeders.
+        $this->install();
     }
 
     /**
@@ -179,7 +180,7 @@ final class Job_Place {
     }
 
     /**
-     * Flush rewrite rules after plugin is activated or woocommerce is activated.
+     * Flush rewrite rules after plugin is activated.
      *
      * Nothing being added here yet.
      *
@@ -187,6 +188,18 @@ final class Job_Place {
      */
     public function flush_rewrite_rules() {
         // fix rewrite rules
+    }
+
+    /**
+     * Run the installer to create necessary migrations and seeders.
+     *
+     * @since 0.3.0
+     *
+     * @return void
+     */
+    private function install() {
+        $installer = new \Akash\JobPlace\Setup\Installer();
+        $installer->run();
     }
 
     /**
@@ -229,9 +242,12 @@ final class Job_Place {
      */
     public function init_classes() {
         // Init necessary hooks
+        new Akash\JobPlace\User\Hooks();
 
         // Common classes
-        $this->container['assets'] = new Akash\JobPlace\Assets\Manager();
+        $this->container['assets']   = new Akash\JobPlace\Assets\Manager();
+        $this->container['rest_api'] = new Akash\JobPlace\REST\Manager();
+        $this->container['jobs']     = new Akash\JobPlace\Jobs\Manager();
     }
 
     /**
