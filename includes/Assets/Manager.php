@@ -103,10 +103,16 @@ class Manager {
      * Enqueue admin styles and scripts.
      *
      * @since 0.2.0
+     * @since 0.3.0 Loads the JS and CSS only on the Job Place admin page.
      *
      * @return void
      */
     public function enqueue_admin_assets() {
+        // Check if we are on the admin page and page=jobplace.
+        if ( ! is_admin() || ! isset( $_GET['page'] ) || sanitize_text_field( wp_unslash( $_GET['page'] ) ) !== 'jobplace' ) {
+            return;
+        }
+
         wp_enqueue_style( 'job-place-css' );
         wp_enqueue_script( 'job-place-app' );
     }

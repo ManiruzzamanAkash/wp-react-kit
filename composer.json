@@ -11,22 +11,23 @@
     ],
     "config": {
         "platform": {
-            "php": "7.0.0"
+            "php": "^7.3||8.0"
         },
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
-    "require": {},
     "require-dev": {
         "wp-coding-standards/wpcs": "dev-master",
         "dealerdirect/phpcodesniffer-composer-installer": "dev-master",
         "tareq1988/wp-php-cs-fixer": "dev-master",
-        "phpcompatibility/phpcompatibility-wp": "dev-master"
+        "phpcompatibility/phpcompatibility-wp": "dev-master",
+        "phpunit/phpunit": "^6.5"
     },
     "autoload": {
         "psr-4": {
-            "Akash\\JobPlace\\": "includes/"
+            "Akash\\JobPlace\\": "includes/",
+            "Akash\\JobPlace\\Tests\\": "tests/"
         }
     },
     "scripts": {
