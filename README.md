@@ -87,7 +87,7 @@ Or, it could be your custom processed URL.
     ```
 
 **Detailed Documentation** -
-[View Detailed documentations with parameters and responses of the REST API](/blob/main/Rest-API-Docs.MD)
+[View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
 **v0.3.0 - 02/08/2022**
