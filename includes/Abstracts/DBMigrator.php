@@ -12,7 +12,7 @@ abstract class DBMigrator {
 	/**
 	 * Migrate the database table.
 	 *
-	 * @since CAR_PULSE_SINCE
+	 * @since 0.3.0
 	 *
 	 * @return void
 	 * */
