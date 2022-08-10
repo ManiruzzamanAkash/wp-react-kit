@@ -568,8 +568,10 @@ class JobsController extends RESTController {
     public function get_collection_params(): array {
         $params = parent::get_collection_params();
 
-        $params['limit']['default'] = 10;
-        $params['s']['default']     = '';
+        $params['limit']['default']   = 10;
+        $params['search']['default']  = '';
+        $params['orderby']['default'] = 'id';
+        $params['order']['default']   = 'DESC';
 
         return $params;
     }
