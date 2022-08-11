@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="tests/phpunit/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+>
+	<php>
+		<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/phpunit/wp-config.php" />
+	</php>
+	<testsuites>
+		<testsuite name="PHPUnit Test">
+			<directory prefix="" suffix=".php">./tests/phpunit/</directory>
+			<exclude>./tests/phpunit/wp-config.php</exclude>
+		</testsuite>
+	</testsuites>
+
+	<coverage cacheDirectory="./coverage"
+			  includeUncoveredFiles="true"
+			  processUncoveredFiles="true"
+			  pathCoverage="false"
+			  ignoreDeprecatedCodeUnits="true"
+			  disableCodeCoverageIgnore="true">
+		<include>
+			<directory suffix=".php">inc</directory>
+		</include>
+	</coverage>
+</phpunit>

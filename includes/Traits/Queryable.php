@@ -153,6 +153,17 @@ trait Queryable {
     }
 
     /**
+     * Truncate table.
+     *
+     * @since 0.3.1
+     *
+     * @return void
+     */
+    public function truncate() {
+        return $this->db->query( "TRUNCATE TABLE {$this->table}" );
+    }
+
+    /**
      * Execute query.
      *
      * @since 0.3.0
