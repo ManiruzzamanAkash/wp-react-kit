@@ -24,6 +24,12 @@ npm run start:hot
 npm run build
 ```
 
+### Run PHP Unit Test
+
+```sh
+./vendor/bin/phpunit
+```
+
 After running `start`, or `build` command, there will be a folder called `/build` will be generated at the root directory.
 
 ### Browse Plugin
@@ -90,6 +96,11 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+**v0.3.1 - 11/08/2022**
+
+1. PHPUnit Test cases setup.
+1. PHPUnit Test cases added for Job Manager and Job REST API's.
+
 **v0.3.0 - 02/08/2022**
 
 1. Necessary traits to handle - sanitization, query.

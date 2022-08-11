@@ -22,7 +22,7 @@ class Manager {
      * Get all jobs by criteria.
      *
      * @since 0.3.0
-     * @since JOB_PLACE_SINCE Fixed counting return type as integer.
+     * @since 0.3.1 Fixed counting return type as integer.
      *
      * @param array $args
      * @return array|object|string|int

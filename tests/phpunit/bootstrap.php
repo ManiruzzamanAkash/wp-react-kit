@@ -27,7 +27,7 @@ require_once "{$_tests_dir}/includes/functions.php";
 /**
  * Manually load the plugin being tested.
  *
- * @since JOB_PLACE_SINCE
+ * @since 0.3.1
  *
  * @return void
  */
@@ -39,7 +39,7 @@ function _manually_load_plugin(): void {
 /**
  * Load any external plugin if needs.
  *
- * @since JOB_PLACE_SINCE
+ * @since 0.3.1
  *
  * @example for Woocommerce Installation
  *
@@ -63,7 +63,7 @@ tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 /**
  * Install database tables for this plugin.
  *
- * @since JOB_PLACE_SINCE
+ * @since 0.3.1
  *
  * @return void
  */
@@ -77,7 +77,7 @@ function install_plugin_databases(): void {
 /**
  * After setup theme install any needed plugins.
  *
- * @since JOB_PLACE_SINCE
+ * @since 0.3.1
  *
  * @example for Woocommerce Installation
  *

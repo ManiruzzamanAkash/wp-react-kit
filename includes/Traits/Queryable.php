@@ -155,7 +155,7 @@ trait Queryable {
     /**
      * Truncate table.
      *
-     * @since JOB_PLACE_SINCE
+     * @since 0.3.1
      *
      * @return void
      */

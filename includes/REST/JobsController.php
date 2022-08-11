@@ -565,7 +565,7 @@ class JobsController extends RESTController {
     /**
      * Generate beautiful slug.
      *
-     * @since JOB_PLACE_SINCE
+     * @since 0.3.1
      *
      * @param string $slug
      * @param integer $i
