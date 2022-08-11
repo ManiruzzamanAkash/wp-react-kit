@@ -1,0 +1,11 @@
+.cp-tooltip {
+    &:hover {
+        .cp-tooltip-text {
+            visibility: visible !important;
+
+            a {
+                color: #4F46E5;
+            }
+        }
+    }
+}
