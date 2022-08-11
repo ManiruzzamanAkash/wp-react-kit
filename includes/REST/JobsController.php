@@ -551,11 +551,7 @@ class JobsController extends RESTController {
                     return $slug;
                 }
 
-                $slug = $this->generate_beautiful_slug( $slug );
-
-                return $slug;
-
-                // return $slug . '-' . time();
+                return $this->generate_beautiful_slug( $slug );
             }
         }
 
