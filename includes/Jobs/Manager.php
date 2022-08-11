@@ -22,9 +22,10 @@ class Manager {
      * Get all jobs by criteria.
      *
      * @since 0.3.0
+     * @since JOB_PLACE_SINCE Fixed counting return type as integer.
      *
      * @param array $args
-     * @return array|object|string
+     * @return array|object|string|int
      */
     public function all( array $args = [] ) {
         $defaults = [
@@ -51,7 +52,13 @@ class Manager {
             $args['where'] = '';
         }
 
-        return $this->job->all( $args );
+        $jobs = $this->job->all( $args );
+
+        if ( $args['count'] ) {
+            return (int) $jobs;
+        }
+
+        return $jobs;
     }
 
     /**

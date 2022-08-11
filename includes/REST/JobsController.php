@@ -87,7 +87,7 @@ class JobsController extends RESTController {
      * @param WP_REST_Request $request Full details about the request.
      * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
      */
-    public function get_items( $request ): WP_REST_Response {
+    public function get_items( $request ): ?WP_REST_Response {
         $args   = [];
         $data   = [];
         $params = $this->get_collection_params();
@@ -551,11 +551,45 @@ class JobsController extends RESTController {
                     return $slug;
                 }
 
-                return $slug . '-' . time();
+                $slug = $this->generate_beautiful_slug( $slug );
+
+                return $slug;
+
+                // return $slug . '-' . time();
             }
         }
 
         return $slug;
+    }
+
+    /**
+     * Generate beautiful slug.
+     *
+     * @since JOB_PLACE_SINCE
+     *
+     * @param string $slug
+     * @param integer $i
+     *
+     * @return string
+     */
+    public function generate_beautiful_slug( string $slug = '', $i = 1 ): string {
+        while (true) {
+            $new_slug     = $slug . '-' . $i;
+            $existing_job = job_place()->jobs->get(
+                [
+                    'key' => 'slug',
+                    'value' => $new_slug,
+                ]
+            );
+
+            if ( empty( $existing_job ) ) {
+                return $new_slug;
+            } else {
+                $this->generate_beautiful_slug( $slug, $i + 1 );
+            }
+
+            $i++;
+        }
     }
 
     /**
