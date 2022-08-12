@@ -19,6 +19,8 @@ export interface ILayout {
     // Page Right Side Contents
     hasRightSideContent?: boolean;
     rightSideContent?: JSX.Element;
+
+    children: React.ReactNode;
 }
 
 /**
@@ -95,7 +97,7 @@ const Layout = (props: ILayout) => {
             )}
 
             {/* Page Heading Section */}
-            <div className={`flex mb-5 ${headingCustomClass}`}>
+            <div className={`flex mb-5 mx-8 ${headingCustomClass}`}>
                 <div className={getClassNames().leftSideClassNames}>
                     {title}
                 </div>
@@ -109,7 +111,7 @@ const Layout = (props: ILayout) => {
             </div>
 
             {/* Page Content Section */}
-            <div className="cp-content-area">{children}</div>
+            <div className="cp-content-area mx-8">{children}</div>
         </div>
     );
 };

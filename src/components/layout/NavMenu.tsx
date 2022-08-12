@@ -3,7 +3,12 @@
  */
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+    faHome,
+    faJoint,
+    faProjectDiagram,
+    faShoppingCart,
+} from '@fortawesome/free-solid-svg-icons';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -56,7 +61,7 @@ function NavMenu() {
                 }`}
             >
                 <span className="inline float-left">
-                    <FontAwesomeIcon icon={faShoppingCart} />
+                    <FontAwesomeIcon icon={faProjectDiagram} />
                 </span>
                 <span className="sm:inline hidden float-left md:ml-3">
                     {__('Jobs', 'jobplace')}
