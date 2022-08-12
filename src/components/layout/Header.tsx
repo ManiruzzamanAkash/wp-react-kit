@@ -21,7 +21,7 @@ function Header() {
                             onClick={() => {}}
                             className="text-gray-900 font-medium text-lg focus:outline-none focus:shadow-none"
                         >
-                            <span className="text-primary">Job Place</span>
+                            <span className="text-primary">WP React Kit</span>
                         </Link>
                     </div>
                     <div className="flex items-center mb-1">
