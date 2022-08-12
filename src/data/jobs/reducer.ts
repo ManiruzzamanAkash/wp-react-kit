@@ -17,6 +17,24 @@ const reducer = (state = jobDefaultState, action) => {
                 ...state,
                 loadingJobs: action.loading,
             };
+
+        case Types.SET_TOTAL_JOBS:
+            return {
+                ...state,
+                total: action.total,
+            };
+
+        case Types.SET_TOTAL_JOBS_PAGE:
+            return {
+                ...state,
+                totalPage: action.totalPage,
+            };
+
+        case Types.SET_JOBS_FILTER:
+            return {
+                ...state,
+                filters: action.filters,
+            };
     }
 
     return state;

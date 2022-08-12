@@ -20,8 +20,8 @@ const actions = {
     },
 
     *setFilters(filters = {}) {
-        // yield actions.setLoading(true);
-        // yield actions.setFilterObject(filters);
+        yield actions.setLoadingJobs(true);
+        yield actions.setFilterObject(filters);
 
         const queryParam = new URLSearchParams(
             filters as URLSearchParams
@@ -33,26 +33,40 @@ const actions = {
             data;
         } = yield actions.fetchFromAPIUnparsed(path);
 
-        // let totalPage = 0;
-        // let totalCount = 0;
+        let totalPage = 0;
+        let totalCount = 0;
 
-        // if (response.headers !== undefined) {
-        //     totalPage = parseInt(response.headers.get('X-WP-TotalPages'));
-        //     totalCount = parseInt(response.headers.get('X-WP-Total'));
-        // }
+        if (response.headers !== undefined) {
+            totalPage = parseInt(response.headers.get('X-WP-TotalPages'));
+            totalCount = parseInt(response.headers.get('X-WP-Total'));
+        }
 
-        // yield actions.setTotalPage(totalPage);
-        // yield actions.setTotal(totalCount);
-        return actions.setLoadingJobs(false);
+        yield actions.setTotalPage(totalPage);
+        yield actions.setTotal(totalCount);
         yield actions.setJobs(response.data);
+        return actions.setLoadingJobs(false);
     },
 
-    // setFilterObject(filters: object) {
-    //     return {
-    //         type: 'SET_FILTERS',
-    //         filters,
-    //     };
-    // },
+    setFilterObject(filters: object) {
+        return {
+            type: Types.SET_JOBS_FILTER,
+            filters,
+        };
+    },
+
+    setTotalPage(totalPage: number) {
+        return {
+            type: Types.SET_TOTAL_JOBS_PAGE,
+            totalPage,
+        };
+    },
+
+    setTotal(total: number) {
+        return {
+            type: Types.SET_TOTAL_JOBS,
+            total,
+        };
+    },
 
     fetchFromAPI(path: string) {
         return {

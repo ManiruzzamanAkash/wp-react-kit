@@ -6,4 +6,7 @@ export interface IJob {
 export interface IJobs {
     jobs: IJob[];
     loadingJobs: boolean;
+    totalPage: number;
+    total: number;
+    filters: object;
 }

@@ -16,6 +16,9 @@ import { IJobs } from './interfaces';
 export const jobDefaultState: IJobs = {
     jobs: [],
     loadingJobs: true,
+    totalPage: 0,
+    total: 0,
+    filters: {},
 };
 
 const jobStore = createReduxStore('wp-react/jobs', {

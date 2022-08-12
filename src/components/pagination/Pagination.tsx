@@ -37,8 +37,8 @@ const Pagination = (props: IPagination) => {
     const { perPage, total, paginate, currentPage } = props;
     const [current, setCurrent] = useState(currentPage);
     const boxClassName = `relative inline-flex items-center border text-sm font-medium`;
-    const activeClassName = `bg-white border-primary-lite text-primary hover:text-primary-dark hover:bg-blue-200`;
-    const inactiveClassName = `bg-white border-gray text-gray-500 hover:bg-blue-200 hover:text-primary-dark`;
+    const activeClassName = `bg-white border-slate-300 text-primary hover:text-primary-dark hover:bg-blue-200`;
+    const inactiveClassName = `bg-white border-slate-300 text-gray-500 hover:bg-blue-200 hover:text-primary-dark`;
     const totalPage = Math.ceil(total / perPage);
 
     return (
@@ -81,7 +81,7 @@ const Pagination = (props: IPagination) => {
                                 activeClassName={`${boxClassName} ${activeClassName} `}
                                 pageClassName={`${boxClassName} ${inactiveClassName} `}
                                 pageLinkClassName="px-4 py-2 text-[#cdcccc]"
-                                activeLinkClassName="px-4 py-2 text-primary"
+                                activeLinkClassName="px-4 py-2 text-primary-dark"
                                 nextClassName={`${boxClassName} ${activeClassName} `}
                                 nextLinkClassName="px-4 py-2"
                                 previousClassName={`${boxClassName} ${activeClassName} `}

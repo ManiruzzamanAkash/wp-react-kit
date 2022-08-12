@@ -16,17 +16,17 @@ const resolvers = {
 
         const path = `${jobsBasePath}?${queryParam}`;
         const response = yield actions.fetchFromAPIUnparsed(path);
-        // let totalPage = 0;
-        // let totalCount = 0;
+        let totalPage = 0;
+        let totalCount = 0;
 
-        // if (response.headers !== undefined) {
-        //     totalPage = response.headers.get('X-WP-TotalPages');
-        //     totalCount = response.headers.get('X-WP-Total');
-        // }
+        if (response.headers !== undefined) {
+            totalPage = response.headers.get('X-WP-TotalPages');
+            totalCount = response.headers.get('X-WP-Total');
+        }
 
         yield actions.setJobs(response.data);
-        // yield actions.setTotalPage(totalPage);
-        // yield actions.setTotal(totalCount);
+        yield actions.setTotalPage(totalPage);
+        yield actions.setTotal(totalCount);
         return actions.setLoadingJobs(false);
     },
 };
