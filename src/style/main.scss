@@ -1,4 +1,28 @@
+
+body,
+html {
+    background-color: #f0f0f1;
+}
+
+#wpcontent {
+    background-color: #f0f0f1;
+}
+
+li > ul,
+li > ol {
+    margin-left: auto;
+}
+
+.wp-submenu-wrap {
+    margin-left: 0px;
+}
+
 #jobplace {
+    background-color: #f0f0f1 !important;
+    margin-left: -20px;
+    margin-top: -4px;
+    box-sizing: border-box;
+
     .app-title {
         font-size: 1.5em;
         font-weight: bold;

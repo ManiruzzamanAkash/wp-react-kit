@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { render } from '@wordpress/element';
+import './data/store';
 
 /**
  * Internal dependencies

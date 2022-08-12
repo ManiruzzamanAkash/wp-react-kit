@@ -1,5 +1,5 @@
 # wp-react-kit
-A simple starter kit to work in WordPress with WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, i18n, PHP OOP plugin architecture easily in a minute.
+A simple starter kit to work in WordPress with WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -96,6 +96,14 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+
+**v0.4.0 - 12/08/2022**
+
+1. Added many re-usable general components.
+1. Header Component refactored and re-designed.
+1. WP-Data setup and made Job Store.
+1. Job List Page frontend added.
+
 **v0.3.1 - 11/08/2022**
 
 1. PHPUnit Test cases setup.
@@ -191,3 +199,18 @@ https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPhpOOP
 ### Demo With React Router & Menu
 
 ![Demo Plugin](https://i.ibb.co/vPp9Mm9/Wp-Scripts-Demo.png "Demo in WordPress plugin")
+
+
+### Final Demos
+
+**Job List Page**
+
+![Job List Page](https://i.ibb.co/VJBb4Nq/Jobs-List.png "Job List Page")
+
+**Job List Page with Pagination**
+
+![Job List Page with Pagination](https://i.ibb.co/1vr6tXS/Job-Pagination.png "Job List Page with Pagination")
+
+**Job List Page with search**
+
+![Job List Page with Search](https://i.ibb.co/nr3pTXM/Jobs-Search.png "Job List Page with Search")

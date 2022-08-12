@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import HomePage from '../pages/HomePage';
-import JobsPage from '../pages/JobsPage';
+import JobsPage from '../pages/jobs/JobsPage';
 
 const routes = [
     {

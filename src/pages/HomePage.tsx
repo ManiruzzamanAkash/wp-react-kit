@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import Dashboard from '../components/Dashboard';
+import Dashboard from '../components/dashboard/Dashboard';
 
 const HomePage = () => {
     return (

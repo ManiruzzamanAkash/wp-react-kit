@@ -42,12 +42,12 @@ class Manager {
         return [
             'job-place-custom-css' => [
                 'src'     => JOB_PLACE_BUILD . '/style-index.css',
-                'version' => filemtime( JOB_PLACE_DIR . '/build/style-index.css' ),
+                'version' => JOB_PLACE_VERSION,
                 'deps'    => [],
             ],
             'job-place-css' => [
                 'src'     => JOB_PLACE_BUILD . '/index.css',
-                'version' => filemtime( JOB_PLACE_DIR . '/build/index.css' ),
+                'version' => JOB_PLACE_VERSION,
                 'deps'    => [ 'job-place-custom-css' ],
             ],
         ];
