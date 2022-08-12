@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
 import {
     formatSelect2Data,
     getSelectedOption,
-} from '../../../utils/Select2Helper';
+} from '../../utils/Select2Helper';
 
 export interface Select2SingleRow {
     /**
@@ -125,7 +125,9 @@ const Select2Input = (props: ISelect2Input) => {
                     ? formatSelect2Data(defaultValue)
                     : getSelectedOption(options, defaultValue)
             }
-            placeholder={placeholder ? placeholder : __('-- Select --', 'cp')}
+            placeholder={
+                placeholder ? placeholder : __('-- Select --', 'jobplace')
+            }
             onChange={(value) => {
                 if (typeof onChange === 'function') {
                     onChange(value);

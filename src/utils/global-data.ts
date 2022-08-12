@@ -36,15 +36,15 @@ export const hasPro = !!getGlobalData('hasPro');
  */
 export const emailFrequencyUnits = [
     {
-        label: __('Minute', 'cp'),
+        label: __('Minute', 'jobplace'),
         value: 'minute',
     },
     {
-        label: __('Hour', 'cp'),
+        label: __('Hour', 'jobplace'),
         value: 'hour',
     },
     {
-        label: __('Day', 'cp'),
+        label: __('Day', 'jobplace'),
         value: 'day',
     },
 ];
