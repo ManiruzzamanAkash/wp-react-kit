@@ -1,63 +1,97 @@
-# PHP CircleCI 2.0 configuration file
-# See: https://circleci.com/docs/2.0/language-php/
+workflows:
+  version: 2
+  main:
+    jobs:
+      - php74-build
+      - deploy:
+          requires:
+            - php74-build
+
 version: 2
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  php74-build:
     docker:
-      # Specify the version you desire here
-      - image: circleci/php:7.4-node-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # Using the RAM variation mitigates I/O contention
-      # for database intensive operations.
-      - image: circleci/mysql:5.7-ram
-      #
-      - image: redis:2.8.19
-
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: circleci/php:7.4
+      - image: circleci/mysql:5.7
+    environment:
+      - WP_TESTS_DIR: "/tmp/wordpress-tests-lib"
+      - WP_CORE_DIR: "/tmp/wordpress/"
     steps:
       - checkout
-
-      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
-      - run: sudo docker-php-ext-install zip
-
-      # Download and cache dependencies
+      - run:
+          name: "Setup Environment Variables"
+          command: |
+            echo "export PATH=$HOME/.composer/vendor/bin:$PATH" >> $BASH_ENV
+            source /home/circleci/.bashrc
+      - run:
+          name: "Install Dependencies"
+          command: |
+            sudo apt-get update && sudo apt-get install subversion
+            sudo docker-php-ext-install mysqli
+            sudo sh -c "printf '\ndeb http://ftp.us.debian.org/debian sid main\n' >> /etc/apt/sources.list"
+            sudo apt-get update && sudo apt-get install mysql-client-5.7
+            git submodule update --init
+            composer global require wp-coding-standards/wpcs
+            composer global require "dealerdirect/phpcodesniffer-composer-installer"
+            composer global require "tareq1988/wp-php-cs-fixer"
+            composer global require "phpcompatibility/phpcompatibility-wp"
+            composer global require "phpunit/phpunit=9.5.*"
+            phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+      - run:
+          name: "Run PHPCS"
+          command: |
+            phpcs --standard=phpcs.ruleset.xml --extensions=php --colors -s -p -v .
+      - run:
+          name: "Run PHPUnit - Single Site - Generate Coverage Report"
+          command: |
+            rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+            bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+            ./vendor/bin/phpunit --log-junit /tmp/test-results/phpunit/junit-coverage-report.xml
+      - store_test_results:
+          path: /tmp/test-results
+      - run:
+          name: "Run PHPUnit - Multisite"
+          command: |
+            WP_MULTISITE=0 phpunit
+  deploy:
+    docker:
+      - image: circleci/php:latest-node-browsers-legacy
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "SSH Fingerprint from CircleCI Project Settings > SSH Permissions"
+      - checkout
+      - run:
+          name: Update npm
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Install Grunt.js
+          command: sudo npm install -g grunt-cli
+      - run:
+          name: Update submodules
+          command: git submodule update --init
       - restore_cache:
-          keys:
-            # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: composer install -n --prefer-dist
-
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install node packages
+          command: npm install
       - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
-      - restore_cache:
-          keys:
-            - node-v1-{{ checksum "package.json" }}
-            - node-v1-
-      - run: yarn install
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-
-      # prepare the database
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
-
-      # run tests with phpunit or codecept
-      - run: ./vendor/bin/phpunit
-      - run: ./vendor/bin/codecept build
-      - run: ./vendor/bin/codecept run
+      - run:
+          name: Build the plugin
+          command: |
+            grunt build
+            mkdir -p /tmp/artifacts
+            cp -a build/*.zip /tmp/artifacts
+      - deploy:
+          name: Deploy the plugin
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./bin/deploy.sh live
+            else
+              ./bin/deploy.sh --dry-run
+            fi
+      - store_artifacts:
+          path: /tmp/artifacts
