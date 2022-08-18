@@ -50,6 +50,7 @@ class Installer {
      * Add time and version on DB.
      *
      * @since 0.3.0
+     * @since 0.4.1 Fixed #11 - Version Naming.
      *
      * @return void
      */
@@ -60,7 +61,7 @@ class Installer {
             update_option( Keys::JOB_PLACE_INSTALLED, time() );
         }
 
-        update_option( Keys::JOB_PLACE_VERSION, CART_PULSE_VERSION );
+        update_option( Keys::JOB_PLACE_VERSION, JOB_PLACE_VERSION );
     }
 
     /**
