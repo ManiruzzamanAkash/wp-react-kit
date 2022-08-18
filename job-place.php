@@ -5,7 +5,7 @@
  * Description:       A Job posting platform made by WordPress.
  * Requires at least: 5.8
  * Requires PHP:      7.3
- * Version:           0.3.0
+ * Version:           0.4.1
  * Author:            Maniruzzaman Akash<manirujjamanakash@gmail.com>
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ final class Job_Place {
      *
      * @var string
      */
-    const VERSION = '0.4.0';
+    const VERSION = '0.4.1';
 
     /**
      * Plugin slug.
