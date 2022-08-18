@@ -1,5 +1,5 @@
-# wp-react-kit
-A simple starter kit to work in WordPress with WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHP OOP plugin architecture easily in a minute.
+# WP-React-Kit
+A simple starter kit to work in WordPress with WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test and PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -24,13 +24,23 @@ npm run start:hot
 npm run build
 ```
 
+After running `start`, or `build` command, there will be a folder called `/build` will be generated at the root directory.
+
+### Activate the plugin
+You need activate the plugin from plugin list page.
+http://localhost/wpex/wp-admin/plugins.php
+
 ### Run PHP Unit Test
 
 ```sh
 ./vendor/bin/phpunit
 ```
 
-After running `start`, or `build` command, there will be a folder called `/build` will be generated at the root directory.
+### Run Jest Unit Test
+
+```sh
+npm run test:unit --maxWorkers=10
+```
 
 ### Browse Plugin
 
