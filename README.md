@@ -1,18 +1,39 @@
 # WP-React-Kit
-A simple starter kit to work in WordPress with WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test and PHP OOP plugin architecture easily in a minute.
+A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test and PHP OOP plugin architecture easily in a minute.
 
 ----
+
+## What's included?
+
+1. WordPress Rest API
+2. WP-script Setup
+3. React
+4. React Router
+5. TypeScript
+6. Tailwind CSS [Nested + ]
+7. Scss
+8. PostCSS
+9. Eslint
+10. WP-Data
+11. WP-Data Redux Store [Redux Saga, Generator function, Thunk, Saga Middleware]
+12. React Components
+13. **React CRUD Operations [Continuing...]**
+14. Internationalization - WP i18n
+15. PHPUnit Test [Test + Fix]
+16. JestUnit Test
+17. e2e Test
+18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
 
 ### Quick Start
 ```sh
 # Clone the Git repository
 git clone https://github.com/ManiruzzamanAkash/wp-react-kit.git
 
-# Install node module packages
-npm i
-
 # Install PHP-composer dependencies [It's empty]
 composer install
+
+# Install node module packages
+npm i
 
 # Start development mode
 npm start
@@ -42,6 +63,18 @@ http://localhost/wpex/wp-admin/plugins.php
 npm run test:unit --maxWorkers=10
 ```
 
+### PHP Coding Standards - PHPCS
+
+**Get all errors of the project:**
+```sh
+vendor/bin/phpcs .
+```
+
+**Fix all errors of the project:**
+```sh
+vendor/bin/phpcbf .
+```
+
 ### Browse Plugin
 
 http://localhost/wpex/wp-admin/admin.php?page=jobplace#/
@@ -56,18 +89,20 @@ Or, it could be your custom processed URL.
 
 #### REST API Documentation
 
-1. **Job Types** http://localhost/wpex/wp-json/job-place/v1/job-types
-    Method - GET
-1. **Job Lists** http://localhost/wpex/wp-json/job-place/v1/jobs
-    Method - GET
+1. **Job Types**
+    - Method: `GET`
+    - URL: http://localhost/wpex/wp-json/job-place/v1/job-types
+1. **Job Lists**
+    - Method: `GET`
+    - URL: http://localhost/wpex/wp-json/job-place/v1/jobs
 1. **Job Details**
-    By ID - http://localhost/wpex/wp-json/job-place/v1/jobs/1
-    By Slug - http://localhost/wpex/wp-json/job-place/v1/jobs/first-job
-    Method - GET
+    - Method: `GET`
+    - URL By ID: http://localhost/wpex/wp-json/job-place/v1/jobs/1
+    - URL By Slug: http://localhost/wpex/wp-json/job-place/v1/jobs/first-job
 1. **Create Job**
-    http://localhost/wpex/wp-json/job-place/v1/jobs
-    Method - POST
-    Body -
+    - Method: `POST`
+    - URL: http://localhost/wpex/wp-json/job-place/v1/Jobs
+    - Body:
     ```json
     {
         "title": "Simple Job Post",
@@ -79,9 +114,9 @@ Or, it could be your custom processed URL.
     }
     ```
 1. **Update Job**
-    http://localhost/wpex/wp-json/job-place/v1/jobs/1
-    Method - PUT
-    Body -
+    - Method: `PUT`
+    - URL: http://localhost/wpex/wp-json/job-place/v1/jobs/1
+    - Body:
     ```json
     {
         "title": "Simple Job Post Updated",
@@ -93,9 +128,9 @@ Or, it could be your custom processed URL.
     }
     ```
 1. **Delete Jobs**
-    http://localhost/wpex/wp-json/job-place/v1/jobs
-    Method - DELETE
-    Body -
+    - Method: `DELETE`
+    - URL: http://localhost/wpex/wp-json/job-place/v1/jobs
+    - Body:
     ```json
     {
         "ids": [1, 2]
@@ -106,6 +141,11 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+**v0.4.1 - 18/08/2022**
+
+1. Added Jest Unit Test Setup.
+2. Added some dummy Jest Unit Test.
+3. Fix #11 - Version naming while installing.
 
 **v0.4.0 - 12/08/2022**
 
@@ -124,18 +164,6 @@ Or, it could be your custom processed URL.
 1. Necessary traits to handle - sanitization, query.
 1. Advanced setup for migration, seeder, REST API.
 1. Jobs, Job Types REST API developed.
-
-### PHP Coding Standards - PHPCS
-
-**Get all errors of the project:**
-```sh
-vendor/bin/phpcs .
-```
-
-**Fix all errors of the project:**
-```sh
-vendor/bin/phpcbf .
-```
 
 <details>
     <summary>Options for specific files:</summary>
