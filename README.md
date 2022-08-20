@@ -21,7 +21,7 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 14. Internationalization - WP i18n
 15. PHPUnit Test [Test + Fix]
 16. JestUnit Test
-17. e2e Test
+17. Jest-Pupetter e2e Test
 18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
 
 ### Quick Start
@@ -60,7 +60,28 @@ http://localhost/wpex/wp-admin/plugins.php
 ### Run Jest Unit Test
 
 ```sh
-npm run test:unit --maxWorkers=10
+npm run test:unit
+```
+
+### Run Jest-Pupeteer e2e Test
+
+WordPress core doc link: https://make.wordpress.org/core/2019/06/27/introducing-the-wordpress-e2e-tests/
+
+**Requirements:**
+- Must have docker installed and running by ensuring these commands -
+```
+npm run env:stop
+npm run env:start
+```
+
+**Normal e2e test**
+```sh
+npm run test:e2e
+```
+
+**Interactive e2e test**
+```sh
+npm run test:e2e:watch
 ```
 
 ### PHP Coding Standards - PHPCS
