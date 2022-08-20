@@ -7,8 +7,9 @@
     "build": "wp-scripts build",
     "start": "wp-scripts start",
     "start:hot": "wp-scripts start --hot",
+    "test:unit": "wp-scripts test-unit-js --config jest-unit.config.js",
     "test:e2e": "wp-scripts test-e2e",
-    "test:unit": "wp-scripts test-unit-js --config jest.config.js",
+    "test:e2e:watch": "wp-scripts test-e2e -- --puppeteer-interactive",
     "wp-env": "wp-env",
     "env:start": "wp-env start",
     "env:start:coverage": "wp-env start -- --xdebug=profile,trace,debug",
@@ -16,11 +17,9 @@
   },
   "author": "",
   "license": "ISC",
-  "directories": {
-    "test": "tests/e2e"
-  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@types/enzyme": "^3.10.12",
     "@types/jest": "^28.1.7",
@@ -28,6 +27,7 @@
     "@wordpress/api-fetch": "^6.12.0",
     "@wordpress/data": "^6.15.0",
     "@wordpress/e2e-test-utils": "^7.11.0",
+    "@wordpress/e2e-tests": "^4.9.2",
     "@wordpress/eslint-plugin": "^12.4.0",
     "@wordpress/i18n": "^4.10.0",
     "@wordpress/jest-preset-default": "^8.5.1",
@@ -37,7 +37,10 @@
     "babel-plugin-inline-json-import": "^0.3.2",
     "cssnano": "^5.1.12",
     "enzyme": "^3.11.0",
+    "jest-circus": "^27.5.1",
+    "jest-puppeteer": "^6.1.1",
     "postcss": "^8.4.14",
+    "puppeteer-testing-library": "^0.6.0",
     "react-router-dom": "^6.3.0",
     "tailwindcss": "^3.1.7",
     "ts-jest": "^28.0.8"
