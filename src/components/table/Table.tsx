@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
  */
 import Pagination from '../pagination/Pagination';
 import { ITableHeader, ITable, ITableCell } from './TableInterface';
-import Input from '../inputs/Input';
+import { Input } from '../inputs/Input';
 
 /**
  * Generate Default Props for Table component.

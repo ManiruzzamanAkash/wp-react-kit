@@ -68,7 +68,7 @@ class Hooks {
      * @return void
      */
     public function save_user_type_field( $user ): void {
-        // Verify nonce
+        // Verify nonce.
         if ( ! isset( $_POST['user_type_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['user_type_nonce'] ) ), 'user_type_nonce' ) ) {
             return;
         }

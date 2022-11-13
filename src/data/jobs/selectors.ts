@@ -1,13 +1,32 @@
 /**
  * Internal dependencies.
  */
-import { IJobs } from './interfaces';
+
+import { IJobs } from '../../interfaces';
 
 const selectors = {
-    getJobs(state: IJobs, filters: object) {
+    getJobs(state: IJobs) {
         const { jobs } = state;
 
         return jobs;
+    },
+
+    getJobDetail(state: IJobs) {
+        const { job } = state;
+
+        return job;
+    },
+
+    getJobTypes(state: IJobs) {
+        const { jobTypes } = state;
+
+        return jobTypes;
+    },
+
+    getJobsSaving(state: IJobs) {
+        const { jobsSaving } = state;
+
+        return jobsSaving;
     },
 
     getLoadingJobs(state: IJobs) {
@@ -32,6 +51,18 @@ const selectors = {
         const { filters } = state;
 
         return filters;
+    },
+
+    getForm(state: IJobs) {
+        const { form } = state;
+
+        return form;
+    },
+
+    getCompaniesDropdown(state: IJobs) {
+        const { companyDropdowns } = state;
+
+        return companyDropdowns;
     },
 };
 

@@ -23,44 +23,20 @@ export interface ILayout {
     children: React.ReactNode;
 }
 
-/**
- * Generate Default Props for Layout component.
- */
-const LayoutDefaultProps = {
-    title: <></>,
-    slug: '',
-    headingCustomClass: '',
-    hasBackButton: false,
-    backButtonTitle: '',
-    backButtonLink: '',
-    hasRightSideContent: false,
-    rightSideContent: <></>,
-};
-
-/**
- * Layout Component.
- *
- * Handles all of the page scaffolding.
- *
- * @param  props
- * @return {JSX.Element} JSX element
- */
-const Layout = (props: ILayout) => {
-    const {
-        title,
-        slug,
-        headingCustomClass,
-        hasBackButton,
-        backButtonTitle,
-        backButtonLink,
-        hasRightSideContent,
-        rightSideContent,
-        children,
-    } = props;
-
+export default function Layout({
+    title = <></>,
+    slug = '',
+    headingCustomClass = '',
+    hasBackButton = false,
+    backButtonTitle = '',
+    backButtonLink = '',
+    hasRightSideContent = false,
+    rightSideContent = <></>,
+    children,
+}: ILayout) {
     const getClassNames = () => {
         let leftSideClassNames = 'flex-1';
-        const rightSideClassNames = 'flex-1 text-right';
+        const rightSideClassNames = 'flex-end text-right';
 
         // For overview/dashboard page, remove right side flex for mobile devices.
         if ('overview' === slug || 'email-template-create' === slug) {
@@ -97,7 +73,9 @@ const Layout = (props: ILayout) => {
             )}
 
             {/* Page Heading Section */}
-            <div className={`flex mb-5 mx-8 ${headingCustomClass}`}>
+            <div
+                className={`relative flex mt-5 mb-2 mx-8 ${headingCustomClass}`}
+            >
                 <div className={getClassNames().leftSideClassNames}>
                     {title}
                 </div>
@@ -114,8 +92,4 @@ const Layout = (props: ILayout) => {
             <div className="cp-content-area mx-8">{children}</div>
         </div>
     );
-};
-
-Layout.defaultProps = LayoutDefaultProps;
-
-export default Layout;
+}

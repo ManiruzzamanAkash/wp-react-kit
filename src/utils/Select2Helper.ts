@@ -1,11 +1,16 @@
 /**
+ * Internal dependencies.
+ */
+import { ISelect2Input } from '../components/inputs/Select2Input';
+
+/**
  * Format array to accept as select2 array.
  *
  * @param  data array
  *
  * @return array
  */
-export function formatSelect2Data(data: Array<any> | object) {
+export function formatSelect2Data(data: Array<ISelect2Input> | object) {
     // If data is array and empty, return empty array.
     if (Array.isArray(data) && data.length === 0) {
         return [];
