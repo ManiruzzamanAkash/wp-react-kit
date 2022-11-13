@@ -54,7 +54,13 @@ http://localhost/wpex/wp-admin/plugins.php
 ### Run PHP Unit Test
 
 ```sh
-./vendor/bin/phpunit
+composer run test
+```
+
+### Run all tests by single command - PHPCS, PHPUnit
+
+```sh
+composer run test:all
 ```
 
 ### Run Jest Unit Test
@@ -88,12 +94,17 @@ npm run test:e2e:watch
 
 **Get all errors of the project:**
 ```sh
-vendor/bin/phpcs .
+composer run phpcs
 ```
 
 **Fix all errors of the project:**
 ```sh
-vendor/bin/phpcbf .
+composer run phpcbf
+```
+
+**Full Composer test run:**
+```sh
+composer run test:all
 ```
 
 ### Browse Plugin
@@ -113,6 +124,9 @@ Or, it could be your custom processed URL.
 1. **Job Types**
     - Method: `GET`
     - URL: http://localhost/wpex/wp-json/job-place/v1/job-types
+1. **Companies dropdown**
+    - Method: `GET`
+    - URL: http://localhost/wpex/wp-json/job-place/v1/companies/dropdown
 1. **Job Lists**
     - Method: `GET`
     - URL: http://localhost/wpex/wp-json/job-place/v1/jobs
@@ -160,6 +174,16 @@ Or, it could be your custom processed URL.
 
 **Detailed Documentation** -
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
+
+### Version & Changelogs
+**v0.5.0 - 13/11/2022**
+
+1. New Feature : Job Create.
+2. New Feature : Job Update.
+3. New API: Company dropdown list.
+4. New: Updated logo icon and plugin name.
+5. New Components: Input Text-Editor, Improved design.
+6. Refactor: Refactored codebase and updated docs.
 
 ### Version & Changelogs
 **v0.4.1 - 18/08/2022**

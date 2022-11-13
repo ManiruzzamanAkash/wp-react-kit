@@ -38,6 +38,12 @@
         ],
         "phpcbf": [
             "phpcbf -p"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
+        ],
+        "test:all": [
+            "phpcs -p -s & vendor/bin/phpunit"
         ]
     }
 }
