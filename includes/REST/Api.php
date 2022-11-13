@@ -9,7 +9,7 @@ namespace Akash\JobPlace\REST;
  *
  * @since 0.3.0
  */
-class Manager {
+class Api {
 
     /**
      * Class dir and class name mapping.
@@ -31,8 +31,9 @@ class Manager {
         $this->class_map = apply_filters(
             'jobplace_rest_api_class_map',
             [
-                JOB_PLACE_DIR . '/includes/REST/JobTypesController.php' => 'Akash\JobPlace\REST\JobTypesController',
-                JOB_PLACE_DIR . '/includes/REST/JobsController.php' => 'Akash\JobPlace\REST\JobsController',
+                \Akash\JobPlace\REST\JobTypesController::class,
+                \Akash\JobPlace\REST\JobsController::class,
+                \Akash\JobPlace\REST\CompaniesController::class,
             ]
         );
 
@@ -48,8 +49,7 @@ class Manager {
      * @return void
      */
     public function register_rest_routes(): void {
-        foreach ( $this->class_map as $file_name => $controller ) {
-            require_once $file_name;
+        foreach ( $this->class_map as $controller ) {
             $this->$controller = new $controller();
             $this->$controller->register_routes();
         }
