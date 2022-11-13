@@ -152,7 +152,7 @@ const Button = (props: IButton) => {
         }
 
         // Add background and text colors
-        className += ` bg-${bgColor} hover:bg-${bgActiveColor} hover:bg-opacity-80 focus:bg-${bgActiveColor} text-${textColor} hover:text-${hoverTextColor} focus:text-${textColor} hover:rounded-md focus:rounded-md focus:outline-none`;
+        className += ` !bg-${bgColor} hover:!bg-${bgActiveColor} hover:!bg-opacity-80 !focus:bg-${bgActiveColor} text-${textColor} hover:text-${hoverTextColor} focus:text-${textColor} hover:rounded-md focus:rounded-md focus:outline-none`;
 
         // Add border with color
         className += ` border ${
