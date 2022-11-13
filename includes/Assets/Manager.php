@@ -40,6 +40,11 @@ class Manager {
      */
     public function get_styles(): array {
         return [
+            'job-place-plugin-css' => [
+                'src'     => JOB_PLACE_ASSETS . '/css/plugin.css',
+                'version' => JOB_PLACE_VERSION,
+                'deps'    => [],
+            ],
             'job-place-custom-css' => [
                 'src'     => JOB_PLACE_BUILD . '/style-index.css',
                 'version' => JOB_PLACE_VERSION,
@@ -48,7 +53,7 @@ class Manager {
             'job-place-css' => [
                 'src'     => JOB_PLACE_BUILD . '/index.css',
                 'version' => JOB_PLACE_VERSION,
-                'deps'    => [ 'job-place-custom-css' ],
+                'deps'    => [ 'job-place-plugin-css', 'job-place-custom-css' ],
             ],
         ];
     }
