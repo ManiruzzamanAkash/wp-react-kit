@@ -1,10 +1,14 @@
 export const GET_JOBS = 'GET_JOBS';
+export const GET_JOB_DETAIL = 'GET_JOB_DETAIL';
+export const GET_JOB_TYPES = 'GET_JOB_TYPES';
+export const GET_COMPANIES_DROPDOWN = 'GET_COMPANIES_DROPDOWN';
 export const SET_LOADING_JOBS = 'SET_LOADING_JOBS';
 export const SET_TOTAL_JOBS_PAGE = 'SET_TOTAL_JOBS_PAGE';
 export const SET_JOBS_FILTER = 'SET_JOBS_FILTER';
 export const SET_TOTAL_JOBS = 'SET_TOTAL_JOBS';
-export const GET_JOB_DETAIL = 'GET_JOB_DETAIL';
 export const CREATE_JOBS = 'CREATE_JOBS';
+export const SET_JOBS_SAVING = 'SET_JOBS_SAVING';
+export const SET_JOB_FORM_DATA = 'SET_JOB_FORM_DATA';
 export const UPDATE_JOBS = 'UPDATE_JOBS';
 export const DELETE_JOBS = 'DELETE_JOBS';
 

@@ -12,7 +12,7 @@ import NavMenu from './NavMenu';
 
 function Header() {
     return (
-        <header className="sticky top-6 bg-white z-30 shadow-sm mb-2">
+        <header className="sticky top-0 md:top-6 bg-white z-30 shadow-sm mb-2">
             <div className="px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 -mb-px">
                     <div className="flex lg:block">

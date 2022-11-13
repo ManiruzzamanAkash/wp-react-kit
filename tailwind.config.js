@@ -19,9 +19,9 @@ module.exports = {
                 '2xl': '1536px',
             },
             colors: {
-                primary: '#256D85',
-                'primary-dark': '#002B5B',
-                'primary-lite': '#8FE3CF',
+                primary: '#1c64f2',
+                'primary-dark': '#1a56db',
+                'primary-lite': '#1972f5',
 
                 success: '#319F45',
                 'success-dark': '#27AE60',

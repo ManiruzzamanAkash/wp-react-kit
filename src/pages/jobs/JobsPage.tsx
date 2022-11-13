@@ -10,7 +10,6 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import Button from '../../components/button/Button';
-import Input from '../../components/inputs/Input';
 import Layout from '../../components/layout/Layout';
 import Table from '../../components/table/Table';
 import TableLoading from '../../components/loading/TableLoading';
@@ -22,6 +21,8 @@ import {
     useTableRowData,
 } from '../../components/jobs/use-table-data';
 import SelectCheckBox from '../../components/jobs/SelectCheckBox';
+import { Input } from '../../components/inputs/Input';
+import { IJob, IJobFilter } from '../../interfaces';
 
 export default function JobsPage() {
     const dispatch = useDispatch();
@@ -36,23 +37,29 @@ export default function JobsPage() {
     const [checkedAll, setCheckedAll] = useState(false);
 
     const checked: number[] = [];
-    const jobs = useSelect((select) => select(store).getJobs({}), []);
-    const totalJobs = useSelect((select) => select(store).getTotal(), 0);
-    const jobFilters = useSelect((select) => select(store).getFilters(), {});
-    const loadingJobs = useSelect(
+    const jobs: Array<IJob> = useSelect(
+        (select) => select(store).getJobs({}),
+        []
+    );
+    const totalJobs: number = useSelect(
+        (select) => select(store).getTotal(),
+        []
+    );
+    const jobFilters: IJobFilter = useSelect(
+        (select) => select(store).getFilter(),
+        []
+    );
+    const loadingJobs: boolean = useSelect(
         (select) => select(store).getLoadingJobs(),
-        false
+        []
     );
 
     useEffect(() => {
-        dispatch(store)
-            .setFilters({
-                ...jobFilters,
-                page,
-                search,
-            })
-            .then((success) => {})
-            .catch((error) => {});
+        dispatch(store).setFilters({
+            ...jobFilters,
+            page,
+            search,
+        });
     }, [page, search]);
 
     /**
@@ -71,14 +78,11 @@ export default function JobsPage() {
         navigate(`/jobs?pages=${pageData}&s=${searchData}`);
         setPage(pageData);
 
-        dispatch(store)
-            .setFilters({
-                ...jobFilters,
-                page: pageData,
-                search: searchData,
-            })
-            .then((success) => {})
-            .catch((error) => {});
+        dispatch(store).setFilters({
+            ...jobFilters,
+            page: pageData,
+            search: searchData,
+        });
     };
 
     /**
@@ -127,9 +131,7 @@ export default function JobsPage() {
                     text={__('New', 'jobplace')}
                     type="primary"
                     icon={faPlus}
-                    disabled={loadingJobs}
                     onClick={() => navigate('/jobs/new')}
-                    style={{ background: '#256D85' }}
                 />
             </div>
         </div>
@@ -143,13 +145,13 @@ export default function JobsPage() {
     const pageRightSideContent = (
         <Input
             type="text"
-            placeHolder={__('Search Jobs…', 'jobplace')}
+            placeholder={__('Search Jobs…', 'jobplace')}
             onChange={(data) => {
                 setSearch(data.value);
                 processAndNavigate(page, data.value);
             }}
             value={search}
-            inputClass="w-36 sm:w-auto"
+            className="w-full md:w-80"
         />
     );
 

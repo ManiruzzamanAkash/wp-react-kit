@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies.
  */
-import Input from '../inputs/Input';
+import { Input } from '../inputs/Input';
 import Badge from '../badge/Badge';
 import ListItemMenu from './ListItemMenu';
 import { ITableHeader, ITableRow } from '../table/TableInterface';

@@ -4,6 +4,27 @@ Details about the REST API documentation of the plugin.
 
 ---
 
+#### Company dropdown list API
+**URL** - http://localhost/wpex/wp-json/job-place/v1/companies/dropdown
+**Method** - GET
+**Response** -
+```json
+[
+    {
+        "id": "1",
+        "name": "Akash",
+        "email": "manirujjamanakash@gmail.com",
+        "username": "admin"
+    },
+    {
+        "id": "2",
+        "name": "Polash Rana",
+        "email": "polashrana@gmail.com",
+        "username": "Polash"
+    }
+]
+```
+
 #### Job Type List API
 **URL** - http://localhost/wpex/wp-json/job-place/v1/job-types
 **Method** - GET

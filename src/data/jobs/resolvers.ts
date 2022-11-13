@@ -2,10 +2,21 @@
  * Internal dependencies.
  */
 import actions from './actions';
-import { jobsBasePath } from './endpoint';
+import {
+    companiesDropdownEndpoint,
+    jobsEndpoint,
+    jobTypesEndpoint,
+} from './endpoint';
+import {
+    ICompanyDropdown,
+    IJobFilter,
+    IJobTypes,
+    IResponseGenerator,
+} from '../../interfaces';
+import { formatSelect2Data } from '../../utils/Select2Helper';
 
 const resolvers = {
-    *getJobs(filters) {
+    *getJobs(filters: IJobFilter) {
         if (filters === undefined) {
             filters = {};
         }
@@ -14,8 +25,9 @@ const resolvers = {
             filters as URLSearchParams
         ).toString();
 
-        const path = `${jobsBasePath}?${queryParam}`;
-        const response = yield actions.fetchFromAPIUnparsed(path);
+        const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
+            `${jobsEndpoint}?${queryParam}`
+        );
         let totalPage = 0;
         let totalCount = 0;
 
@@ -28,6 +40,50 @@ const resolvers = {
         yield actions.setTotalPage(totalPage);
         yield actions.setTotal(totalCount);
         return actions.setLoadingJobs(false);
+    },
+
+    *getJobDetail(id: number) {
+        yield actions.setLoadingJobs(true);
+        const path = `${jobsEndpoint}/${id}`;
+        const response = yield actions.fetchFromAPI(path);
+
+        if (response.id) {
+            const data = {
+                ...response,
+                job_type_id: response.job_type.id,
+                company_id: response.company.id,
+                is_active: 'published' === response.status ? 1 : 0,
+            };
+
+            // Remove unnecessary data.
+            delete data.company;
+            delete data.job_type;
+            delete data._links;
+
+            yield actions.setFormData(data);
+        }
+
+        return actions.setLoadingJobs(false);
+    },
+
+    *getJobTypes() {
+        const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
+            jobTypesEndpoint
+        );
+
+        const jobTypes: Array<IJobTypes> = response.data;
+
+        yield actions.setJobTypes(formatSelect2Data(jobTypes));
+    },
+
+    *getCompaniesDropdown() {
+        const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
+            companiesDropdownEndpoint
+        );
+
+        const companyDropdowns: Array<ICompanyDropdown> = response.data;
+
+        yield actions.setCompanyDropdowns(formatSelect2Data(companyDropdowns));
     },
 };
 

@@ -27,7 +27,7 @@ class JobManagerTest extends \WP_UnitTestCase {
         parent::setUp();
 
         $this->job = new Job();
-        $this->job_manager = job_place()->jobs;
+        $this->job_manager = wp_react_kit()->jobs;
 
         // Truncate jobs table first before running tests.
         $this->job->truncate();

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name:       Job Place
- * Description:       A Job posting platform made by WordPress.
+ * Plugin Name:       WP React Kit
+ * Description:       A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...
  * Requires at least: 5.8
- * Requires PHP:      7.3
+ * Requires PHP:      7.4
  * Version:           0.4.1
  * Author:            Maniruzzaman Akash<manirujjamanakash@gmail.com>
  * License:           GPL-2.0-or-later
@@ -12,17 +12,14 @@
  * Text Domain:       jobplace
  */
 
-// don't call the file directly
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
- * Job_Place class.
+ * Wp_React_Kit class.
  *
- * @class Job_Place The class that holds the entire Job_Place plugin
+ * @class Wp_React_Kit The class that holds the entire Wp_React_Kit plugin
  */
-final class Job_Place {
+final class Wp_React_Kit {
     /**
      * Plugin version.
      *
@@ -68,20 +65,20 @@ final class Job_Place {
     }
 
     /**
-     * Initializes the Job_Place() class.
+     * Initializes the Wp_React_Kit() class.
      *
-     * Checks for an existing Job_Place() instance
+     * Checks for an existing Wp_React_Kit() instance
      * and if it doesn't find one, creates it.
      *
      * @since 0.2.0
      *
-     * @return Job_Place|bool
+     * @return Wp_React_Kit|bool
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new Job_Place();
+            $instance = new Wp_React_Kit();
         }
 
         return $instance;
@@ -131,7 +128,7 @@ final class Job_Place {
         define( 'JOB_PLACE_DIR', __DIR__ );
         define( 'JOB_PLACE_PATH', dirname( JOB_PLACE_FILE ) );
         define( 'JOB_PLACE_INCLUDES', JOB_PLACE_PATH . '/includes' );
-        define( 'JOB_PLACE_TEMPLATE_PATH', JOB_PLACE_PATH . '/templates/' );
+        define( 'JOB_PLACE_TEMPLATE_PATH', JOB_PLACE_PATH . '/templates' );
         define( 'JOB_PLACE_URL', plugins_url( '', JOB_PLACE_FILE ) );
         define( 'JOB_PLACE_BUILD', JOB_PLACE_URL . '/build' );
         define( 'JOB_PLACE_ASSETS', JOB_PLACE_URL . '/assets' );
@@ -246,7 +243,7 @@ final class Job_Place {
 
         // Common classes
         $this->container['assets']   = new Akash\JobPlace\Assets\Manager();
-        $this->container['rest_api'] = new Akash\JobPlace\REST\Manager();
+        $this->container['rest_api'] = new Akash\JobPlace\REST\Api();
         $this->container['jobs']     = new Akash\JobPlace\Jobs\Manager();
     }
 
@@ -322,10 +319,10 @@ final class Job_Place {
  *
  * @since 0.2.0
  *
- * @return \Job_Place|bool
+ * @return \Wp_React_Kit|bool
  */
-function job_place() {
-    return Job_Place::init();
+function wp_react_kit() {
+    return Wp_React_Kit::init();
 }
 
 /*
@@ -333,4 +330,4 @@ function job_place() {
  *
  * @since 0.2.0
  */
-job_place();
+wp_react_kit();

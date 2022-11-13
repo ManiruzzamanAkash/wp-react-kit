@@ -98,14 +98,14 @@ class JobsController extends RESTController {
             }
         }
 
-        $jobs = job_place()->jobs->all( $args );
+        $jobs = wp_react_kit()->jobs->all( $args );
         foreach ( $jobs as $job ) {
             $response = $this->prepare_item_for_response( $job, $request );
             $data[]   = $this->prepare_response_for_collection( $response );
         }
 
         $args['count'] = 1;
-        $total         = job_place()->jobs->all( $args );
+        $total         = wp_react_kit()->jobs->all( $args );
         $max_pages     = ceil( $total / (int) $args['limit'] );
         $response      = rest_ensure_response( $data );
 
@@ -136,7 +136,7 @@ class JobsController extends RESTController {
             ];
         }
 
-        $job = job_place()->jobs->get( $args );
+        $job = wp_react_kit()->jobs->get( $args );
 
         if ( ! $job ) {
             return new WP_Error( 'job_place_rest_job_not_found', __( 'Job not found. May be job has been deleted or you don\'t have access to that.', 'jobplace' ), [ 'status' => 404 ] );
@@ -173,14 +173,14 @@ class JobsController extends RESTController {
         }
 
         // Insert the job.
-        $job_id = job_place()->jobs->create( $prepared_data );
+        $job_id = wp_react_kit()->jobs->create( $prepared_data );
 
         if ( is_wp_error( $job_id ) ) {
             return $job_id;
         }
 
         // Get job after insert to sending response.
-        $job = job_place()->jobs->get(
+        $job = wp_react_kit()->jobs->get(
             [
 				'key' => 'id',
 				'value' => $job_id,
@@ -222,14 +222,14 @@ class JobsController extends RESTController {
 
         // Update the job.
         $job_id = absint( $request['id'] );
-        $job_id = job_place()->jobs->update( $prepared_data, $job_id );
+        $job_id = wp_react_kit()->jobs->update( $prepared_data, $job_id );
 
         if ( is_wp_error( $job_id ) ) {
             return $job_id;
         }
 
         // Get job after insert to sending response.
-        $job = job_place()->jobs->get(
+        $job = wp_react_kit()->jobs->get(
             [
 				'key' => 'id',
 				'value' => $job_id,
@@ -259,7 +259,7 @@ class JobsController extends RESTController {
             return new WP_Error( 'no_ids', __( 'No job ids found.', 'jobplace' ), [ 'status' => 400 ] );
         }
 
-        $deleted = job_place()->jobs->delete( $request['ids'] );
+        $deleted = wp_react_kit()->jobs->delete( $request['ids'] );
 
         if ( $deleted ) {
             $message = __( 'Jobs deleted successfully.', 'jobplace' );
@@ -406,14 +406,6 @@ class JobsController extends RESTController {
      * @return object|WP_Error
      */
     protected function prepare_item_for_database( $request ) {
-        // Check already a job exists.
-        // if ( ! empty( $request['id'] ) ) {
-        //     $existing_job = $this->get_item( $request );
-        //     if ( is_wp_error( $existing_job ) ) {
-        //         return $existing_job;
-        //     }
-        // }
-
         $data = [];
         $data['title']       = $request['title'];
         $data['slug']        = $this->generate_unique_slug( $request );
@@ -508,7 +500,7 @@ class JobsController extends RESTController {
             $args['where'][] = $wpdb->prepare( 'slug = %s', $slug );
         }
 
-        $total_found = job_place()->jobs->all( $args );
+        $total_found = wp_react_kit()->jobs->all( $args );
 
         if ( $total_found > 0 ) {
             return new WP_Error(
@@ -539,7 +531,7 @@ class JobsController extends RESTController {
 
             // Auto-generate only for create page.
             if ( empty( $request['id'] ) ) {
-                $existing_job = job_place()->jobs->get(
+                $existing_job = wp_react_kit()->jobs->get(
                     [
 						'key' => 'slug',
 						'value' => $slug,
@@ -569,9 +561,9 @@ class JobsController extends RESTController {
      * @return string
      */
     public function generate_beautiful_slug( string $slug = '', $i = 1 ): string {
-        while (true) {
+        while ( true ) {
             $new_slug     = $slug . '-' . $i;
-            $existing_job = job_place()->jobs->get(
+            $existing_job = wp_react_kit()->jobs->get(
                 [
                     'key' => 'slug',
                     'value' => $new_slug,

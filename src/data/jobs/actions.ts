@@ -1,21 +1,59 @@
 /**
  * Internal dependencies.
  */
-import { jobsBasePath } from './endpoint';
+import { Select2SingleRow } from '../../components/inputs/Select2Input';
+import { IJob, IJobFormData, IResponseGenerator } from '../../interfaces';
+import { jobsEndpoint } from './endpoint';
 import * as Types from './types';
+import { jobDefaultFormData } from './default-state';
 
 const actions = {
-    setJobs(jobs) {
+    setJobs(jobs: Array<IJob>) {
         return {
             type: Types.GET_JOBS,
             jobs,
         };
     },
 
-    setLoadingJobs(loading) {
+    setJobDetail(job: IJob) {
+        return {
+            type: Types.GET_JOB_DETAIL,
+            job,
+        };
+    },
+
+    setCompanyDropdowns(companyDropdowns: Array<Select2SingleRow>) {
+        return {
+            type: Types.GET_COMPANIES_DROPDOWN,
+            companyDropdowns,
+        };
+    },
+
+    setJobTypes(jobTypes: Array<Select2SingleRow>) {
+        return {
+            type: Types.GET_JOB_TYPES,
+            jobTypes,
+        };
+    },
+
+    setFormData(form: IJobFormData) {
+        return {
+            type: Types.SET_JOB_FORM_DATA,
+            form,
+        };
+    },
+
+    setLoadingJobs(loadingJobs: boolean) {
         return {
             type: Types.SET_LOADING_JOBS,
-            loading,
+            loadingJobs,
+        };
+    },
+
+    setSavingJobs(jobsSaving: boolean) {
+        return {
+            type: Types.SET_JOBS_SAVING,
+            jobsSaving,
         };
     },
 
@@ -27,7 +65,7 @@ const actions = {
             filters as URLSearchParams
         ).toString();
 
-        const path = `${jobsBasePath}?${queryParam}`;
+        const path = `${jobsEndpoint}?${queryParam}`;
         const response: {
             headers: Headers;
             data;
@@ -52,6 +90,32 @@ const actions = {
             type: Types.SET_JOBS_FILTER,
             filters,
         };
+    },
+
+    *saveJob(payload: IJobFormData) {
+        yield actions.setSavingJobs(true);
+
+        try {
+            let response: IResponseGenerator = {};
+            if (payload.id > 0) {
+                response = yield {
+                    type: Types.UPDATE_JOBS,
+                    payload,
+                };
+            } else {
+                response = yield {
+                    type: Types.CREATE_JOBS,
+                    payload,
+                };
+            }
+
+            if (response?.id > 0) {
+                yield actions.setFormData(jobDefaultFormData);
+                yield actions.setSavingJobs(false);
+            }
+        } catch (error) {
+            yield actions.setSavingJobs(false);
+        }
     },
 
     setTotalPage(totalPage: number) {

@@ -26,9 +26,23 @@ class Installer {
         $this->register_table_names();
         $this->create_tables();
 
+        // Make this administrator user as company.
+        $this->make_admin_as_company();
+
         // Run the database seeders.
         $seeder = new \Akash\JobPlace\Databases\Seeder\Manager();
         $seeder->run();
+    }
+
+    /**
+     * Make administrator user as company.
+     *
+     * @since JOBPLACE_SINCE
+     *
+     * @return void
+     */
+    private function make_admin_as_company() {
+        update_user_meta( get_current_user_id(), 'user_type', 'company' );
     }
 
     /**

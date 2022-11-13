@@ -1,8 +1,13 @@
+/**
+ * External dependencies.
+ */
+import { twMerge } from 'tailwind-merge';
+
 interface IInputLabel {
     /**
      * Input level children props.
      */
-    children: JSX.Element | string;
+    children: React.ReactNode | string;
 
     /**
      * Input html for attribute.
@@ -13,15 +18,25 @@ interface IInputLabel {
      * Custom Class name.
      */
     className?: string;
+
+    /**
+     * Label tooltip (if has any)
+     */
+    tooltip?: string | React.ReactNode | undefined;
 }
 
 export default function InputLabel({
-    children,
+    children = <></>,
     htmlFor,
-    className,
+    className = '',
 }: IInputLabel) {
     return (
-        <label className={`block text-sm ${className}`} htmlFor={htmlFor}>
+        <label
+            className={twMerge(
+                `block text-black font-bold text-[14px] !ml-0 mb-[13px] mt-4 ${className}`
+            )}
+            htmlFor={htmlFor}
+        >
             {children}
         </label>
     );

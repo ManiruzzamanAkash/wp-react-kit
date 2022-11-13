@@ -137,6 +137,7 @@ class Job extends BaseModel {
         }
 
         return [
+            'id'         => $job->company_id,
             'name'       => $user->display_name,
             'avatar_url' => get_avatar_url( $user->ID ),
         ];
