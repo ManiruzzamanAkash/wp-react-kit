@@ -176,14 +176,15 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
-**v0.5.0 - 13/11/2022**
+**v0.5.0 - 14/11/2022**
 
 1. New Feature : Job Create.
 2. New Feature : Job Update.
-3. New API: Company dropdown list.
-4. New: Updated logo icon and plugin name.
-5. New Components: Input Text-Editor, Improved design.
-6. Refactor: Refactored codebase and updated docs.
+3. New Feature : Job Delete.
+4. New API: Company dropdown list.
+5. New: Updated logo icon and plugin name.
+6. New Components: Input Text-Editor, Improved design.
+7. Refactor: Refactored codebase and updated docs.
 
 ### Version & Changelogs
 **v0.4.1 - 18/08/2022**
