@@ -2,11 +2,18 @@
  * External dependencies.
  */
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { Fragment } from '@wordpress/element';
 import { Menu, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+    faEllipsisV,
+    faPencilAlt,
+    faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { __ } from '@wordpress/i18n';
+import { useDispatch, useSelect } from '@wordpress/data';
+import jobStore from '../../data/jobs/index';
 
 interface IListItemMenu {
     /**
@@ -16,6 +23,44 @@ interface IListItemMenu {
 }
 
 export default function ListItemMenu({ id }: IListItemMenu) {
+    const dispatch = useDispatch();
+
+    const jobsDeleting: boolean = useSelect(
+        (select) => select(jobStore).getJobsDeleting(),
+        []
+    );
+
+    const showDeleteAlert = () => {
+        Swal.fire({
+            title: __('Are you sure?', 'jobplace'),
+            text: __('Are you sure to delete the job?', 'jobplace'),
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            confirmButtonColor: '#1c64f2',
+            showLoaderOnConfirm: true,
+            preConfirm: () => {
+                return dispatch(jobStore)
+                    .deleteJobs({
+                        ids: [id],
+                    })
+                    .then(() => {
+                        return true;
+                    })
+                    .catch((error) => {
+                        Swal.showValidationMessage(
+                            `Request failed: ${error.message}`
+                        );
+                    });
+            },
+            allowOutsideClick: () => jobsDeleting,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Deleted!', '', 'success');
+            }
+        });
+    };
+
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
@@ -43,13 +88,24 @@ export default function ListItemMenu({ id }: IListItemMenu) {
                         <Menu.Item>
                             <Link
                                 to={`/jobs/edit/${id}`}
-                                className="text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none"
+                                className="hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
                             >
                                 <FontAwesomeIcon icon={faPencilAlt} />
                                 <span className="ml-2">
                                     {__('Edit', 'jobplace')}
                                 </span>
                             </Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <button
+                                onClick={showDeleteAlert}
+                                className="hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
+                            >
+                                <FontAwesomeIcon icon={faTrash} />
+                                <span className="ml-2">
+                                    {__('Delete', 'jobplace')}
+                                </span>
+                            </button>
                         </Menu.Item>
                     </div>
                 </Menu.Items>

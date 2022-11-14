@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies.
  */
-import { Input } from '../inputs/Input';
+// import { Input } from '../inputs/Input';
 import Badge from '../badge/Badge';
 import ListItemMenu from './ListItemMenu';
 import { ITableHeader, ITableRow } from '../table/TableInterface';
@@ -15,8 +15,8 @@ import { capitalize } from '../../utils/StringHelper';
 export const useTableHeaderData = (): ITableHeader[] => {
     return [
         {
-            key: 'checkbox',
-            title: '',
+            key: 'sl',
+            title: 'Sl',
             className: '',
         },
         {
@@ -50,18 +50,21 @@ export const useTableHeaderData = (): ITableHeader[] => {
 export const useTableRowData = (jobs = [], checked: number[]): ITableRow[] => {
     const rowsData: ITableRow[] = [];
 
-    jobs.forEach((row) => {
+    jobs.forEach((row, index) => {
         rowsData.push({
             id: row.id,
             cells: [
                 {
                     key: 'checkbox',
                     value: (
-                        <Input
-                            value={checked.includes(row.id) ? '1' : '0'}
-                            type="checkbox"
-                            //  onChange={() => checkJob(row.id)}
-                        />
+                        // <Input
+                        //     value={checked.includes(row.id) ? '1' : '0'}
+                        //     type="checkbox"
+                        //     //  onChange={() => checkJob(row.id)}
+                        // />
+                        <>
+                            <b>{index + 1}</b>
+                        </>
                     ),
                     className: '',
                 },

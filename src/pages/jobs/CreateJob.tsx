@@ -1,6 +1,8 @@
 /**
  * External dependencies
  */
+import { useEffect } from '@wordpress/element';
+import { dispatch } from '@wordpress/data';
 import { useNavigate } from 'react-router-dom';
 import { __ } from '@wordpress/i18n';
 
@@ -11,6 +13,8 @@ import Layout from '../../components/layout/Layout';
 import PageHeading from '../../components/layout/PageHeading';
 import JobForm from '../../components/jobs/JobForm';
 import JobSubmit from '../../components/jobs/JobSubmit';
+import jobStore from '../../data/jobs';
+import { jobDefaultFormData } from '../../data/jobs/default-state';
 
 export default function CreateJob() {
     const navigate = useNavigate();
@@ -18,6 +22,12 @@ export default function CreateJob() {
     const backToJobsPage = () => {
         navigate('/jobs');
     };
+
+    useEffect(() => {
+        dispatch(jobStore).setFormData({
+            jobDefaultFormData,
+        });
+    }, []);
 
     /**
      * Get Page Content - Title and New Job button.

@@ -57,6 +57,13 @@ const actions = {
         };
     },
 
+    setDeletingJobs(jobsDeleting: boolean) {
+        return {
+            type: Types.SET_JOBS_DELETING,
+            jobsDeleting,
+        };
+    },
+
     *setFilters(filters = {}) {
         yield actions.setLoadingJobs(true);
         yield actions.setFilterObject(filters);
@@ -144,6 +151,25 @@ const actions = {
             type: Types.FETCH_FROM_API_UNPARSED,
             path,
         };
+    },
+
+    *deleteJobs(payload: Array<number>) {
+        yield actions.setDeletingJobs(true);
+
+        try {
+            const responseDeleteJobs: IResponseGenerator = yield {
+                type: Types.DELETE_JOBS,
+                payload,
+            };
+
+            if (responseDeleteJobs?.total > 0) {
+                yield actions.setFilters({});
+            }
+
+            yield actions.setDeletingJobs(false);
+        } catch (error) {
+            yield actions.setDeletingJobs(false);
+        }
     },
 };
 

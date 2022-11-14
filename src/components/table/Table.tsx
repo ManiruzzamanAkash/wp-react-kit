@@ -119,19 +119,7 @@ const Table = (props: ITable) => {
                                         headers
                                     )}
                                 >
-                                    {header.key === 'checkbox' ? (
-                                        <Input
-                                            type="checkbox"
-                                            value={isChecked ? '1' : '0'}
-                                            onChange={() =>
-                                                typeof onCheckAll ===
-                                                    'function' &&
-                                                onCheckAll(!isChecked)
-                                            }
-                                        />
-                                    ) : (
-                                        header.title
-                                    )}
+                                    {header.title}
                                 </th>
                             ))}
                         </tr>

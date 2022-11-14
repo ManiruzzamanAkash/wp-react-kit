@@ -29,6 +29,12 @@ const selectors = {
         return jobsSaving;
     },
 
+    getJobsDeleting(state: IJobs) {
+        const { jobsDeleting } = state;
+
+        return jobsDeleting;
+    },
+
     getLoadingJobs(state: IJobs) {
         const { loadingJobs } = state;
 

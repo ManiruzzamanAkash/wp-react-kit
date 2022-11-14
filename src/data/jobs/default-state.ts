@@ -20,6 +20,7 @@ export const jobDefaultState: IJobs = {
     jobTypes: [],
     loadingJobs: true,
     jobsSaving: false,
+    jobsDeleting: false,
     totalPage: 0,
     total: 0,
     filters: {},

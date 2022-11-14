@@ -6,55 +6,23 @@ import { Fragment } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import {
-    ITableHeader,
-    ITableLoading,
-} from '../../../interfaces/TableInterface';
 import { getHeaderRowClassName } from '../table/Table';
-
-const defaultTableLoadingProps = {
-    /**
-     * Table Headers to show loading skeleton.
-     */
-    headers: [],
-
-    /**
-     * How many rows will be shown by default.
-     */
-    count: 10,
-
-    /**
-     * Show pagination or not.
-     */
-    showPagination: true,
-
-    /**
-     * Checkbox enabled or not in table row.
-     */
-    hasCheckbox: true,
-};
+import { ITableHeader, ITableLoading } from '../table/TableInterface';
 
 const TableLoading = ({
-    headers,
-    count,
-    showPagination,
-    hasCheckbox,
+    headers = [],
+    count = 10,
+    showPagination = true,
+    hasCheckbox = true,
 }: ITableLoading) => {
-    const countRows =
-        typeof count === 'undefined' ? defaultTableLoadingProps.count : count;
-    const isChecked =
-        typeof hasCheckbox === 'undefined'
-            ? defaultTableLoadingProps.hasCheckbox
-            : hasCheckbox;
-
     const getTableRows = () => {
         const rows = [];
-        for (let i = 0; i < countRows; i++) {
+        for (let i = 0; i < count; i++) {
             rows.push(
                 <tr key={i} className="h-12">
                     {headers.map((header: ITableHeader, index: number) => (
                         <Fragment key={index}>
-                            {index === 0 && isChecked ? (
+                            {index === 0 && hasCheckbox ? (
                                 <td className={`border-0`}></td>
                             ) : (
                                 <>
@@ -116,7 +84,7 @@ const TableLoading = ({
             {showPagination && (
                 <div className="flex mt-5">
                     <div className="flex-1 text-left">
-                        <h2 className="h-4 w-32 bg-gray"></h2>
+                        <div className="h-4 w-32 bg-gray"></div>
                     </div>
                     <div className="flex-1">
                         <div className="flex text-right justify-end">
@@ -133,7 +101,5 @@ const TableLoading = ({
         </>
     );
 };
-
-TableLoading.defaultProps = defaultTableLoadingProps;
 
 export default TableLoading;
