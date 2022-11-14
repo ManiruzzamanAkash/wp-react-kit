@@ -17,7 +17,7 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 10. WP-Data
 11. WP-Data Redux Store [Redux Saga, Generator function, Thunk, Saga Middleware]
 12. React Components
-13. **React CRUD Operations [Continuing...]**
+13. React CRUD Operations - Create, Reade, Update, Delete, Status changes and so many...
 14. Internationalization - WP i18n
 15. PHPUnit Test [Test + Fix]
 16. JestUnit Test
@@ -181,10 +181,11 @@ Or, it could be your custom processed URL.
 1. New Feature : Job Create.
 2. New Feature : Job Update.
 3. New Feature : Job Delete.
-4. New API: Company dropdown list.
-5. New: Updated logo icon and plugin name.
-6. New Components: Input Text-Editor, Improved design.
-7. Refactor: Refactored codebase and updated docs.
+4. New Feature : Job Status change.
+5. New API: Company dropdown list.
+6. New: Updated logo icon and plugin name.
+7. New Components: Input Text-Editor, Improved design.
+8. Refactor: Refactored codebase and updated docs.
 
 ### Version & Changelogs
 **v0.4.1 - 18/08/2022**
@@ -284,17 +285,51 @@ https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPhpOOP
 
 ![Demo Plugin](https://i.ibb.co/vPp9Mm9/Wp-Scripts-Demo.png "Demo in WordPress plugin")
 
-
 ### Final Demos
 
 **Job List Page**
 
-![Job List Page](https://i.ibb.co/VJBb4Nq/Jobs-List.png "Job List Page")
+![Job List Page](https://i.ibb.co/0MXQ7y7/Job-List.png "Job List Page")
 
-**Job List Page with Pagination**
+**Job List Page with Pagination in different primary color**
 
 ![Job List Page with Pagination](https://i.ibb.co/1vr6tXS/Job-Pagination.png "Job List Page with Pagination")
 
 **Job List Page with search**
 
 ![Job List Page with Search](https://i.ibb.co/nr3pTXM/Jobs-Search.png "Job List Page with Search")
+
+**Job Create Page**
+
+![Job Create Page](https://i.ibb.co/ZXzgjzr/Job-Create.png "Job Create Page")
+
+
+**Job Edit Page**
+
+![Job Edit Page](https://i.ibb.co/2Sqpck3/Job-Edit.png "Job Edit Page")
+
+![Job Edit Page Loading](https://i.ibb.co/hfxNg7G/Job-Create-Preloading.png "Job Edit Page Loading")
+
+**Job Delete**
+
+![Job Delete popup](
+https://i.ibb.co/yfXBT8b/Job-Delete-Popup.png
+ "Job Delete popup")
+
+ **Responsive views**
+
+![Mobile responsive views-1](
+https://i.ibb.co/Ws6n1HW/Mobile-View-List.png
+ "Mobile responsive views-1")
+
+![Mobile responsive views-2](
+https://i.ibb.co/QYgvD83/Mobile-View-Selected-Job.png
+ "Mobile responsive views-2")
+
+## Contribution
+
+Contribution is open and kindly accepted. Before contributing, please check the issues tab if anything in enhancement or bug. If you want to contribute new, please create an issue first with your enhancement or feature idea.
+Then, fork this repository and make your Pull-Request. I'll approve, if everything goes well.
+
+## Contact
+It's me, Maniruzzaman Akash. Find me at manirujjamanakash@gmail.com

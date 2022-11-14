@@ -11,7 +11,7 @@ use WP_Error;
 /**
  * API CompaniesController class.
  *
- * @since JOBPLACE_SINCE
+ * @since 0.5.0
  */
 class CompaniesController extends RESTController {
 
@@ -50,7 +50,7 @@ class CompaniesController extends RESTController {
     /**
      * Retrieves a collection of companies for dropdown.
      *
-     * @since JOBPLACE_SINCE
+     * @since 0.5.0
      *
      * @param WP_REST_Request $request   Full details about the request.
      * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -83,7 +83,7 @@ class CompaniesController extends RESTController {
     /**
      * Prepare dropdown response for collection.
      *
-     * @since JOBPLACE_SINCE
+     * @since 0.5.0
      *
      * @param WP_User         $item    User object.
 	 * @param WP_REST_Request $request Request object.

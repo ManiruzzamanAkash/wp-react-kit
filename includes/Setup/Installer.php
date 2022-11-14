@@ -37,7 +37,7 @@ class Installer {
     /**
      * Make administrator user as company.
      *
-     * @since JOBPLACE_SINCE
+     * @since 0.5.0
      *
      * @return void
      */
