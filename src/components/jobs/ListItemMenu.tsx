@@ -7,23 +7,24 @@ import { Fragment } from '@wordpress/element';
 import { Menu, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+    faEdit,
     faEllipsisV,
     faPencilAlt,
     faTrash,
+    faCheckCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { __ } from '@wordpress/i18n';
-import { useDispatch, useSelect } from '@wordpress/data';
+import { dispatch, useSelect } from '@wordpress/data';
+
+/**
+ * Internal dependencies.
+ */
 import jobStore from '../../data/jobs/index';
+import { IJob } from '../../interfaces';
+import { prepareJobDataForDatabase } from '../../data/jobs/utils';
 
-interface IListItemMenu {
-    /**
-     * Email template id.
-     */
-    id: number;
-}
-
-export default function ListItemMenu({ id }: IListItemMenu) {
-    const dispatch = useDispatch();
+export default function ListItemMenu({ job }: IJob) {
+    const { id, status } = job;
 
     const jobsDeleting: boolean = useSelect(
         (select) => select(jobStore).getJobsDeleting(),
@@ -54,11 +55,32 @@ export default function ListItemMenu({ id }: IListItemMenu) {
             },
             allowOutsideClick: () => jobsDeleting,
         }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire('Deleted!', '', 'success');
+                Swal.fire(__('Deleted!', 'jobplace'), '', 'success');
             }
         });
+    };
+
+    const changeJobStatus = () => {
+        dispatch(jobStore)
+            .saveJob(
+                prepareJobDataForDatabase({
+                    ...job,
+                    is_active: 'published' === status ? 0 : 1,
+                })
+            )
+            .then(() => {
+                Swal.fire({
+                    title: __('Job status updated', 'jobplace'),
+                    text: __('Job has been updated successfully.', 'jobplace'),
+                    icon: 'success',
+                    toast: true,
+                    position: 'bottom',
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+                dispatch(jobStore).setFilters({});
+            });
     };
 
     return (
@@ -73,7 +95,6 @@ export default function ListItemMenu({ id }: IListItemMenu) {
                 </Menu.Button>
             </div>
 
-            {/* Todo: Add this functionality later */}
             <Transition
                 as={Fragment}
                 enter="transition ease-out duration-100"
@@ -83,12 +104,12 @@ export default function ListItemMenu({ id }: IListItemMenu) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute w-28 z-10 top-4 -left-28 mt-2 origin-top-right rounded-md shadow-lg bg-white p-2 border-gray-dark">
+                <Menu.Items className="absolute w-40 z-10 top-4 -left-28 mt-2 origin-top-right rounded-md shadow-lg bg-white p-2 border-gray-dark">
                     <div className="px-1 py-1 bg-white">
                         <Menu.Item>
                             <Link
                                 to={`/jobs/edit/${id}`}
-                                className="hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
+                                className="text-left hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
                             >
                                 <FontAwesomeIcon icon={faPencilAlt} />
                                 <span className="ml-2">
@@ -99,11 +120,37 @@ export default function ListItemMenu({ id }: IListItemMenu) {
                         <Menu.Item>
                             <button
                                 onClick={showDeleteAlert}
-                                className="hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
+                                className="text-left hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
                             >
                                 <FontAwesomeIcon icon={faTrash} />
                                 <span className="ml-2">
                                     {__('Delete', 'jobplace')}
+                                </span>
+                            </button>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <button
+                                onClick={changeJobStatus}
+                                className="text-left hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
+                            >
+                                <span>
+                                    {'published' === status ? (
+                                        <>
+                                            <FontAwesomeIcon icon={faEdit} />{' '}
+                                            <span className="ml-2">
+                                                {__('Make Draft', 'jobplace')}
+                                            </span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <FontAwesomeIcon
+                                                icon={faCheckCircle}
+                                            />{' '}
+                                            <span className="ml-2">
+                                                {__('Make Publish', 'jobplace')}
+                                            </span>
+                                        </>
+                                    )}
                                 </span>
                             </button>
                         </Menu.Item>

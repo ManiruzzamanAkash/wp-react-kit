@@ -33,6 +33,11 @@ export interface IJob {
      * Status published or draft
      */
     is_active: boolean | number;
+
+    /**
+     * Job status.
+     */
+    status?: 'draft' | 'published' | 'trashed';
 }
 
 export interface IJobFormData extends IJob {}

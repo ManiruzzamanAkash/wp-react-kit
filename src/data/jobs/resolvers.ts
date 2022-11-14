@@ -14,6 +14,7 @@ import {
     IResponseGenerator,
 } from '../../interfaces';
 import { formatSelect2Data } from '../../utils/Select2Helper';
+import { prepareJobDataForDatabase } from './utils';
 
 const resolvers = {
     *getJobs(filters: IJobFilter) {
@@ -48,17 +49,7 @@ const resolvers = {
         const response = yield actions.fetchFromAPI(path);
 
         if (response.id) {
-            const data = {
-                ...response,
-                job_type_id: response.job_type.id,
-                company_id: response.company.id,
-                is_active: 'published' === response.status ? 1 : 0,
-            };
-
-            // Remove unnecessary data.
-            delete data.company;
-            delete data.job_type;
-            delete data._links;
+            const data = prepareJobDataForDatabase(response);
 
             yield actions.setFormData(data);
         }

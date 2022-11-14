@@ -25,7 +25,7 @@ export default function CreateJob() {
 
     useEffect(() => {
         dispatch(jobStore).setFormData({
-            jobDefaultFormData,
+            ...jobDefaultFormData,
         });
     }, []);
 

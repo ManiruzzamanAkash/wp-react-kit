@@ -117,7 +117,7 @@ const actions = {
             }
 
             if (response?.id > 0) {
-                yield actions.setFormData(jobDefaultFormData);
+                yield actions.setFormData({ ...jobDefaultFormData });
                 yield actions.setSavingJobs(false);
             }
         } catch (error) {

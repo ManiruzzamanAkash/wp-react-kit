@@ -18,7 +18,7 @@ export const jobDefaultState: IJobs = {
         ...jobDefaultFormData,
     },
     jobTypes: [],
-    loadingJobs: true,
+    loadingJobs: false,
     jobsSaving: false,
     jobsDeleting: false,
     totalPage: 0,
