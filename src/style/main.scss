@@ -28,4 +28,8 @@ li > ol {
         font-weight: bold;
         margin-bottom: 1em;
     }
+
+    input[type="checkbox"]:checked::before {
+        margin: 0;
+    }
 }

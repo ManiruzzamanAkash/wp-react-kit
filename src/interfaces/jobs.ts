@@ -59,6 +59,11 @@ export interface IJobs {
     jobsSaving: boolean;
 
     /**
+     * Job deleting or not.
+     */
+    jobsDeleting: boolean;
+
+    /**
      * All job types as array of {label, value}.
      */
     jobTypes: Array<ISelect2Input>;

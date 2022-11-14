@@ -36,7 +36,6 @@ export default function JobsPage() {
     );
     const [checkedAll, setCheckedAll] = useState(false);
 
-    const checked: number[] = [];
     const jobs: Array<IJob> = useSelect(
         (select) => select(store).getJobs({}),
         []
@@ -85,23 +84,17 @@ export default function JobsPage() {
         });
     };
 
-    /**
-     * Check a Job.
-     *
-     * @param {number}  jobId
-     * @param {boolean} isChecked
-     *
-     * @return {void}
-     */
+    // TODO: Implement this later.
+    const [checked, setChecked] = useState<Array<number>>([]);
     const checkJob = (jobId: number, isChecked = false) => {
         const jobsData = [];
         if (jobId === 0) {
             if (isChecked) {
                 jobsData.push(...jobs.map((job) => job.id));
             }
-            //  dispatch(checkedJobAction(templateId, jobsData));
+            setChecked(jobsData);
         } else {
-            //  dispatch(checkedJobAction(templateId, checked));
+            setChecked([...checked, jobId]);
         }
     };
 
@@ -166,11 +159,18 @@ export default function JobsPage() {
             rightSideContent={pageRightSideContent}
         >
             {loadingJobs ? (
-                <TableLoading headers={tableHeaders} count={5} />
+                <TableLoading
+                    headers={tableHeaders}
+                    hasCheckbox={false}
+                    count={5}
+                />
             ) : (
                 <>
                     {checked.length > 0 && (
-                        <SelectCheckBox checked={checked} onChange={checkJob} />
+                        <SelectCheckBox
+                            checked={checked}
+                            onChange={(response) => checkJob()}
+                        />
                     )}
 
                     <Table

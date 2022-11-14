@@ -34,6 +34,11 @@ const controls = {
         const path = jobsEndpoint + '/' + action.payload.id;
         return apiFetch({ path, method: 'PUT', data: action.payload });
     },
+
+    DELETE_JOBS(action) {
+        const path = jobsEndpoint;
+        return apiFetch({ path, method: 'DELETE', data: action.payload });
+    },
 };
 
 export default controls;
