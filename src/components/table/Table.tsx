@@ -2,13 +2,16 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { useState, Fragment } from '@wordpress/element';
+import useWindowWidth from '../../hooks/use-window-width';
 
 /**
  * Internal dependencies
  */
 import Pagination from '../pagination/Pagination';
 import { ITableHeader, ITable, ITableCell } from './TableInterface';
-import { Input } from '../inputs/Input';
+import { findIndex } from 'lodash';
+// import { Input } from '../inputs/Input';
 
 /**
  * Generate Default Props for Table component.
@@ -74,7 +77,10 @@ export const getBodyCellClassName = (
     className += `${index === 0 ? ' pl-6 w-0 ' : ' '}`;
 
     // Add style for last cell
-    className += cells.length === index + 1 ? 'text-right pr-7 ' : 'text-left ';
+    className +=
+        cells.length === index + 1
+            ? 'text-right pr-7 '
+            : 'text-center md:text-left ';
 
     // Add custom class
     className += typeof customClass !== 'undefined' ? customClass : '';
@@ -101,16 +107,42 @@ const Table = (props: ITable) => {
         checkedAll,
         onCheckAll,
         noDataMessage,
+        responsiveColumns = [],
     } = props;
-    const isChecked = typeof checkedAll === 'boolean' ? checkedAll : false;
+    // const isChecked = typeof checkedAll === 'boolean' ? checkedAll : false;
+
+    const width = useWindowWidth();
+    const isMobile = width < 600;
+
+    const tableHeaders =
+        isMobile && responsiveColumns.length
+            ? headers.filter((header) => responsiveColumns.includes(header.key))
+            : headers;
+
+    const rowCellsForMobile = (cells: Array<ITableCell>) => {
+        return isMobile && responsiveColumns.length
+            ? cells.filter((cell) => responsiveColumns.includes(cell.key))
+            : cells;
+    };
+
+    const [expandedRows, setExpandedRows] = useState<Array<number>>([]);
+    const toggleRow = (index: number) => {
+        if (expandedRows.includes(index)) {
+            const updatedRows = [...expandedRows];
+            updatedRows.splice(findIndex(expandedRows, index), 1);
+            setExpandedRows(updatedRows);
+        } else {
+            setExpandedRows([...expandedRows, index]);
+        }
+    };
 
     return (
         <>
-            <div className="table-outer overflow-x-auto">
+            <div className="table-outer">
                 <table className="table-auto border-collapse border border-gray-lite bg-white mb-2 w-full">
                     <thead>
                         <tr className="h-12">
-                            {headers.map((header, index) => (
+                            {tableHeaders.map((header, index) => (
                                 <th
                                     key={header.key}
                                     className={getHeaderRowClassName(
@@ -134,23 +166,81 @@ const Table = (props: ITable) => {
                                 </td>
                             </tr>
                         )}
-                        {rows.map((row, index) => (
-                            <tr key={index} className="h-12">
-                                {row.cells.map(
-                                    (cell: ITableCell, indexCell: number) => (
-                                        <td
-                                            key={indexCell}
-                                            className={getBodyCellClassName(
-                                                row.cells,
-                                                indexCell,
-                                                cell.className
+
+                        {rows.map((row, index: number) => (
+                            <Fragment key={index}>
+                                <tr
+                                    key={index}
+                                    className={`h-12 ${
+                                        isMobile ? 'cursor-pointer' : ''
+                                    }`}
+                                    onClick={() => {
+                                        if (isMobile) {
+                                            toggleRow(index);
+                                        }
+                                    }}
+                                >
+                                    {rowCellsForMobile(row.cells).map(
+                                        (
+                                            cell: ITableCell,
+                                            indexCell: number
+                                        ) => (
+                                            <td
+                                                key={indexCell}
+                                                className={getBodyCellClassName(
+                                                    row.cells,
+                                                    indexCell,
+                                                    cell.className
+                                                )}
+                                            >
+                                                {cell.value}
+                                            </td>
+                                        )
+                                    )}
+                                </tr>
+
+                                {expandedRows.includes(index) && (
+                                    <tr key={'expand-row-' + index}>
+                                        <td colSpan={responsiveColumns.length}>
+                                            {row.cells.map(
+                                                (cell, indexCell) => {
+                                                    if (
+                                                        !responsiveColumns.includes(
+                                                            cell.key
+                                                        )
+                                                    ) {
+                                                        return (
+                                                            <div
+                                                                key={indexCell}
+                                                                className="p-1.5 border-b border-solid border-slate-50 ml-5"
+                                                            >
+                                                                <p>
+                                                                    <b>
+                                                                        {
+                                                                            headers.filter(
+                                                                                (
+                                                                                    header
+                                                                                ) =>
+                                                                                    header.key ===
+                                                                                    cell.key
+                                                                            )[0]
+                                                                                .title
+                                                                        }{' '}
+                                                                        &nbsp;
+                                                                    </b>
+                                                                </p>
+                                                                <div>
+                                                                    {cell.value}
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    }
+                                                }
                                             )}
-                                        >
-                                            {cell.value}
                                         </td>
-                                    )
+                                    </tr>
                                 )}
-                            </tr>
+                            </Fragment>
                         ))}
                     </tbody>
                 </table>

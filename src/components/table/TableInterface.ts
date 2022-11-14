@@ -32,6 +32,7 @@ export interface ITableLoading {
     count?: number;
     showPagination?: boolean;
     hasCheckbox?: boolean;
+    responsiveColumns?: Array<string>;
 }
 
 /**
@@ -48,4 +49,5 @@ export interface ITable {
     onChangePage?: Function;
     onCheckAll?: Function;
     noDataMessage?: string;
+    responsiveColumns?: Array<string>;
 }

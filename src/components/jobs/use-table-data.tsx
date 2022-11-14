@@ -55,7 +55,7 @@ export const useTableRowData = (jobs = [], checked: number[]): ITableRow[] => {
             id: row.id,
             cells: [
                 {
-                    key: 'checkbox',
+                    key: 'sl',
                     value: (
                         // <Input
                         //     value={checked.includes(row.id) ? '1' : '0'}
@@ -113,7 +113,7 @@ export const useTableRowData = (jobs = [], checked: number[]): ITableRow[] => {
                     key: 'actions',
                     value: (
                         <div>
-                            <ListItemMenu id={row.id} />
+                            <ListItemMenu job={row} />
                         </div>
                     ),
                     className: '',

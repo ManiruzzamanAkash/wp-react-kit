@@ -8,19 +8,28 @@ import { Fragment } from '@wordpress/element';
  */
 import { getHeaderRowClassName } from '../table/Table';
 import { ITableHeader, ITableLoading } from '../table/TableInterface';
+import useWindowWidth from '../../hooks/use-window-width';
 
 const TableLoading = ({
     headers = [],
     count = 10,
     showPagination = true,
     hasCheckbox = true,
+    responsiveColumns = [],
 }: ITableLoading) => {
+    const width = useWindowWidth();
+    const isMobile = width < 600;
+    const tableHeaders =
+        isMobile && responsiveColumns.length
+            ? headers.filter((header) => responsiveColumns.includes(header.key))
+            : headers;
+
     const getTableRows = () => {
         const rows = [];
         for (let i = 0; i < count; i++) {
             rows.push(
                 <tr key={i} className="h-12">
-                    {headers.map((header: ITableHeader, index: number) => (
+                    {tableHeaders.map((header: ITableHeader, index: number) => (
                         <Fragment key={index}>
                             {index === 0 && hasCheckbox ? (
                                 <td className={`border-0`}></td>
@@ -60,7 +69,7 @@ const TableLoading = ({
                 <table className="animate-pulse table-auto border-collapse border border-gray-lite bg-white mb-2 w-full">
                     <thead>
                         <tr className="h-12">
-                            {headers.map(
+                            {tableHeaders.map(
                                 (header: ITableHeader, index: number) => (
                                     <th
                                         key={header.key}

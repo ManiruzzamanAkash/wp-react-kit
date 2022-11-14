@@ -148,6 +148,7 @@ export default function JobsPage() {
         />
     );
 
+    const tableResponsiveColumns = ['sl', 'title', 'actions'];
     const tableHeaders = useTableHeaderData();
     const tableRows = useTableRowData(jobs, checked);
 
@@ -161,6 +162,7 @@ export default function JobsPage() {
             {loadingJobs ? (
                 <TableLoading
                     headers={tableHeaders}
+                    responsiveColumns={tableResponsiveColumns}
                     hasCheckbox={false}
                     count={5}
                 />
@@ -182,6 +184,7 @@ export default function JobsPage() {
                             checkJob(0, isChecked);
                             setCheckedAll(isChecked);
                         }}
+                        responsiveColumns={tableResponsiveColumns}
                         checkedAll={checkedAll}
                         noDataMessage={__(
                             'Sorry !! No jobs found…',
