@@ -1,0 +1,39 @@
+### Changelogs
+
+**v0.5.0 - 14/11/2022**
+
+1. New Feature : Job Create.
+2. New Feature : Job Update.
+3. New Feature : Job Delete.
+4. New Feature : Job Status change.
+5. New API: Company dropdown list.
+6. New: Updated logo icon and plugin name.
+7. New Components: Input Text-Editor, Improved design.
+8. Refactor: Refactored codebase and updated docs.
+9. New: Job type seeder.
+10. Chore: Zip file generator.
+11. Chore: i18n localization generator.
+
+**v0.4.1 - 18/08/2022**
+
+1. Added Jest Unit Test Setup.
+2. Added some dummy Jest Unit Test.
+3. Fix #11 - Version naming while installing.
+
+**v0.4.0 - 12/08/2022**
+
+1. Added many re-usable general components.
+1. Header Component refactored and re-designed.
+1. WP-Data setup and made Job Store.
+1. Job List Page frontend added.
+
+**v0.3.1 - 11/08/2022**
+
+1. PHPUnit Test cases setup.
+1. PHPUnit Test cases added for Job Manager and Job REST API's.
+
+**v0.3.0 - 02/08/2022**
+
+1. Necessary traits to handle - sanitization, query.
+1. Advanced setup for migration, seeder, REST API.
+1. Jobs, Job Types REST API developed.

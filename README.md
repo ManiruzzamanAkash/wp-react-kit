@@ -51,6 +51,21 @@ After running `start`, or `build` command, there will be a folder called `/build
 You need activate the plugin from plugin list page.
 http://localhost/wpex/wp-admin/plugins.php
 
+### Zip making process [Build, Localization, Version replace & Zip]
+```sh
+# One by one.
+npm run build
+npm run makepot
+npm run version
+npm run zip
+
+# Single release command - which actually will run the above all in single command.
+npm run release
+```
+
+After running `release` command, there will be a folder called `/dist` will be generated at the root directory with `wp-react-kit.zip` project files.
+
+
 ### Run PHP Unit Test
 
 ```sh
@@ -176,7 +191,7 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
-**v0.5.0 - 14/11/2022**
+**v0.5.0 - 15/11/2022**
 
 1. New Feature : Job Create.
 2. New Feature : Job Update.
@@ -186,6 +201,9 @@ Or, it could be your custom processed URL.
 6. New: Updated logo icon and plugin name.
 7. New Components: Input Text-Editor, Improved design.
 8. Refactor: Refactored codebase and updated docs.
+9. New: Job type seeder.
+10. Chore: Zip file generator.
+11. Chore: i18n localization generator.
 
 ### Version & Changelogs
 **v0.4.1 - 18/08/2022**
