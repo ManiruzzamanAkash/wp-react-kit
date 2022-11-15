@@ -40,15 +40,10 @@ class Manager {
      */
     public function get_styles(): array {
         return [
-            'job-place-custom-css' => [
-                'src'     => JOB_PLACE_BUILD . '/style-index.css',
-                'version' => JOB_PLACE_VERSION,
-                'deps'    => [],
-            ],
             'job-place-css' => [
                 'src'     => JOB_PLACE_BUILD . '/index.css',
                 'version' => JOB_PLACE_VERSION,
-                'deps'    => [ 'job-place-custom-css' ],
+                'deps'    => [],
             ],
         ];
     }
