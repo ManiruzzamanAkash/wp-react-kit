@@ -1,0 +1,361 @@
+# Copyright (c) 2022 Maniruzzaman Akash. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP React Kit 0.5.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ManiruzzamanAkash/wp-react-kit/issues\n"
+"Last-Translator: manirujjamanakash@gmail.com\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-11-15T00:30:48+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: jobplace\n"
+
+#. Plugin Name of the plugin
+#: includes/Admin/Menu.php:36
+msgid "WP React Kit"
+msgstr ""
+
+#. Description of the plugin
+msgid "A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more..."
+msgstr ""
+
+#. Author of the plugin
+msgid "Maniruzzaman Akash<manirujjamanakash@gmail.com>"
+msgstr ""
+
+#: includes/Admin/Menu.php:39
+#: build/index.js:1
+msgid "Home"
+msgstr ""
+
+#: includes/Admin/Menu.php:40
+#: build/index.js:1
+msgid "Jobs"
+msgstr ""
+
+#: includes/Jobs/Manager.php:117
+msgid "Failed to create job."
+msgstr ""
+
+#: includes/Jobs/Manager.php:170
+msgid "Failed to update job."
+msgstr ""
+
+#: includes/Jobs/Manager.php:187
+msgid "Failed to update the job."
+msgstr ""
+
+#: includes/REST/JobsController.php:56
+msgid "Post IDs which will be deleted."
+msgstr ""
+
+#: includes/REST/JobsController.php:142
+msgid "Job not found. May be job has been deleted or you don't have access to that."
+msgstr ""
+
+#: includes/REST/JobsController.php:164
+msgid "Cannot create existing email template."
+msgstr ""
+
+#: includes/REST/JobsController.php:212
+msgid "Invalid Job ID."
+msgstr ""
+
+#: includes/REST/JobsController.php:259
+msgid "No job ids found."
+msgstr ""
+
+#: includes/REST/JobsController.php:265
+msgid "Jobs deleted successfully."
+msgstr ""
+
+#: includes/REST/JobsController.php:275
+msgid "No job deleted. Job has already been deleted. Please try again."
+msgstr ""
+
+#: includes/REST/JobsController.php:296
+msgid "ID of the job"
+msgstr ""
+
+#: includes/REST/JobsController.php:302
+#: build/index.js:1
+msgid "Job title"
+msgstr ""
+
+#: includes/REST/JobsController.php:312
+msgid "Job slug"
+msgstr ""
+
+#: includes/REST/JobsController.php:321
+msgid "Job description"
+msgstr ""
+
+#: includes/REST/JobsController.php:328
+#: build/index.js:1
+msgid "Job type"
+msgstr ""
+
+#: includes/REST/JobsController.php:337
+#: includes/User/Hooks.php:50
+#: build/index.js:1
+msgid "Company"
+msgstr ""
+
+#: includes/REST/JobsController.php:346
+msgid "Job status"
+msgstr ""
+
+#: includes/REST/JobsController.php:355
+msgid "Created by user"
+msgstr ""
+
+#: includes/REST/JobsController.php:363
+msgid "Updated by user"
+msgstr ""
+
+#: includes/REST/JobsController.php:371
+msgid "Created at time"
+msgstr ""
+
+#: includes/REST/JobsController.php:378
+msgid "Updated at time"
+msgstr ""
+
+#: includes/REST/JobsController.php:385
+msgid "Deleted at time"
+msgstr ""
+
+#: includes/REST/JobsController.php:507
+msgid "Job slug already exists."
+msgstr ""
+
+#: includes/User/Hooks.php:46
+msgid "User type"
+msgstr ""
+
+#: includes/User/Hooks.php:49
+msgid "-- Select user type --"
+msgstr ""
+
+#: includes/User/Hooks.php:51
+msgid "Candidate"
+msgstr ""
+
+#: job-place.php:310
+msgid "Settings"
+msgstr ""
+
+#: job-place.php:311
+msgid "Documentation"
+msgstr ""
+
+#: templates/app.php:2
+msgid "Loading"
+msgstr ""
+
+#: build/index.js:1
+msgid "Dashboard"
+msgstr ""
+
+#: build/index.js:1
+msgid "Edit Dashboard component at "
+msgstr ""
+
+#: build/index.js:1
+msgid "View Jobs"
+msgstr ""
+
+#: build/index.js:1
+msgid "Sorry ! No data found."
+msgstr ""
+
+#: build/index.js:1
+msgid "Edit"
+msgstr ""
+
+#: build/index.js:1
+msgid "Are you sure?"
+msgstr ""
+
+#: build/index.js:1
+msgid "Are you sure to delete the job?"
+msgstr ""
+
+#: build/index.js:1
+msgid "Deleted!"
+msgstr ""
+
+#: build/index.js:1
+msgid "Delete"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job status updated"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job has been updated successfully."
+msgstr ""
+
+#: build/index.js:1
+msgid "Make Draft"
+msgstr ""
+
+#: build/index.js:1
+msgid "Make Publish"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select Action"
+msgstr ""
+
+#: build/index.js:1
+msgid "Applying…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Apply"
+msgstr ""
+
+#: build/index.js:1
+msgid "items"
+msgstr ""
+
+#: build/index.js:1
+msgid "item"
+msgstr ""
+
+#: build/index.js:1
+msgid "selected"
+msgstr ""
+
+#: build/index.js:1
+msgid "Please select an action."
+msgstr ""
+
+#: build/index.js:1
+msgid "-- Select --"
+msgstr ""
+
+#: build/index.js:1
+msgid "Please select job type."
+msgstr ""
+
+#: build/index.js:1
+msgid "Please select a company."
+msgstr ""
+
+#: build/index.js:1
+msgid "Please give job description."
+msgstr ""
+
+#: build/index.js:1
+msgid "Please give a job title."
+msgstr ""
+
+#: build/index.js:1
+msgid "Cancel"
+msgstr ""
+
+#: build/index.js:1
+msgid "Saving…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Save"
+msgstr ""
+
+#: build/index.js:1
+msgid "Error"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job saved"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job has been saved successfully."
+msgstr ""
+
+#: build/index.js:1
+msgid "Minute"
+msgstr ""
+
+#: build/index.js:1
+msgid "Hour"
+msgstr ""
+
+#: build/index.js:1
+msgid "Day"
+msgstr ""
+
+#: build/index.js:1
+msgid "General Information"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job Description"
+msgstr ""
+
+#: build/index.js:1
+msgid "Company Information"
+msgstr ""
+
+#: build/index.js:1
+msgid "Quick Jump"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enter Job title, eg: Software Engineer"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job details"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enter Job description and necessary requirements."
+msgstr ""
+
+#: build/index.js:1
+msgid "Company Name"
+msgstr ""
+
+#: build/index.js:1
+msgid "New"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search Jobs…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Job"
+msgstr ""
+
+#: build/index.js:1
+msgid "Status"
+msgstr ""
+
+#: build/index.js:1
+msgid "Action"
+msgstr ""
+
+#: build/index.js:1
+msgid "Sorry !! No jobs found…"
+msgstr ""
+
+#: build/index.js:1
+msgid "Back to jobs"
+msgstr ""
+
+#: build/index.js:1
+msgid "Create New Job"
+msgstr ""
+
+#: build/index.js:1
+msgid "Edit Job"
+msgstr ""
