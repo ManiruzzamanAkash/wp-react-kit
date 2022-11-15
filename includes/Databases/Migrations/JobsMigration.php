@@ -5,12 +5,12 @@ namespace Akash\JobPlace\Databases\Migrations;
 use Akash\JobPlace\Abstracts\DBMigrator;
 
 /**
- * Email template table Migration class.
+ * Jobs migration.
  */
 class JobsMigration extends DBMigrator {
 
     /**
-     * Migrate the cp_emails table.
+     * Migrate the jobs table.
      *
      * @since 0.3.0
      *
@@ -20,17 +20,6 @@ class JobsMigration extends DBMigrator {
         global $wpdb;
 
         $charset_collate = $wpdb->get_charset_collate();
-
-        $schema_job_types = "CREATE TABLE IF NOT EXISTS `{$wpdb->jobplace_job_types}` (
-            `id` int(11) NOT NULL AUTO_INCREMENT,
-            `name` varchar(255) NOT NULL,
-            `slug` varchar(255) NOT NULL,
-            `description` varchar(255) NOT NULL,
-            `created_at` datetime NOT NULL,
-            `updated_at` datetime NOT NULL,
-            PRIMARY KEY (`id`),
-            UNIQUE KEY `slug` (`slug`)
-        ) $charset_collate;";
 
         $schema_jobs = "CREATE TABLE IF NOT EXISTS `{$wpdb->jobplace_jobs}` (
             `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -56,7 +45,6 @@ class JobsMigration extends DBMigrator {
         ) $charset_collate";
 
         // Create the tables.
-        dbDelta( $schema_job_types );
         dbDelta( $schema_jobs );
     }
 }

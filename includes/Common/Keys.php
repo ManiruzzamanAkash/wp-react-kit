@@ -28,6 +28,15 @@ class Keys {
     const JOB_PLACE_VERSION = 'jobplace_version';
 
     /**
+     * Job type seeder ran key.
+     *
+     * @var string
+     *
+     * @since 0.5.0
+     */
+    const JOB_TYPE_SEEDER_RAN = 'jobplace_job_type_seeder_ran';
+
+    /**
      * Job seeder ran key.
      *
      * @var string

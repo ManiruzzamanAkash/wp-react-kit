@@ -19,6 +19,7 @@ class Manager {
      */
     public function run() {
         $seeder_classes = [
+            \Akash\JobPlace\Databases\Seeder\JobTypeSeeder::class,
             \Akash\JobPlace\Databases\Seeder\JobsSeeder::class,
         ];
 

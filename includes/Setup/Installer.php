@@ -91,6 +91,7 @@ class Installer {
         }
 
         // Run the database table migrations.
+        \Akash\JobPlace\Databases\Migrations\JobTypeMigration::migrate();
         \Akash\JobPlace\Databases\Migrations\JobsMigration::migrate();
     }
 }
