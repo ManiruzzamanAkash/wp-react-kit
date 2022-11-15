@@ -32,7 +32,7 @@ jobs:
 
       - name: Run PHPCS checks
         continue-on-error: true
-        run: composer run phpcs --report-full --report-checkstyle=./phpcs-report.xml
+        run: composer run phpcs --report-checkstyle=./phpcs-report.xml
 
       - name: Show PHPCS results in PR
         run: cs2pr ./phpcs-report.xml
