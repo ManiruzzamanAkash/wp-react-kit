@@ -1,14 +1,14 @@
 # Copyright (c) 2022 Maniruzzaman Akash. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP React Kit 0.5.0\n"
+"Project-Id-Version: WP React Kit 0.6.0\n"
 "Report-Msgid-Bugs-To: https://github.com/ManiruzzamanAkash/wp-react-kit/issues\n"
 "Last-Translator: manirujjamanakash@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-11-15T00:30:48+00:00\n"
+"POT-Creation-Date: 2022-11-29T13:04:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: jobplace\n"
@@ -154,6 +154,18 @@ msgstr ""
 
 #: templates/app.php:2
 msgid "Loading"
+msgstr ""
+
+#: build/blocks/header/index.js:1
+msgid "Header title"
+msgstr ""
+
+#: build/blocks/header/index.js:1
+msgid "Header description"
+msgstr ""
+
+#: build/blocks/header/index.js:1
+msgid "Color Settings"
 msgstr ""
 
 #: build/index.js:1
@@ -358,4 +370,9 @@ msgstr ""
 
 #: build/index.js:1
 msgid "Edit Job"
+msgstr ""
+
+#: build/blocks/header/block.json
+msgctxt "block title"
+msgid "ReactKit Header"
 msgstr ""
