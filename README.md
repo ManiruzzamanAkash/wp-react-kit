@@ -1,5 +1,5 @@
 # WP-React-Kit
-A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test and PHP OOP plugin architecture easily in a minute.
+A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -23,6 +23,7 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 16. JestUnit Test
 17. Jest-Pupetter e2e Test
 18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
+19. Gutenberg blocks
 
 ### Quick Start
 ```sh
@@ -343,6 +344,14 @@ https://i.ibb.co/Ws6n1HW/Mobile-View-List.png
 ![Mobile responsive views-2](
 https://i.ibb.co/QYgvD83/Mobile-View-Selected-Job.png
  "Mobile responsive views-2")
+
+ ## Gutenberg blocks
+ Inside `src/blocks` you'll find gutenberg block for ready block setup -
+
+ **Demo preview -**
+ ![React Kit Header Block demo](
+ https://i.ibb.co/V2m7bPt/wp-react-kit-block-demo.png
+ "React Kit Header Block demo")
 
 ## Contribution
 
