@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"title": "ReactKit Header",
+	"name": "wrc/header",
+	"category": "formatting",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "WP React Kit Text Header"
+		},
+		"description": {
+			"type": "string",
+			"default": "WP React Kit Description"
+		},
+		"bgColor": {
+			"type": "string",
+			"default": "#f5f5f5"
+		},
+		"padding": {
+			"type": "object",
+			"default": {
+				"top": "10px",
+				"left": "30px",
+				"right": "30px",
+				"bottom": "10px"
+			}
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "WP React Kit Text Header",
+			"description": "WP React Kit Description",
+			"bgColor": "#f5f5f5",
+			"padding": {
+				"top": "10px",
+				"left": "30px",
+				"right": "30px",
+				"bottom": "10px"
+			}
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
