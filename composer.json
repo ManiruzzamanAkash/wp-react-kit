@@ -1,6 +1,6 @@
 {
-    "name": "akash/jobplace",
-    "description": "A Job posting platform made by WordPress",
+    "name": "akash/wp-react-kit",
+    "description": "A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [
