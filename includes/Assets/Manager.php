@@ -29,9 +29,6 @@ class Manager {
     public function register_all_scripts() {
         $this->register_styles( $this->get_styles() );
         $this->register_scripts( $this->get_scripts() );
-
-        // Register block scripts.
-        $this->register_all_blocks();
     }
 
     /**
@@ -64,7 +61,7 @@ class Manager {
         return [
             'job-place-app' => [
                 'src'       => JOB_PLACE_BUILD . '/index.js',
-                'version'   => filemtime( JOB_PLACE_DIR . '/build/index.js' ),
+                'version'   => $dependency['version'],
                 'deps'      => $dependency['dependencies'],
                 'in_footer' => true,
             ],
@@ -113,36 +110,5 @@ class Manager {
 
         wp_enqueue_style( 'job-place-css' );
         wp_enqueue_script( 'job-place-app' );
-    }
-
-    /**
-     * Register blocks.
-     *
-     * @since 0.6.0
-     *
-     * @return void
-     */
-    public function register_all_blocks() {
-        $blocks = [
-            'header/',
-        ];
-
-        foreach( $blocks as $block ) {
-            $block_folder = JOB_PLACE_PATH . '/build/blocks' . '/' . $block;
-            $block_options = [];
-
-            $markup_file_path = $block_folder . '/markup.php';
-
-			if ( file_exists( $markup_file_path ) ) {
-				$block_options['render_callback'] = function( $attributes, $content, $block ) use ( $block_folder ) {
-					$context = $block->context;
-					ob_start();
-					include $block_folder . '/markup.php';
-					return ob_get_clean();
-				};
-			};
-
-            register_block_type_from_metadata( $block_folder,  $block_options );
-        }
     }
 }

@@ -5,7 +5,8 @@
  * Description:       A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...
  * Requires at least: 5.8
  * Requires PHP:      7.4
- * Version:           0.6.0
+ * Version:           0.7.0
+ * Tested upto:       6.1.1
  * Author:            Maniruzzaman Akash<manirujjamanakash@gmail.com>
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -25,7 +26,7 @@ final class Wp_React_Kit {
      *
      * @var string
      */
-    const VERSION = '0.6.0';
+    const VERSION = '0.7.0';
 
     /**
      * Plugin slug.
@@ -210,6 +211,12 @@ final class Wp_React_Kit {
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin_menu'] = new Akash\JobPlace\Admin\Menu();
         }
+
+        // Common classes
+        $this->container['assets']   = new Akash\JobPlace\Assets\Manager();
+        $this->container['blocks']   = new Akash\JobPlace\Blocks\Manager();
+        $this->container['rest_api'] = new Akash\JobPlace\REST\Api();
+        $this->container['jobs']     = new Akash\JobPlace\Jobs\Manager();
     }
 
     /**
@@ -240,11 +247,6 @@ final class Wp_React_Kit {
     public function init_classes() {
         // Init necessary hooks
         new Akash\JobPlace\User\Hooks();
-
-        // Common classes
-        $this->container['assets']   = new Akash\JobPlace\Assets\Manager();
-        $this->container['rest_api'] = new Akash\JobPlace\REST\Api();
-        $this->container['jobs']     = new Akash\JobPlace\Jobs\Manager();
     }
 
     /**
@@ -261,9 +263,6 @@ final class Wp_React_Kit {
 
         // Load the React-pages translations.
         if ( is_admin() ) {
-            // Check if handle is registered in wp-script
-            $this->container['assets']->register_all_scripts();
-
             // Load wp-script translation for job-place-app
             wp_set_script_translations( 'job-place-app', 'jobplace', plugin_dir_path( __FILE__ ) . 'languages/' );
         }

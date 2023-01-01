@@ -1,7 +1,7 @@
 {
   "name": "jobplace",
-  "version": "0.6.0",
-  "description": "A Job posting platform made by WordPress and best architectures",
+  "version": "0.7.0",
+  "description": "A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...",
   "main": "src/index.tsx",
   "scripts": {
     "build": "wp-scripts build",

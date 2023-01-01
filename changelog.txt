@@ -1,5 +1,10 @@
 ### Changelogs
 
+**v0.7.0 - 01/01/2023**
+
+1. Fix: Dynamic block renderer issue.
+1. Fix: Asset registering multiple times issue.
+
 **v0.5.0 - 14/11/2022**
 
 1. New Feature : Job Create.

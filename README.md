@@ -23,7 +23,7 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 16. JestUnit Test
 17. Jest-Pupetter e2e Test
 18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
-19. Gutenberg blocks
+19. Gutenberg blocks, Dynamic blocks
 
 ### Quick Start
 ```sh
@@ -192,6 +192,11 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+**v0.7.0 - 01/01/2023**
+
+1. Fix: Dynamic block renderer issue.
+1. Fix: Asset registering multiple times issue.
+
 **v0.5.0 - 15/11/2022**
 
 1. New Feature : Job Create.
@@ -346,7 +351,7 @@ https://i.ibb.co/QYgvD83/Mobile-View-Selected-Job.png
  "Mobile responsive views-2")
 
  ## Gutenberg blocks
- Inside `src/blocks` you'll find gutenberg block for ready block setup -
+ Inside `src/blocks` you'll find gutenberg block for ready block setup. We've made blocks like dynamic block so that future changes would not create any issue.
 
  **Demo preview -**
  ![React Kit Header Block demo](
