@@ -1,5 +1,5 @@
 # WP-React-Kit
-A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
+A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, WordPress Playwright e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -21,7 +21,7 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 14. Internationalization - WP i18n
 15. PHPUnit Test [Test + Fix]
 16. JestUnit Test
-17. Jest-Pupetter e2e Test
+17. WordPress Playwright e2e Test
 18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
 19. Gutenberg blocks, Dynamic blocks
 
@@ -85,9 +85,9 @@ composer run test:all
 npm run test:unit
 ```
 
-### Run Jest-Pupeteer e2e Test
+### Run Playwright e2e Test
 
-WordPress core doc link: https://make.wordpress.org/core/2019/06/27/introducing-the-wordpress-e2e-tests/
+Playwright doc link: https://playwright.dev/docs/running-tests
 
 **Requirements:**
 - Must have docker installed and running by ensuring these commands -
@@ -105,6 +105,8 @@ npm run test:e2e
 ```sh
 npm run test:e2e:watch
 ```
+
+For more about e2e Tests running please check - https://playwright.dev/docs/running-tests
 
 ### PHP Coding Standards - PHPCS
 
@@ -192,6 +194,11 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+**v0.8.0 - 24/05/2023**
+
+1. New feature: WordPress Playwright test-e2e-utils added.
+1. New feature: Some Gutenberg blocks has support for Playwright test.
+
 **v0.7.0 - 01/01/2023**
 
 1. Fix: Dynamic block renderer issue.
