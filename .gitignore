@@ -4,3 +4,8 @@
 .phpunit.result.cache
 .DS_Store
 /dist
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
