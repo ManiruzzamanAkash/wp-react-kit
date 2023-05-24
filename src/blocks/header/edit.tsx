@@ -58,11 +58,11 @@ export default function Edit({ attributes, setAttributes }) {
                 />
             </PanelBody>
             <PanelBody
-                title={__('Padding/Margin Settings', 'cartpulse')}
+                title={__('Padding/Margin Settings', 'jobplace')}
                 initialOpen={false}
             >
                 <BoxControl
-                    label={__('Inline Padding', 'cartpulse')}
+                    label={__('Inline Padding', 'jobplace')}
                     values={padding}
                     onChange={(padding: object) => setAttributes({ padding })}
                 />
