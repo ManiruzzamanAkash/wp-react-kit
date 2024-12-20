@@ -1,6 +1,8 @@
 /**
  * External dependencies.
  */
+import { useEffect } from '@wordpress/element';
+import { useParams } from 'react-router-dom';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -21,6 +23,9 @@ type Props = {
 
 export default function JobForm({ job }: Props) {
     const dispatch = useDispatch();
+    const { id } = useParams();
+    const { invalidateResolutionForStoreSelector } = useDispatch(jobStore);
+
     const jobTypes: Array<Select2SingleRow> = useSelect(
         (select) => select(jobStore).getJobTypes(),
         []
@@ -35,6 +40,12 @@ export default function JobForm({ job }: Props) {
         (select) => select(jobStore).getForm(),
         []
     );
+
+    useEffect(() => {
+        if (parseInt(id + '') !== form.id) {
+            invalidateResolutionForStoreSelector('getJobDetail');
+        }
+    }, [id, invalidateResolutionForStoreSelector]);
 
     const loadingJobs: boolean = useSelect(
         (select) => select(jobStore).getLoadingJobs(),
