@@ -1,6 +1,6 @@
 {
   "name": "jobplace",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...",
   "main": "src/index.tsx",
   "scripts": {

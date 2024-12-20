@@ -194,6 +194,12 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+**v0.9.0 - 20/12/2024**
+
+1. Fix: Updated PHP version support > 8.0 and some more library support
+1. Fix: When Editing a Job, last job is being edited
+1. Update: Tested upto WordPress 6.7.1
+
 **v0.8.0 - 24/05/2023**
 
 1. New feature: WordPress Playwright test-e2e-utils added.
