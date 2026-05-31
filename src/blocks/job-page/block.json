@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wrc/job-page",
+	"title": "Job Page",
+	"description": "Root block for single job detail pages.",
+	"category": "jobplace-jobs",
+	"textdomain": "jobplace",
+	"keywords": ["job", "detail", "single", "page"],
+	"attributes": {
+		"jobId": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"providesContext": {
+		"jobplace/jobId": "jobId"
+	},
+	"supports": {
+		"interactivity": true,
+		"html": false,
+		"align": ["wide", "full"],
+		"layout": true,
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true
+		}
+	},
+	"render": "file:./view.php",
+	"editorScript": "file:./index.js",
+	"style": ["jobplace-jobs-board", "file:./style-index.css"],
+	"viewScriptModule": ["@jobplace/jobs"]
+}
