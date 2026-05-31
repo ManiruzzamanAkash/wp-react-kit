@@ -427,6 +427,14 @@ class JobsController extends RESTController {
                         'sanitize_callback' => 'sanitize_text_field',
                     ],
                 ],
+                'job_category_id' => [
+                    'description' => __( 'Job category', 'jobplace' ),
+                    'type'        => 'integer',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'absint',
+                    ],
+                ],
                 'experience_level' => [
                     'description' => __( 'Required experience level', 'jobplace' ),
                     'type'        => 'string',
@@ -576,6 +584,7 @@ class JobsController extends RESTController {
         $data['location']             = $request['location'];
         $data['is_remote']            = $request['is_remote'];
         $data['category']             = $request['category'];
+        $data['job_category_id']      = $request['job_category_id'];
         $data['experience_level']     = $request['experience_level'];
         $data['vacancies']            = $request['vacancies'];
         $data['salary_min']           = $request['salary_min'];
