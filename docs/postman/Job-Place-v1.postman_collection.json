@@ -1,0 +1,363 @@
+{
+	"info": {
+		"_postman_id": "job-place-v1-wp-react-kit",
+		"name": "Job Place v1 (wp-react-kit)",
+		"description": "REST API collection for the Job Place WordPress plugin.\n\nNamespace: job-place/v1\n\nSet `site_url` (e.g. http://foodfruitservice.local). For authenticated settings requests, set `wp_rest_nonce` from wp-admin.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "site_url",
+			"value": "http://foodfruitservice.local"
+		},
+		{
+			"key": "rest_base",
+			"value": "{{site_url}}/wp-json/job-place/v1"
+		},
+		{
+			"key": "wp_rest_nonce",
+			"value": ""
+		},
+		{
+			"key": "job_id",
+			"value": "1"
+		},
+		{
+			"key": "company_id",
+			"value": "1"
+		},
+		{
+			"key": "category_id",
+			"value": "1"
+		}
+	],
+	"auth": {
+		"type": "noauth"
+	},
+	"item": [
+		{
+			"name": "Job Types",
+			"item": [
+				{
+					"name": "List job types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_base}}/job-types?page=1&per_page=10",
+							"host": ["{{rest_base}}"],
+							"path": ["job-types"],
+							"query": [
+								{ "key": "page", "value": "1" },
+								{ "key": "per_page", "value": "10" }
+							]
+						},
+						"description": "Public read-only list of job types (Full time, Part time, Remote)."
+					}
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "List jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_base}}/jobs?page=1&per_page=10&search=&status=published",
+							"host": ["{{rest_base}}"],
+							"path": ["jobs"],
+							"query": [
+								{ "key": "page", "value": "1" },
+								{ "key": "per_page", "value": "10" },
+								{ "key": "search", "value": "" },
+								{ "key": "status", "value": "published", "description": "published | draft" },
+								{ "key": "job_type_id", "value": "", "disabled": true },
+								{ "key": "job_category_id", "value": "", "disabled": true },
+								{ "key": "company_id", "value": "", "disabled": true },
+								{ "key": "experience_level", "value": "", "disabled": true, "description": "entry | mid | senior | lead" },
+								{ "key": "is_featured", "value": "", "disabled": true },
+								{ "key": "is_remote", "value": "", "disabled": true },
+								{ "key": "is_negotiable", "value": "", "disabled": true }
+							]
+						}
+					}
+				},
+				{
+					"name": "Job stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/jobs/stats"
+					}
+				},
+				{
+					"name": "Get job by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/jobs/{{job_id}}"
+					}
+				},
+				{
+					"name": "Get job by slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/jobs/senior-software-engineer"
+					}
+				},
+				{
+					"name": "Create job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Senior Software Engineer\",\n  \"slug\": \"senior-software-engineer\",\n  \"description\": \"<p>Build great software.</p>\",\n  \"company_id\": 1,\n  \"job_type_id\": 1,\n  \"job_category_id\": 1,\n  \"is_active\": true,\n  \"location\": \"Remote\",\n  \"is_remote\": true,\n  \"experience_level\": \"senior\",\n  \"vacancies\": 1,\n  \"salary_min\": 80000,\n  \"salary_max\": 120000,\n  \"salary_currency\": \"USD\",\n  \"salary_period\": \"yearly\",\n  \"is_negotiable\": false,\n  \"apply_url\": \"https://example.com/apply\",\n  \"is_featured\": false\n}"
+						},
+						"url": "{{rest_base}}/jobs"
+					}
+				},
+				{
+					"name": "Update job",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Senior Software Engineer (Updated)\",\n  \"description\": \"<p>Updated description.</p>\",\n  \"company_id\": 1,\n  \"job_type_id\": 1,\n  \"is_active\": true\n}"
+						},
+						"url": "{{rest_base}}/jobs/{{job_id}}"
+					}
+				},
+				{
+					"name": "Delete jobs",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ids\": [1, 2]\n}"
+						},
+						"url": "{{rest_base}}/jobs"
+					}
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Companies dropdown",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/companies/dropdown"
+					}
+				},
+				{
+					"name": "List companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_base}}/companies?page=1&per_page=10&search=",
+							"host": ["{{rest_base}}"],
+							"path": ["companies"],
+							"query": [
+								{ "key": "page", "value": "1" },
+								{ "key": "per_page", "value": "10" },
+								{ "key": "search", "value": "" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Company stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/companies/stats"
+					}
+				},
+				{
+					"name": "Get company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/companies/{{company_id}}"
+					}
+				},
+				{
+					"name": "Create company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Acme Corp\",\n  \"slug\": \"acme-corp\",\n  \"email\": \"hello@acme.test\",\n  \"website\": \"https://acme.test\",\n  \"description\": \"We build things.\",\n  \"avatar_url\": \"\"\n}"
+						},
+						"url": "{{rest_base}}/companies"
+					}
+				},
+				{
+					"name": "Update company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Acme Corp (Updated)\",\n  \"email\": \"hello@acme.test\"\n}"
+						},
+						"url": "{{rest_base}}/companies/{{company_id}}"
+					}
+				},
+				{
+					"name": "Delete companies",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ids\": [1]\n}"
+						},
+						"url": "{{rest_base}}/companies"
+					}
+				}
+			]
+		},
+		{
+			"name": "Job Categories",
+			"item": [
+				{
+					"name": "List categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_base}}/job-categories?page=1&per_page=10",
+							"host": ["{{rest_base}}"],
+							"path": ["job-categories"],
+							"query": [
+								{ "key": "page", "value": "1" },
+								{ "key": "per_page", "value": "10" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Category stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/job-categories/stats"
+					}
+				},
+				{
+					"name": "Get category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{rest_base}}/job-categories/{{category_id}}"
+					}
+				},
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Engineering\",\n  \"slug\": \"engineering\",\n  \"description\": \"Software and infrastructure roles\"\n}"
+						},
+						"url": "{{rest_base}}/job-categories"
+					}
+				},
+				{
+					"name": "Update category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Engineering (Updated)\",\n  \"description\": \"Updated description\"\n}"
+						},
+						"url": "{{rest_base}}/job-categories/{{category_id}}"
+					}
+				},
+				{
+					"name": "Delete categories",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ids\": [1]\n}"
+						},
+						"url": "{{rest_base}}/job-categories"
+					}
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Get settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WP-Nonce",
+								"value": "{{wp_rest_nonce}}",
+								"description": "Required when authenticated as admin"
+							}
+						],
+						"url": "{{rest_base}}/settings",
+						"description": "Requires manage_options."
+					}
+				},
+				{
+					"name": "Update settings",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{
+								"key": "X-WP-Nonce",
+								"value": "{{wp_rest_nonce}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"jobs_per_page\": 10,\n  \"default_apply_button_text\": \"Apply now\",\n  \"job_detail_pattern\": \"jobplace/single-job-default\"\n}"
+						},
+						"url": "{{rest_base}}/settings",
+						"description": "Requires manage_options."
+					}
+				}
+			]
+		}
+	]
+}
