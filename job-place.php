@@ -164,6 +164,7 @@ final class Wp_React_Kit {
     public function activate() {
         // Run the installer to create necessary migrations and seeders.
         $this->install();
+        flush_rewrite_rules();
     }
 
     /**
@@ -185,7 +186,10 @@ final class Wp_React_Kit {
      * @since 0.2.0
      */
     public function flush_rewrite_rules() {
-        // fix rewrite rules
+        if ( get_option( 'jobplace_flush_rewrite_rules' ) ) {
+            flush_rewrite_rules();
+            delete_option( 'jobplace_flush_rewrite_rules' );
+        }
     }
 
     /**
@@ -309,6 +313,18 @@ final class Wp_React_Kit {
      * @return array
      */
     public function plugin_action_links( $links ) {
+        $pages = new \Akash\JobPlace\WordPress\Pages\PageService();
+        $jobs_url = $pages->url( 'jobs' );
+        $jobs_edit = $pages->edit_url( 'jobs' );
+
+        if ( $jobs_url ) {
+            $links[] = '<a href="' . esc_url( $jobs_url ) . '">' . __( 'View Jobs Board', 'jobplace' ) . '</a>';
+        }
+
+        if ( $jobs_edit ) {
+            $links[] = '<a href="' . esc_url( $jobs_edit ) . '">' . __( 'Edit Jobs Board', 'jobplace' ) . '</a>';
+        }
+
         $links[] = '<a href="' . admin_url( 'admin.php?page=jobplace#/settings' ) . '">' . __( 'Settings', 'jobplace' ) . '</a>';
         $links[] = '<a href="https://github.com/ManiruzzamanAkash/wp-react-kit#quick-start" target="_blank">' . __( 'Documentation', 'jobplace' ) . '</a>';
 
