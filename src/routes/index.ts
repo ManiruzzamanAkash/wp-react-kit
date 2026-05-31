@@ -7,6 +7,7 @@ import CreateJob from '../pages/jobs/CreateJob';
 import EditJob from '../pages/jobs/EditJob';
 import JobCategoriesPage from '../pages/job-categories/JobCategoriesPage';
 import CompaniesPage from '../pages/companies/CompaniesPage';
+import SettingsPage from '../pages/settings/SettingsPage';
 
 const routes = [
     {
@@ -32,6 +33,10 @@ const routes = [
     {
         path: '/companies',
         element: CompaniesPage,
+    },
+    {
+        path: '/settings',
+        element: SettingsPage,
     },
 ];
 
