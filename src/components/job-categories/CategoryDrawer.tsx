@@ -1,13 +1,9 @@
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { useDispatch, useSelect } from '@wordpress/data';
-import {
-    Modal,
-    TextControl,
-    TextareaControl,
-    Button,
-} from '@wordpress/components';
+import { TextControl, TextareaControl, Button } from '@wordpress/components';
 import { store as noticesStore } from '@wordpress/notices';
+import SideDrawer from '../common/SideDrawer';
 import jobCategoriesStore from '../../data/job-categories';
 import jobsStore from '../../data/jobs';
 import {
@@ -15,7 +11,6 @@ import {
     IJobCategoryFormData,
 } from '../../interfaces';
 import { categoryDefaultFormData } from '../../data/job-categories/default-state';
-import './category-drawer.scss';
 
 type CategoryDrawerProps = {
     isOpen: boolean;
@@ -77,6 +72,7 @@ export default function CategoryDrawer( {
         try {
             await saveCategory( form );
             invalidateResolutionForStoreSelector( 'getCategories' );
+            invalidateResolutionForStoreSelector( 'getCategoryStats' );
             invalidateJobsCategories( 'getJobCategories' );
             createSuccessNotice(
                 isEditing
@@ -94,63 +90,59 @@ export default function CategoryDrawer( {
         }
     };
 
-    if ( ! isOpen ) {
-        return null;
-    }
-
     return (
-        <Modal
-            className="jobplace-category-drawer"
+        <SideDrawer
+            isOpen={ isOpen }
             title={
                 isEditing
                     ? __( 'Edit category', 'jobplace' )
                     : __( 'Add category', 'jobplace' )
             }
-            onRequestClose={ onClose }
+            onClose={ onClose }
             shouldCloseOnClickOutside={ ! saving }
             shouldCloseOnEsc={ ! saving }
+            footer={
+                <>
+                    <Button variant="tertiary" onClick={ onClose } disabled={ saving }>
+                        { __( 'Cancel', 'jobplace' ) }
+                    </Button>
+                    <Button
+                        variant="primary"
+                        onClick={ onSubmit }
+                        disabled={ saving }
+                        isBusy={ saving }
+                    >
+                        { __( 'Save', 'jobplace' ) }
+                    </Button>
+                </>
+            }
         >
-            <div className="jobplace-category-drawer__body">
-                <TextControl
-                    label={ __( 'Name', 'jobplace' ) }
-                    value={ form.name }
-                    onChange={ ( name ) => setForm( { ...form, name } ) }
-                    required
-                    disabled={ saving }
-                />
-                <TextControl
-                    label={ __( 'Slug', 'jobplace' ) }
-                    help={ __(
-                        'Optional. Leave empty to generate from the name.',
-                        'jobplace'
-                    ) }
-                    value={ form.slug }
-                    onChange={ ( slug ) => setForm( { ...form, slug } ) }
-                    disabled={ saving }
-                />
-                <TextareaControl
-                    label={ __( 'Description', 'jobplace' ) }
-                    value={ form.description }
-                    onChange={ ( description ) =>
-                        setForm( { ...form, description } )
-                    }
-                    rows={ 4 }
-                    disabled={ saving }
-                />
-            </div>
-            <div className="jobplace-category-drawer__footer">
-                <Button variant="tertiary" onClick={ onClose } disabled={ saving }>
-                    { __( 'Cancel', 'jobplace' ) }
-                </Button>
-                <Button
-                    variant="primary"
-                    onClick={ onSubmit }
-                    disabled={ saving }
-                    isBusy={ saving }
-                >
-                    { __( 'Save', 'jobplace' ) }
-                </Button>
-            </div>
-        </Modal>
+            <TextControl
+                label={ __( 'Name', 'jobplace' ) }
+                value={ form.name }
+                onChange={ ( name ) => setForm( { ...form, name } ) }
+                required
+                disabled={ saving }
+            />
+            <TextControl
+                label={ __( 'Slug', 'jobplace' ) }
+                help={ __(
+                    'Optional. Leave empty to generate from the name.',
+                    'jobplace'
+                ) }
+                value={ form.slug }
+                onChange={ ( slug ) => setForm( { ...form, slug } ) }
+                disabled={ saving }
+            />
+            <TextareaControl
+                label={ __( 'Description', 'jobplace' ) }
+                value={ form.description }
+                onChange={ ( description ) =>
+                    setForm( { ...form, description } )
+                }
+                rows={ 4 }
+                disabled={ saving }
+            />
+        </SideDrawer>
     );
 }

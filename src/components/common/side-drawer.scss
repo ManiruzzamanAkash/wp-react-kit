@@ -1,0 +1,93 @@
+// Custom side drawer (no @wordpress/components Modal — avoids WP modal layout conflicts).
+
+body.jobplace-side-drawer-open {
+    overflow: hidden;
+}
+
+.jobplace-side-drawer-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    background: rgba( 0, 0, 0, 0.35 );
+}
+
+body.admin-bar .jobplace-side-drawer-overlay {
+    top: 32px;
+}
+
+@media screen and ( max-width: 782px ) {
+    body.admin-bar .jobplace-side-drawer-overlay {
+        top: 46px;
+    }
+}
+
+.jobplace-side-drawer {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    max-width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba( 0, 0, 0, 0.12 );
+    animation: jobplace-side-drawer-in 0.2s ease-out;
+    overflow: hidden;
+}
+
+.jobplace-side-drawer__header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-sizing: border-box;
+    min-height: 56px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+}
+
+.jobplace-side-drawer__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1e1e1e;
+}
+
+.jobplace-side-drawer__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.jobplace-side-drawer__footer {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    box-sizing: border-box;
+    padding: 16px 24px;
+    border-top: 1px solid #e0e0e0;
+    background: #f6f7f7;
+}
+
+@keyframes jobplace-side-drawer-in {
+    from {
+        transform: translateX( 100% );
+    }
+    to {
+        transform: translateX( 0 );
+    }
+}

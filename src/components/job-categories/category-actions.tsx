@@ -57,6 +57,9 @@ export const useCategoryActions = ( {
                             invalidateResolutionForStoreSelector(
                                 'getCategories'
                             );
+                            invalidateResolutionForStoreSelector(
+                                'getCategoryStats'
+                            );
                             invalidateJobsCategories( 'getJobCategories' );
                             createSuccessNotice(
                                 __( 'Category deleted.', 'jobplace' ),
