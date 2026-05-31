@@ -22,7 +22,9 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 15. JestUnit Test
 16. WordPress Playwright e2e Test
 17. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
-18. Gutenberg blocks, Dynamic blocks
+18. Gutenberg blocks — admin + **public job board** (Interactivity API)
+19. Block patterns with editor **Replace** layouts (jobs list + job detail)
+20. Auto-created **Jobs** page on plugin activation
 
 ### Quick Start
 ```sh
@@ -193,6 +195,16 @@ Or, it could be your custom processed URL.
 [View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
+
+**Unreleased (job board branch)**
+
+1. New: Public job board blocks (`wrc/jobs-list`, `wrc/jobs-template`, field blocks, `wrc/job-page`).
+2. New: Block patterns + editor **Replace** for list and detail layouts.
+3. New: Default **Jobs** page on activation; single-job template and permalinks.
+4. New: Interactivity API for client-side search and pagination.
+5. Improve: Admin jobs list company column — avatar with initials when logo missing.
+6. Improve: SCSS BEM nesting (`&__item`, `&--modifier`) for board styles.
+
 **v0.9.0 - 20/12/2024**
 
 1. Fix: Updated PHP version support > 8.0 and some more library support
@@ -362,13 +374,79 @@ https://i.ibb.co/Ws6n1HW/Mobile-View-List.png
 https://i.ibb.co/QYgvD83/Mobile-View-Selected-Job.png
  "Mobile responsive views-2")
 
- ## Gutenberg blocks
- Inside `src/blocks` you'll find gutenberg block for ready block setup. We've made blocks like dynamic block so that future changes would not create any issue.
+## Job board (front-end blocks)
 
- **Demo preview -**
- ![React Kit Header Block demo](
- https://i.ibb.co/V2m7bPt/wp-react-kit-block-demo.png
- "React Kit Header Block demo")
+Interactive job listings for block themes and classic themes with the block editor.
+Requires `npm run build` so `build/blocks/*` exists.
+
+### Quick setup
+
+1. Activate the plugin — a **Jobs** page is created at `/jobs/` (customizable slug).
+2. Edit the page in the Site Editor or block editor.
+3. Select the **Jobs List** block → use **Replace** in the toolbar to pick a layout pattern.
+4. Publish. Search and pagination work without full page reloads (Interactivity API).
+
+Plugin row links: **View Jobs Board** / **Edit Jobs Board**.
+
+### Block overview
+
+| Block | Purpose |
+|-------|---------|
+| `wrc/jobs-list` | Board wrapper (query, search, list, pagination) |
+| `wrc/jobs-template` | Layout repeated for each job |
+| `wrc/job-page` | Single job detail (used in `single-job` template) |
+| Field blocks | Title, company, location, salary, badges, apply button, etc. |
+
+### Patterns (`templates/patterns/`)
+
+**Jobs list:** Default, Grid, Compact, Featured  
+**Job detail:** Default, Compact, Split  
+
+Patterns register against `blockTypes` so **Replace** only shows relevant layouts.
+Categories: `jobplace_jobs`, `jobplace_jobs_list`, `jobplace_job_detail`.
+
+### Single job pages
+
+- Block template: `templates/templates/single-job.html`
+- Permalink settings: Job Manager → permalinks (see admin app)
+- Router: `includes/Routing/JobDetailRouter.php`
+
+### SEO-friendly markup
+
+- List uses `role="list"`; each job is an `<article>`.
+- Job titles link to the detail URL.
+- Text fields are escaped in PHP `view.php` templates.
+
+### Settings
+
+Open **Job Manager → Settings** in wp-admin (`#/settings`).
+
+| Setting | What it does |
+|---------|----------------|
+| Global job detail layout | Picks a job detail pattern (Default, Compact, Split) for all `/jobs/{slug}/` URLs |
+| Jobs list page | Which WordPress page contains the Jobs List block |
+| Default jobs per page | Fallback page size for listings |
+| Default apply button text | Label when Apply blocks have no custom text |
+
+REST: `GET/PUT /wp-json/job-place/v1/settings`. Permalink base is still under **Settings → Permalinks** in WordPress.
+
+### Developer notes
+
+- Block sources: `src/blocks/` — editor JS + `view.php` render callbacks.
+- Interactivity store: `src/scripts/jobs/` (`@jobplace/jobs`).
+- Global settings: `includes/Common/Settings.php`, `src/pages/settings/SettingsPage.tsx`.
+- Shared styles: `src/styles/jobs-board.scss` (BEM: nest `&__element` under block roots).
+- Agent/docs detail: see `AGENTS.md` and `CLAUDE.md`.
+
+## Gutenberg blocks (legacy demo)
+
+Inside `src/blocks` you'll also find sample blocks (e.g. header). Job board blocks
+use the `wrc/*` namespace and dynamic PHP templates.
+
+**Demo preview -**
+![React Kit Header Block demo](
+https://i.ibb.co/V2m7bPt/wp-react-kit-block-demo.png
+"React Kit Header Block demo")
 
 ## Contribution
 
