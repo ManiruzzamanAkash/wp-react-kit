@@ -35,6 +35,7 @@ class Api {
                 \Akash\JobPlace\REST\JobCategoriesController::class,
                 \Akash\JobPlace\REST\JobsController::class,
                 \Akash\JobPlace\REST\CompaniesController::class,
+                \Akash\JobPlace\REST\SettingsController::class,
             ]
         );
 
