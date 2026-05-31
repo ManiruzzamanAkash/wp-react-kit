@@ -12,10 +12,26 @@
 		"interactivity": true,
 		"html": false,
 		"layout": true,
+		"color": {
+			"text": true,
+			"background": true,
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
 		"spacing": {
 			"padding": true,
 			"margin": true,
 			"blockGap": true
+		},
+		"__experimentalBorder": {
+			"radius": true,
+			"color": true,
+			"width": true,
+			"style": true
 		}
 	},
 	"render": "file:./view.php",
