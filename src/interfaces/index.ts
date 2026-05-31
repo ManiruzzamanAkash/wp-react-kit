@@ -22,3 +22,6 @@ export * from './jobs';
 
 // Job category types
 export * from './job-categories';
+
+// Company types
+export * from './companies';

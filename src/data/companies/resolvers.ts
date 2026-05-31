@@ -1,9 +1,9 @@
 import actions from './actions';
-import { jobCategoriesEndpoint, jobCategoriesStatsEndpoint } from './endpoint';
-import { IJobCategoryFilter, IResponseGenerator } from '../../interfaces';
+import { companiesEndpoint, companiesStatsEndpoint } from './endpoint';
+import { ICompanyFilter, IResponseGenerator } from '../../interfaces';
 
 const resolvers = {
-    *getCategories( filters: IJobCategoryFilter = {} ) {
+    *getCompanies( filters: ICompanyFilter = {} ) {
         yield actions.setLoading( true );
 
         const queryParam = new URLSearchParams(
@@ -11,7 +11,7 @@ const resolvers = {
         ).toString();
 
         const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
-            `${ jobCategoriesEndpoint }?${ queryParam }`
+            `${ companiesEndpoint }?${ queryParam }`
         );
 
         let totalPage = 0;
@@ -28,18 +28,18 @@ const resolvers = {
             );
         }
 
-        yield actions.setCategories( response.data );
+        yield actions.setCompanies( response.data );
         yield actions.setTotalPage( totalPage );
         yield actions.setTotal( totalCount );
         return actions.setLoading( false );
     },
 
-    *getCategoryStats() {
+    *getCompanyStats() {
         const response: IResponseGenerator = yield actions.fetchFromAPI(
-            jobCategoriesStatsEndpoint
+            companiesStatsEndpoint
         );
 
-        yield actions.setCategoryStats( response );
+        yield actions.setCompanyStats( response );
     },
 };
 

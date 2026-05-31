@@ -28,6 +28,10 @@ const selectors = {
     getFilter( state: IJobCategoriesState ) {
         return state.filters;
     },
+
+    getCategoryStats( state: IJobCategoriesState ) {
+        return state.stats;
+    },
 };
 
 export default selectors;

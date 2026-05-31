@@ -31,6 +31,18 @@ class JobCategoriesController extends RESTController {
     public function register_routes() {
         register_rest_route(
             $this->namespace,
+            '/' . $this->base . '/stats',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [ $this, 'get_stats' ],
+                    'permission_callback' => [ $this, 'check_permission' ],
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
             '/' . $this->base . '/',
             [
                 [
@@ -82,6 +94,23 @@ class JobCategoriesController extends RESTController {
                     'permission_callback' => [ $this, 'check_permission' ],
                     'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
                 ],
+            ]
+        );
+    }
+
+    /**
+     * Retrieve aggregated job category statistics.
+     *
+     * @since 0.14.0
+     *
+     * @param WP_REST_Request $request Full details about the request.
+     *
+     * @return WP_REST_Response
+     */
+    public function get_stats( $request ): WP_REST_Response {
+        return rest_ensure_response(
+            [
+                'total' => wp_react_kit()->job_categories->all( [ 'count' => true ] ),
             ]
         );
     }

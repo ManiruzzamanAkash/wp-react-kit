@@ -1,80 +1,80 @@
 import {
-    IJobCategory,
-    IJobCategoryFilter,
-    IJobCategoryFormData,
+    ICompany,
+    ICompanyFilter,
+    ICompanyFormData,
     IResponseGenerator,
 } from '../../interfaces';
-import { jobCategoriesEndpoint } from './endpoint';
+import { companiesEndpoint, companiesStatsEndpoint } from './endpoint';
 import * as Types from './types';
 
 const actions = {
-    setCategories( categories: IJobCategory[] ) {
+    setCompanies( companies: ICompany[] ) {
         return {
-            type: Types.GET_JOB_CATEGORIES,
-            categories,
+            type: Types.GET_COMPANIES,
+            companies,
         };
     },
 
     setLoading( loading: boolean ) {
         return {
-            type: Types.SET_LOADING_CATEGORIES,
+            type: Types.SET_LOADING_COMPANIES,
             loading,
         };
     },
 
     setSaving( saving: boolean ) {
         return {
-            type: Types.SET_SAVING_CATEGORIES,
+            type: Types.SET_SAVING_COMPANIES,
             saving,
         };
     },
 
     setDeleting( deleting: boolean ) {
         return {
-            type: Types.SET_DELETING_CATEGORIES,
+            type: Types.SET_DELETING_COMPANIES,
             deleting,
         };
     },
 
-    setFilterObject( filters: IJobCategoryFilter ) {
+    setFilterObject( filters: ICompanyFilter ) {
         return {
-            type: Types.SET_CATEGORIES_FILTER,
+            type: Types.SET_COMPANIES_FILTER,
             filters,
         };
     },
 
     setTotal( total: number ) {
         return {
-            type: Types.SET_TOTAL_CATEGORIES,
+            type: Types.SET_TOTAL_COMPANIES,
             total,
         };
     },
 
     setTotalPage( totalPage: number ) {
         return {
-            type: Types.SET_TOTAL_CATEGORIES_PAGE,
+            type: Types.SET_TOTAL_COMPANIES_PAGE,
             totalPage,
         };
     },
 
-    setCategoryStats( stats: { total: number } ) {
+    setCompanyStats( stats: { total: number } ) {
         return {
-            type: Types.SET_CATEGORY_STATS,
+            type: Types.SET_COMPANY_STATS,
             stats,
         };
     },
 
-    *setFilters( filters: IJobCategoryFilter = {} ) {
+    *setFilters( filters: ICompanyFilter = {} ) {
         yield actions.setLoading( true );
         yield actions.setFilterObject( filters );
 
         const queryParam = new URLSearchParams(
             filters as URLSearchParams
         ).toString();
-        const path = `${ jobCategoriesEndpoint }?${ queryParam }`;
+        const path = `${ companiesEndpoint }?${ queryParam }`;
         const response: {
             headers: Headers;
-            data: IJobCategory[];
+            data: ICompany[];
         } = yield actions.fetchFromAPIUnparsed( path );
 
         let totalPage = 0;
@@ -93,11 +93,11 @@ const actions = {
 
         yield actions.setTotalPage( totalPage );
         yield actions.setTotal( totalCount );
-        yield actions.setCategories( response.data );
+        yield actions.setCompanies( response.data );
         return actions.setLoading( false );
     },
 
-    *saveCategory( payload: IJobCategoryFormData ) {
+    *saveCompany( payload: ICompanyFormData ) {
         yield actions.setSaving( true );
 
         try {
@@ -107,12 +107,12 @@ const actions = {
             let response: IResponseGenerator = {};
             if ( payload.id > 0 ) {
                 response = yield {
-                    type: Types.UPDATE_JOB_CATEGORY,
+                    type: Types.UPDATE_COMPANY,
                     payload: data,
                 };
             } else {
                 response = yield {
-                    type: Types.CREATE_JOB_CATEGORY,
+                    type: Types.CREATE_COMPANY,
                     payload: data,
                 };
             }
@@ -125,12 +125,12 @@ const actions = {
         }
     },
 
-    *deleteCategories( ids: number[] ) {
+    *deleteCompanies( ids: number[] ) {
         yield actions.setDeleting( true );
 
         try {
             const response: IResponseGenerator = yield {
-                type: Types.DELETE_JOB_CATEGORIES,
+                type: Types.DELETE_COMPANIES,
                 payload: { ids },
             };
 

@@ -15,4 +15,5 @@ export const jobCategoriesDefaultState: IJobCategoriesState = {
     total: 0,
     totalPage: 0,
     filters: {},
+    stats: null,
 };
