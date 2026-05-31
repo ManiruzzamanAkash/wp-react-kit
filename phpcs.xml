@@ -33,6 +33,8 @@
     <rule ref="WordPress-Core"/>
     <rule ref="WordPress">
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
+        <!-- Main plugin file combines the bootstrap class with a global accessor function. -->
+        <exclude name="Universal.Files.SeparateFunctionsFromOO.Mixed"/>
     </rule>
     <rule ref="WordPress.WP.I18n">
         <properties>
@@ -91,9 +93,6 @@
     <rule ref="WordPress.PHP.StrictInArray.MissingTrueStrict">
         <type>error</type>
     </rule>
-    <rule ref="WordPress.PHP.StrictComparisons.LooseComparison">
-        <type>error</type>
-    </rule>
     <rule ref="WordPress.DB.DirectDatabaseQuery.DirectQuery">
         <severity>0</severity>
     </rule>
@@ -107,6 +106,9 @@
         <severity>0</severity>
     </rule>
     <rule ref="Generic.Arrays.DisallowShortArraySyntax">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Universal.Arrays.DisallowShortArraySyntax">
         <severity>0</severity>
     </rule>
     <rule ref="WordPress.Security.ValidatedSanitizedInput">

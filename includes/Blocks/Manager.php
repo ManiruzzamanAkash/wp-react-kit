@@ -61,7 +61,7 @@ class Manager {
             $markup_file_path = JOB_PLACE_TEMPLATE_PATH . '/blocks/' . $block . 'markup.php';
 
             if ( file_exists( $markup_file_path ) ) {
-                $block_options['render_callback'] = function( $attributes, $content, $block ) use ( $markup_file_path ) {
+                $block_options['render_callback'] = function ( $attributes, $content, $block ) use ( $markup_file_path ) {
                     $context = $block->context;
                     ob_start();
                     include $markup_file_path;

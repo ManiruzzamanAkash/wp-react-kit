@@ -750,7 +750,7 @@ class JobsController extends RESTController {
                 $this->generate_beautiful_slug( $slug, $i + 1 );
             }
 
-            $i++;
+            ++$i;
         }
     }
 
