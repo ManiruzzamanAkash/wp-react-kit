@@ -61,6 +61,10 @@ export default function JobForm() {
         ( select ) => select( jobStore ).getJobTypes(),
         []
     );
+    const jobCategories = useSelect(
+        ( select ) => select( jobStore ).getJobCategories(),
+        []
+    );
     const companyDropdowns = useSelect(
         ( select ) => select( jobStore ).getCompaniesDropdown(),
         []
@@ -108,10 +112,12 @@ export default function JobForm() {
                     item.job_type_id ? String( item.job_type_id ) : '',
             },
             {
-                id: 'category',
+                id: 'job_category_id',
                 label: __( 'Category / Department', 'jobplace' ),
-                type: 'text',
-                placeholder: __( 'e.g. Engineering', 'jobplace' ),
+                Edit: 'select',
+                elements: withPlaceholder( toOptions( jobCategories ) ),
+                getValue: ( { item } ) =>
+                    item.job_category_id ? String( item.job_category_id ) : '',
             },
             {
                 id: 'location',
@@ -229,7 +235,7 @@ export default function JobForm() {
                 ),
             },
         ],
-        [ jobTypes, companyDropdowns ]
+        [ jobTypes, jobCategories, companyDropdowns ]
     );
 
     const row = ( id: string, children: string[] ) => ( {
@@ -261,7 +267,7 @@ export default function JobForm() {
                 children: [
                     'title',
                     row( 'row-org', [ 'company_id', 'job_type_id' ] ),
-                    row( 'row-class', [ 'category', 'location' ] ),
+                    row( 'row-class', [ 'job_category_id', 'location' ] ),
                 ],
             },
             {
@@ -311,6 +317,9 @@ export default function JobForm() {
         }
         if ( 'company_id' in next ) {
             next.company_id = Number( next.company_id );
+        }
+        if ( 'job_category_id' in next ) {
+            next.job_category_id = Number( next.job_category_id );
         }
         if ( 'salary_min' in next ) {
             next.salary_min =

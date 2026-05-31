@@ -38,6 +38,7 @@ class Menu {
         if ( current_user_can( $capability ) ) {
             $submenu[ $slug ][] = [ esc_attr__( 'Home', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Jobs', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/jobs' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Job categories', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/job-categories' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
         }
     }
 

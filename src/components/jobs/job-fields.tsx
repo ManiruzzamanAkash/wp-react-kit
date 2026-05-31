@@ -132,6 +132,13 @@ export const useJobFields = (): Field< IJob >[] => {
             render: ( { item } ) => item.job_type?.name || '—',
         },
         {
+            id: 'job_category',
+            label: __( 'Category', 'jobplace' ),
+            enableSorting: false,
+            getValue: ( { item } ) => item.job_category?.name || '',
+            render: ( { item } ) => item.job_category?.name || '—',
+        },
+        {
             id: 'company',
             label: __( 'Company', 'jobplace' ),
             enableSorting: false,
