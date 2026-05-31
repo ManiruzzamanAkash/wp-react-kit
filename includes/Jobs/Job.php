@@ -3,6 +3,7 @@
 namespace Akash\JobPlace\Jobs;
 
 use Akash\JobPlace\Abstracts\BaseModel;
+use Akash\JobPlace\Routing\PermalinkService;
 
 /**
  * Job class.
@@ -126,6 +127,7 @@ class Job extends BaseModel {
             'apply_email'          => $job->apply_email ?? '',
             'is_featured'          => (bool) ( $job->is_featured ?? false ),
             'is_active'            => (bool) ( $job->is_active ?? true ),
+            'permalink'            => PermalinkService::get_job_url( $job->slug ?? '' ),
             'created_at'           => $job->created_at,
             'updated_at'           => $job->updated_at,
         ];
