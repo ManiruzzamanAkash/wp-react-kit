@@ -1,0 +1,1 @@
+<span <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => 'jobplace-job-badge jobplace-job-badge--featured' ] ) ); ?><?php echo wp_kses_data( wp_interactivity_data_wp_context( [ 'featuredLabel' => $attributes['label'] ?? __( 'Featured', 'jobplace' ) ] ) ); ?> data-wp-bind--hidden="!state.isFeaturedJob" hidden data-wp-text="state.featuredBadgeLabel"></span>

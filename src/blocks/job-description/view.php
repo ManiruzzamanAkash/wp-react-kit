@@ -1,0 +1,1 @@
+<div <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => 'jobplace-job-description' ] ) ); ?><?php echo wp_kses_data( wp_interactivity_data_wp_context( [ 'excerptLength' => (int) ( $attributes['excerptLength'] ?? 180 ) ] ) ); ?> data-wp-text="state.jobDescriptionExcerpt"></div>
