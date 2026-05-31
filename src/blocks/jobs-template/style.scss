@@ -1,0 +1,29 @@
+.jobplace-jobs-template {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	&.is-layout-flow {
+		> .jobplace-job-card + .jobplace-job-card,
+		> &__item + &__item,
+		.jobplace-job-card + .jobplace-job-card {
+			margin-block-start: var(--wp--style--block-gap, 1rem);
+		}
+	}
+
+	&.is-layout-grid {
+		gap: var(--wp--style--block-gap, 1rem);
+
+		.jobplace-job-card + .jobplace-job-card,
+		&__item + &__item {
+			margin-block-start: 0;
+		}
+	}
+}

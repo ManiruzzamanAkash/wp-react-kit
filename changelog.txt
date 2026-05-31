@@ -1,4 +1,14 @@
 ### Changelogs
+**v1.0.0 - 31/05/2026**
+
+1. **Feat:** Jobs Dataview added, improved lots of necessary fields.
+1. **Feat:** Jobs category added.
+1. **Feat:** Companies added.
+1. **Feat:** Settings added.
+1. **Feat:** Frontend blocks added - Job list related blocks, Job detail page related blocks.
+1. **Enhancement:** Full refactorred admin with WP components.
+
+
 **v0.9.0 - 20/12/2024**
 
 1. **Fix:** Updated PHP version support > 8.0 and some more library support

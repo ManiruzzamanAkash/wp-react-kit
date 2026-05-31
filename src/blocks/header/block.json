@@ -1,17 +1,17 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"title": "ReactKit Header",
+	"title": "Job Manager Header",
 	"name": "wrc/header",
 	"category": "formatting",
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": "WP React Kit Text Header"
+			"default": "Job Manager Header"
 		},
 		"description": {
 			"type": "string",
-			"default": "WP React Kit Description"
+			"default": "Job listings and career opportunities"
 		},
 		"bgColor": {
 			"type": "string",
@@ -29,8 +29,8 @@
 	},
 	"example": {
 		"attributes": {
-			"title": "WP React Kit Text Header",
-			"description": "WP React Kit Description",
+			"title": "Job Manager Header",
+			"description": "Job listings and career opportunities",
 			"bgColor": "#f5f5f5",
 			"padding": {
 				"top": "10px",

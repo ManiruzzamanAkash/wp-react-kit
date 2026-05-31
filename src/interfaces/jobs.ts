@@ -1,7 +1,7 @@
 /**
  * Internal dependencies.
  */
-import { ISelect2Input } from '../components/inputs/Select2Input';
+import { ISelect2Input } from './select2';
 
 export interface IJob {
     /**
@@ -35,12 +35,160 @@ export interface IJob {
     is_active: boolean | number;
 
     /**
+     * Job location (city / region).
+     */
+    location?: string;
+
+    /**
+     * Whether the job can be done remotely.
+     */
+    is_remote?: boolean | number;
+
+    /**
+     * Job category or department (legacy free-text field).
+     */
+    category?: string;
+
+    /**
+     * Job category ID (references a job category term).
+     */
+    job_category_id?: number;
+
+    /**
+     * Required experience level.
+     */
+    experience_level?: '' | 'entry' | 'mid' | 'senior' | 'lead';
+
+    /**
+     * Number of open positions.
+     */
+    vacancies?: number;
+
+    /**
+     * Minimum salary.
+     */
+    salary_min?: number | null;
+
+    /**
+     * Maximum salary.
+     */
+    salary_max?: number | null;
+
+    /**
+     * Salary currency code.
+     */
+    salary_currency?: string;
+
+    /**
+     * Salary period (hourly / monthly / yearly).
+     */
+    salary_period?: 'hourly' | 'monthly' | 'yearly';
+
+    /**
+     * Whether the salary is negotiable.
+     */
+    is_negotiable?: boolean | number;
+
+    /**
+     * Application deadline (Y-m-d).
+     */
+    application_deadline?: string | null;
+
+    /**
+     * External application URL.
+     */
+    apply_url?: string;
+
+    /**
+     * Application email address.
+     */
+    apply_email?: string;
+
+    /**
+     * Whether the job is featured.
+     */
+    is_featured?: boolean | number;
+
+    /**
+     * Created at timestamp.
+     */
+    created_at?: string;
+
+    /**
+     * Updated at timestamp.
+     */
+    updated_at?: string;
+
+    /**
      * Job status.
      */
     status?: 'draft' | 'published' | 'trashed';
+
+    /**
+     * Expanded job type object returned by the REST API.
+     */
+    job_type?: {
+        id: number;
+        name: string;
+    };
+
+    /**
+     * Expanded job category object returned by the REST API.
+     */
+    job_category?: {
+        id: number;
+        name: string;
+        slug?: string;
+    } | null;
+
+    /**
+     * Expanded company object returned by the REST API.
+     */
+    company?: {
+        id: number;
+        name: string;
+        avatar_url?: string;
+    };
+
+    /**
+     * REST API HAL links (present on read responses).
+     */
+    _links?: Record< string, unknown >;
 }
 
 export interface IJobFormData extends IJob {}
+
+export interface IJobStats {
+    /**
+     * Total number of jobs.
+     */
+    total: number;
+
+    /**
+     * Number of published jobs.
+     */
+    published: number;
+
+    /**
+     * Number of draft jobs.
+     */
+    draft: number;
+
+    /**
+     * Number of featured jobs.
+     */
+    featured: number;
+
+    /**
+     * Number of remote jobs.
+     */
+    remote: number;
+
+    /**
+     * Number of jobs with a negotiable salary.
+     */
+    negotiable: number;
+}
 
 export interface IJobs {
     /**
@@ -52,6 +200,11 @@ export interface IJobs {
      * All jobs as array of IJob.
      */
     jobs: Array<IJob>;
+
+    /**
+     * Aggregated job statistics for the dashboard.
+     */
+    stats: IJobStats | null;
 
     /**
      * Job detail.
@@ -72,6 +225,11 @@ export interface IJobs {
      * All job types as array of {label, value}.
      */
     jobTypes: Array<ISelect2Input>;
+
+    /**
+     * All job categories as array of {label, value}.
+     */
+    jobCategories: Array<ISelect2Input>;
 
     /**
      * Is jobs loading.
@@ -106,9 +264,54 @@ export interface IJobFilter {
     page?: number;
 
     /**
+     * Items per page.
+     */
+    per_page?: number;
+
+    /**
      * Job search URL params.
      */
     search?: string;
+
+    /**
+     * Published or draft jobs.
+     */
+    status?: 'published' | 'draft';
+
+    /**
+     * Featured jobs only.
+     */
+    is_featured?: 0 | 1;
+
+    /**
+     * Remote-friendly jobs only.
+     */
+    is_remote?: 0 | 1;
+
+    /**
+     * Negotiable salary jobs only.
+     */
+    is_negotiable?: 0 | 1;
+
+    /**
+     * Filter by job type id.
+     */
+    job_type_id?: number;
+
+    /**
+     * Filter by job category id.
+     */
+    job_category_id?: number;
+
+    /**
+     * Filter by company id.
+     */
+    company_id?: number;
+
+    /**
+     * Filter by experience level slug.
+     */
+    experience_level?: string;
 }
 
 export interface IJobTypes {
@@ -150,7 +353,7 @@ export interface ICompanyDropdown {
     email: string;
 
     /**
-     * Username.
+     * Company slug.
      */
-    username: string;
+    slug?: string;
 }

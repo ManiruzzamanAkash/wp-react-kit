@@ -22,7 +22,7 @@ trait Queryable {
      */
     public function all( array $args = [] ) {
         $columns  = ! empty( $args['columns'] ) ? sanitize_text_field( $args['columns'] ) : '*';
-        $where    = ! empty( $args['where'] ) ? sanitize_text_field( $args['where'] ) : '';
+        $where    = ! empty( $args['where'] ) ? $args['where'] : '';
         $orderby  = ! empty( $args['orderby'] ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
         $order    = ! empty( $args['order'] ) ? sanitize_text_field( $args['order'] ) : 'DESC';
         $count    = ! empty( $args['count'] ) ? boolval( $args['count'] ) : false;

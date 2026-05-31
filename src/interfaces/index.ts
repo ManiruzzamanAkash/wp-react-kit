@@ -14,5 +14,14 @@ export interface IResponseGenerator {
     statusText?: string;
 }
 
+// Select2 types
+export * from './select2';
+
 // Job types
 export * from './jobs';
+
+// Job category types
+export * from './job-categories';
+
+// Company types
+export * from './companies';

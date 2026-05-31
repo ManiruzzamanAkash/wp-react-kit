@@ -17,10 +17,22 @@ const selectors = {
         return job;
     },
 
+    getJobStats(state: IJobs) {
+        const { stats } = state;
+
+        return stats;
+    },
+
     getJobTypes(state: IJobs) {
         const { jobTypes } = state;
 
         return jobTypes;
+    },
+
+    getJobCategories(state: IJobs) {
+        const { jobCategories } = state;
+
+        return jobCategories;
     },
 
     getJobsSaving(state: IJobs) {

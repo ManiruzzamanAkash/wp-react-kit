@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wrc/jobs-search",
+  "title": "Jobs Search",
+  "category": "jobplace-jobs",
+  "textdomain": "jobplace",
+  "ancestor": [
+    "wrc/jobs-list"
+  ],
+  "attributes": {
+    "placeholder": {
+      "type": "string",
+      "default": "Search jobs…"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Search"
+    }
+  },
+  "supports": {
+    "interactivity": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "render": "file:./view.php",
+  "editorScript": "file:./index.js",
+  "style": [
+    "jobplace-jobs-board",
+    "file:./style-index.css"
+  ],
+  "viewScriptModule": [
+    "@jobplace/jobs"
+  ],
+  "usesContext": [
+    "query"
+  ]
+}

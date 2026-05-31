@@ -42,8 +42,54 @@ class Manager {
 
         if ( ! empty( $args['search'] ) ) {
             global $wpdb;
-            $like = '%' . $wpdb->esc_like( sanitize_text_field( wp_unslash( $args['search'] ) ) ) . '%';
-            $args['where'][] = $wpdb->prepare( ' title LIKE %s OR description LIKE %s ', $like, $like );
+
+            $search = sanitize_text_field( wp_unslash( $args['search'] ) );
+            $like   = '%' . $wpdb->esc_like( $search ) . '%';
+            $parts  = [
+                $wpdb->prepare( 'title LIKE %s', $like ),
+                $wpdb->prepare( 'description LIKE %s', $like ),
+                $wpdb->prepare( 'location LIKE %s', $like ),
+                $wpdb->prepare( 'category LIKE %s', $like ),
+                $wpdb->prepare( 'experience_level LIKE %s', $like ),
+            ];
+
+            $companies_table = $wpdb->prefix . 'jobplace_companies';
+            $parts[]         = $wpdb->prepare(
+                "company_id IN ( SELECT id FROM {$companies_table} WHERE name LIKE %s )",
+                $like
+            );
+
+            $args['where'][] = '( ' . implode( ' OR ', $parts ) . ' )';
+        }
+
+        if ( ! empty( $args['status'] ) ) {
+            if ( 'published' === $args['status'] ) {
+                $args['where'][] = 'is_active = 1';
+            } elseif ( 'draft' === $args['status'] ) {
+                $args['where'][] = 'is_active = 0';
+            }
+        }
+
+        foreach ( [ 'is_featured', 'is_remote', 'is_negotiable' ] as $flag ) {
+            if ( isset( $args[ $flag ] ) && '' !== $args[ $flag ] ) {
+                global $wpdb;
+                $args['where'][] = $wpdb->prepare( "{$flag} = %d", absint( $args[ $flag ] ) );
+            }
+        }
+
+        foreach ( [ 'job_type_id', 'job_category_id', 'company_id' ] as $id_field ) {
+            if ( ! empty( $args[ $id_field ] ) ) {
+                global $wpdb;
+                $args['where'][] = $wpdb->prepare( "{$id_field} = %d", absint( $args[ $id_field ] ) );
+            }
+        }
+
+        if ( ! empty( $args['experience_level'] ) ) {
+            global $wpdb;
+            $args['where'][] = $wpdb->prepare(
+                'experience_level = %s',
+                sanitize_text_field( wp_unslash( $args['experience_level'] ) )
+            );
         }
 
         if ( ! empty( $args['where'] ) ) {

@@ -40,10 +40,23 @@ class Manager {
      */
     public function get_styles(): array {
         return [
+            'job-place-dataviews' => [
+                'src'     => JOB_PLACE_BUILD . ( is_rtl() ? '/dataviews-rtl.css' : '/dataviews.css' ),
+                'version' => JOB_PLACE_VERSION,
+                'deps'    => [ 'wp-components' ],
+            ],
             'job-place-css' => [
                 'src'     => JOB_PLACE_BUILD . '/index.css',
                 'version' => JOB_PLACE_VERSION,
-                'deps'    => [],
+                'deps'    => [
+                    'wp-components',
+                    'job-place-dataviews',
+                    // Block editor styles for the job description field.
+                    'wp-block-editor',
+                    'wp-block-library',
+                    'wp-edit-blocks',
+                    'wp-format-library',
+                ],
             ],
         ];
     }
@@ -108,6 +121,7 @@ class Manager {
             return;
         }
 
+        wp_enqueue_style( 'job-place-dataviews' );
         wp_enqueue_style( 'job-place-css' );
         wp_enqueue_script( 'job-place-app' );
     }

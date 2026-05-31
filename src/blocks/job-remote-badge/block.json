@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wrc/job-remote-badge",
+  "title": "Remote Badge",
+  "category": "jobplace-jobs",
+  "textdomain": "jobplace",
+  "ancestor": [
+    "wrc/jobs-template",
+    "wrc/job-page"
+  ],
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Remote"
+    }
+  },
+  "usesContext": [
+    "job"
+  ],
+  "supports": {
+    "interactivity": true,
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    },
+    "color": {
+      "text": true,
+      "background": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "render": "file:./view.php",
+  "editorScript": "file:./index.js",
+  "style": [
+    "jobplace-jobs-board",
+    "file:./style-index.css"
+  ]
+}

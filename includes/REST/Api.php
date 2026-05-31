@@ -32,8 +32,10 @@ class Api {
             'jobplace_rest_api_class_map',
             [
                 \Akash\JobPlace\REST\JobTypesController::class,
+                \Akash\JobPlace\REST\JobCategoriesController::class,
                 \Akash\JobPlace\REST\JobsController::class,
                 \Akash\JobPlace\REST\CompaniesController::class,
+                \Akash\JobPlace\REST\SettingsController::class,
             ]
         );
 
@@ -50,8 +52,8 @@ class Api {
      */
     public function register_rest_routes(): void {
         foreach ( $this->class_map as $controller ) {
-            $this->$controller = new $controller();
-            $this->$controller->register_routes();
+            $instance = new $controller();
+            $instance->register_routes();
         }
     }
 }

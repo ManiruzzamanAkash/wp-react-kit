@@ -1,0 +1,87 @@
+$edge: 32px;
+
+.wprk-settings-page {
+	--wprk-form-sticky-top: 32px;
+
+	background: #fff;
+	min-height: calc(100vh - 120px);
+
+	@media screen and (max-width: 782px) {
+		--wprk-form-sticky-top: 46px;
+	}
+
+	&__header {
+		position: sticky;
+		top: var(--wprk-form-sticky-top);
+		z-index: 20;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 24px $edge;
+		border-bottom: 1px solid #e0e0e0;
+		background: #fff;
+	}
+
+	&__heading {
+		h2 {
+			margin: 0 0 4px;
+			padding: 0;
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 1.4;
+			color: #1e1e1e;
+		}
+
+		p {
+			margin: 0;
+			padding: 0;
+			font-size: 13px;
+			color: #757575;
+		}
+	}
+
+	&__actions {
+		flex-shrink: 0;
+	}
+
+	&__body {
+		max-width: 720px;
+		padding: 24px $edge $edge;
+	}
+
+	&__loading {
+		display: flex;
+		justify-content: center;
+		padding: 48px 0;
+	}
+
+	&__hint {
+		margin: 0 0 8px;
+		font-size: 13px;
+		color: #757575;
+	}
+
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-top: 8px;
+	}
+
+	&__permalink {
+		margin: 12px 0;
+		font-size: 13px;
+
+		code {
+			padding: 4px 8px;
+			background: #f6f7f7;
+			border-radius: 4px;
+		}
+	}
+
+	.components-panel {
+		border: 1px solid #e0e0e0;
+		background: #fff;
+	}
+}

@@ -1,0 +1,22 @@
+.jobplace-job-page {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.jobplace-job-detail {
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1.5rem;
+	}
+
+	&__meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		color: #50575e;
+	}
+}

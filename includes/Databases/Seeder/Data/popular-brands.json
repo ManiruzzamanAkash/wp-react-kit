@@ -1,0 +1,514 @@
+[
+  {
+    "name": "Google",
+    "slug": "google",
+    "website": "https://www.google.com",
+    "domain": "google.com",
+    "avatar_url": "https://logo.clearbit.com/google.com",
+    "description": "Technology and internet services company."
+  },
+  {
+    "name": "Meta",
+    "slug": "meta",
+    "website": "https://about.meta.com",
+    "domain": "meta.com",
+    "avatar_url": "https://logo.clearbit.com/meta.com",
+    "description": "Social technology company."
+  },
+  {
+    "name": "Facebook",
+    "slug": "facebook",
+    "website": "https://www.facebook.com",
+    "domain": "facebook.com",
+    "avatar_url": "https://logo.clearbit.com/facebook.com",
+    "description": "Social networking platform by Meta."
+  },
+  {
+    "name": "Instagram",
+    "slug": "instagram",
+    "website": "https://www.instagram.com",
+    "domain": "instagram.com",
+    "avatar_url": "https://logo.clearbit.com/instagram.com",
+    "description": "Photo and video sharing platform by Meta."
+  },
+  {
+    "name": "WhatsApp",
+    "slug": "whatsapp",
+    "website": "https://www.whatsapp.com",
+    "domain": "whatsapp.com",
+    "avatar_url": "https://logo.clearbit.com/whatsapp.com",
+    "description": "Messaging platform by Meta."
+  },
+  {
+    "name": "YouTube",
+    "slug": "youtube",
+    "website": "https://www.youtube.com",
+    "domain": "youtube.com",
+    "avatar_url": "https://logo.clearbit.com/youtube.com",
+    "description": "Video sharing platform by Google."
+  },
+  {
+    "name": "LinkedIn",
+    "slug": "linkedin",
+    "website": "https://www.linkedin.com",
+    "domain": "linkedin.com",
+    "avatar_url": "https://logo.clearbit.com/linkedin.com",
+    "description": "Professional networking platform."
+  },
+  {
+    "name": "X",
+    "slug": "x",
+    "website": "https://x.com",
+    "domain": "x.com",
+    "avatar_url": "https://logo.clearbit.com/x.com",
+    "description": "Social media platform formerly known as Twitter."
+  },
+  {
+    "name": "Twitter",
+    "slug": "twitter",
+    "website": "https://twitter.com",
+    "domain": "twitter.com",
+    "avatar_url": "https://logo.clearbit.com/twitter.com",
+    "description": "Legacy brand of the X social platform."
+  },
+  {
+    "name": "TikTok",
+    "slug": "tiktok",
+    "website": "https://www.tiktok.com",
+    "domain": "tiktok.com",
+    "avatar_url": "https://logo.clearbit.com/tiktok.com",
+    "description": "Short-form video platform by ByteDance."
+  },
+  {
+    "name": "Uber",
+    "slug": "uber",
+    "website": "https://www.uber.com",
+    "domain": "uber.com",
+    "avatar_url": "https://logo.clearbit.com/uber.com",
+    "description": "Ride-hailing and delivery technology company."
+  },
+  {
+    "name": "Lyft",
+    "slug": "lyft",
+    "website": "https://www.lyft.com",
+    "domain": "lyft.com",
+    "avatar_url": "https://logo.clearbit.com/lyft.com",
+    "description": "Ride-hailing technology company."
+  },
+  {
+    "name": "DoorDash",
+    "slug": "doordash",
+    "website": "https://www.doordash.com",
+    "domain": "doordash.com",
+    "avatar_url": "https://logo.clearbit.com/doordash.com",
+    "description": "Food delivery platform."
+  },
+  {
+    "name": "Snapchat",
+    "slug": "snapchat",
+    "website": "https://www.snap.com",
+    "domain": "snap.com",
+    "avatar_url": "https://logo.clearbit.com/snap.com",
+    "description": "Multimedia messaging app by Snap Inc."
+  },
+  {
+    "name": "Discord",
+    "slug": "discord",
+    "website": "https://discord.com",
+    "domain": "discord.com",
+    "avatar_url": "https://logo.clearbit.com/discord.com",
+    "description": "Voice, video, and text communication platform."
+  },
+  {
+    "name": "Twitch",
+    "slug": "twitch",
+    "website": "https://www.twitch.tv",
+    "domain": "twitch.tv",
+    "avatar_url": "https://logo.clearbit.com/twitch.tv",
+    "description": "Live streaming platform by Amazon."
+  },
+  {
+    "name": "Canva",
+    "slug": "canva",
+    "website": "https://www.canva.com",
+    "domain": "canva.com",
+    "avatar_url": "https://logo.clearbit.com/canva.com",
+    "description": "Online design platform."
+  },
+  {
+    "name": "Atlassian",
+    "slug": "atlassian",
+    "website": "https://www.atlassian.com",
+    "domain": "atlassian.com",
+    "avatar_url": "https://logo.clearbit.com/atlassian.com",
+    "description": "Software company behind Jira and Confluence."
+  },
+  {
+    "name": "Dropbox",
+    "slug": "dropbox",
+    "website": "https://www.dropbox.com",
+    "domain": "dropbox.com",
+    "avatar_url": "https://logo.clearbit.com/dropbox.com",
+    "description": "Cloud storage and collaboration platform."
+  },
+  {
+    "name": "Miro",
+    "slug": "miro",
+    "website": "https://miro.com",
+    "domain": "miro.com",
+    "avatar_url": "https://logo.clearbit.com/miro.com",
+    "description": "Online collaborative whiteboard platform."
+  },
+  {
+    "name": "Airtable",
+    "slug": "airtable",
+    "website": "https://www.airtable.com",
+    "domain": "airtable.com",
+    "avatar_url": "https://logo.clearbit.com/airtable.com",
+    "description": "Cloud collaboration platform."
+  },
+  {
+    "name": "Revolut",
+    "slug": "revolut",
+    "website": "https://www.revolut.com",
+    "domain": "revolut.com",
+    "avatar_url": "https://logo.clearbit.com/revolut.com",
+    "description": "Financial technology company."
+  },
+  {
+    "name": "Wise",
+    "slug": "wise",
+    "website": "https://wise.com",
+    "domain": "wise.com",
+    "avatar_url": "https://logo.clearbit.com/wise.com",
+    "description": "International money transfer service."
+  },
+  {
+    "name": "Klarna",
+    "slug": "klarna",
+    "website": "https://www.klarna.com",
+    "domain": "klarna.com",
+    "avatar_url": "https://logo.clearbit.com/klarna.com",
+    "description": "Buy now, pay later fintech company."
+  },
+  {
+    "name": "Epic Games",
+    "slug": "epic-games",
+    "website": "https://www.epicgames.com",
+    "domain": "epicgames.com",
+    "avatar_url": "https://logo.clearbit.com/epicgames.com",
+    "description": "Video game and software developer."
+  },
+  {
+    "name": "Riot Games",
+    "slug": "riot-games",
+    "website": "https://www.riotgames.com",
+    "domain": "riotgames.com",
+    "avatar_url": "https://logo.clearbit.com/riotgames.com",
+    "description": "Video game developer and publisher."
+  },
+  {
+    "name": "Valve",
+    "slug": "valve",
+    "website": "https://www.valvesoftware.com",
+    "domain": "valvesoftware.com",
+    "avatar_url": "https://logo.clearbit.com/valvesoftware.com",
+    "description": "Video game developer and Steam platform operator."
+  },
+  {
+    "name": "Nintendo",
+    "slug": "nintendo",
+    "website": "https://www.nintendo.com",
+    "domain": "nintendo.com",
+    "avatar_url": "https://logo.clearbit.com/nintendo.com",
+    "description": "Video game and console company."
+  },
+  {
+    "name": "Binance",
+    "slug": "binance",
+    "website": "https://www.binance.com",
+    "domain": "binance.com",
+    "avatar_url": "https://logo.clearbit.com/binance.com",
+    "description": "Cryptocurrency exchange platform."
+  },
+  {
+    "name": "Block",
+    "slug": "block",
+    "website": "https://block.xyz",
+    "domain": "block.xyz",
+    "avatar_url": "https://logo.clearbit.com/block.xyz",
+    "description": "Financial services company behind Square and Cash App."
+  },
+  {
+    "name": "BMW",
+    "slug": "bmw",
+    "website": "https://www.bmw.com",
+    "domain": "bmw.com",
+    "avatar_url": "https://logo.clearbit.com/bmw.com",
+    "description": "Luxury automotive manufacturer."
+  },
+  {
+    "name": "Mercedes-Benz",
+    "slug": "mercedes-benz",
+    "website": "https://www.mercedes-benz.com",
+    "domain": "mercedes-benz.com",
+    "avatar_url": "https://logo.clearbit.com/mercedes-benz.com",
+    "description": "Luxury automotive manufacturer."
+  },
+  {
+    "name": "Ford",
+    "slug": "ford",
+    "website": "https://www.ford.com",
+    "domain": "ford.com",
+    "avatar_url": "https://logo.clearbit.com/ford.com",
+    "description": "Automotive manufacturer."
+  },
+  {
+    "name": "Hyundai",
+    "slug": "hyundai",
+    "website": "https://www.hyundai.com",
+    "domain": "hyundai.com",
+    "avatar_url": "https://logo.clearbit.com/hyundai.com",
+    "description": "Automotive manufacturer."
+  },
+  {
+    "name": "Volvo",
+    "slug": "volvo",
+    "website": "https://www.volvocars.com",
+    "domain": "volvocars.com",
+    "avatar_url": "https://logo.clearbit.com/volvocars.com",
+    "description": "Automotive manufacturer."
+  },
+  {
+    "name": "IKEA",
+    "slug": "ikea",
+    "website": "https://www.ikea.com",
+    "domain": "ikea.com",
+    "avatar_url": "https://logo.clearbit.com/ikea.com",
+    "description": "Furniture and home goods retailer."
+  },
+  {
+    "name": "Booking.com",
+    "slug": "booking-com",
+    "website": "https://www.booking.com",
+    "domain": "booking.com",
+    "avatar_url": "https://logo.clearbit.com/booking.com",
+    "description": "Online travel agency."
+  },
+  {
+    "name": "Expedia",
+    "slug": "expedia",
+    "website": "https://www.expedia.com",
+    "domain": "expedia.com",
+    "avatar_url": "https://logo.clearbit.com/expedia.com",
+    "description": "Online travel company."
+  },
+  {
+    "name": "Marriott",
+    "slug": "marriott",
+    "website": "https://www.marriott.com",
+    "domain": "marriott.com",
+    "avatar_url": "https://logo.clearbit.com/marriott.com",
+    "description": "Hotel and hospitality company."
+  },
+  {
+    "name": "Hilton",
+    "slug": "hilton",
+    "website": "https://www.hilton.com",
+    "domain": "hilton.com",
+    "avatar_url": "https://logo.clearbit.com/hilton.com",
+    "description": "Hotel and hospitality company."
+  },
+  {
+    "name": "Emirates",
+    "slug": "emirates",
+    "website": "https://www.emirates.com",
+    "domain": "emirates.com",
+    "avatar_url": "https://logo.clearbit.com/emirates.com",
+    "description": "International airline based in Dubai."
+  },
+  {
+    "name": "Ryanair",
+    "slug": "ryanair",
+    "website": "https://www.ryanair.com",
+    "domain": "ryanair.com",
+    "avatar_url": "https://logo.clearbit.com/ryanair.com",
+    "description": "Low-cost airline."
+  },
+  {
+    "name": "Domino's",
+    "slug": "dominos",
+    "website": "https://www.dominos.com",
+    "domain": "dominos.com",
+    "avatar_url": "https://logo.clearbit.com/dominos.com",
+    "description": "Pizza restaurant chain."
+  },
+  {
+    "name": "KFC",
+    "slug": "kfc",
+    "website": "https://www.kfc.com",
+    "domain": "kfc.com",
+    "avatar_url": "https://logo.clearbit.com/kfc.com",
+    "description": "Fast food restaurant chain."
+  },
+  {
+    "name": "Burger King",
+    "slug": "burger-king",
+    "website": "https://www.bk.com",
+    "domain": "bk.com",
+    "avatar_url": "https://logo.clearbit.com/bk.com",
+    "description": "Fast food restaurant chain."
+  },
+  {
+    "name": "Costco",
+    "slug": "costco",
+    "website": "https://www.costco.com",
+    "domain": "costco.com",
+    "avatar_url": "https://logo.clearbit.com/costco.com",
+    "description": "Membership warehouse club retailer."
+  },
+  {
+    "name": "Samsung",
+    "slug": "samsung",
+    "website": "https://www.samsung.com",
+    "domain": "samsung.com",
+    "avatar_url": "https://logo.clearbit.com/samsung.com",
+    "description": "Electronics and technology conglomerate."
+  },
+  {
+    "name": "LG",
+    "slug": "lg",
+    "website": "https://www.lg.com",
+    "domain": "lg.com",
+    "avatar_url": "https://logo.clearbit.com/lg.com",
+    "description": "Electronics company."
+  },
+  {
+    "name": "Dell",
+    "slug": "dell",
+    "website": "https://www.dell.com",
+    "domain": "dell.com",
+    "avatar_url": "https://logo.clearbit.com/dell.com",
+    "description": "Computer technology company."
+  },
+  {
+    "name": "HP",
+    "slug": "hp",
+    "website": "https://www.hp.com",
+    "domain": "hp.com",
+    "avatar_url": "https://logo.clearbit.com/hp.com",
+    "description": "Computer and printer company."
+  },
+  {
+    "name": "Cisco",
+    "slug": "cisco",
+    "website": "https://www.cisco.com",
+    "domain": "cisco.com",
+    "avatar_url": "https://logo.clearbit.com/cisco.com",
+    "description": "Networking and cybersecurity company."
+  },
+  {
+    "name": "Deloitte",
+    "slug": "deloitte",
+    "website": "https://www.deloitte.com",
+    "domain": "deloitte.com",
+    "avatar_url": "https://logo.clearbit.com/deloitte.com",
+    "description": "Professional services network."
+  },
+  {
+    "name": "McKinsey & Company",
+    "slug": "mckinsey",
+    "website": "https://www.mckinsey.com",
+    "domain": "mckinsey.com",
+    "avatar_url": "https://logo.clearbit.com/mckinsey.com",
+    "description": "Management consulting firm."
+  },
+  {
+    "name": "BCG",
+    "slug": "bcg",
+    "website": "https://www.bcg.com",
+    "domain": "bcg.com",
+    "avatar_url": "https://logo.clearbit.com/bcg.com",
+    "description": "Management consulting firm."
+  },
+  {
+    "name": "Alibaba",
+    "slug": "alibaba",
+    "website": "https://www.alibabagroup.com",
+    "domain": "alibabagroup.com",
+    "avatar_url": "https://logo.clearbit.com/alibabagroup.com",
+    "description": "E-commerce and technology conglomerate."
+  },
+  {
+    "name": "Baidu",
+    "slug": "baidu",
+    "website": "https://www.baidu.com",
+    "domain": "baidu.com",
+    "avatar_url": "https://logo.clearbit.com/baidu.com",
+    "description": "Internet and AI company."
+  },
+  {
+    "name": "Grab",
+    "slug": "grab",
+    "website": "https://www.grab.com",
+    "domain": "grab.com",
+    "avatar_url": "https://logo.clearbit.com/grab.com",
+    "description": "Super-app for ride-hailing and delivery in Southeast Asia."
+  },
+  {
+    "name": "Shopee",
+    "slug": "shopee",
+    "website": "https://shopee.com",
+    "domain": "shopee.com",
+    "avatar_url": "https://logo.clearbit.com/shopee.com",
+    "description": "E-commerce platform by Sea Limited."
+  },
+  {
+    "name": "Flipkart",
+    "slug": "flipkart",
+    "website": "https://www.flipkart.com",
+    "domain": "flipkart.com",
+    "avatar_url": "https://logo.clearbit.com/flipkart.com",
+    "description": "E-commerce company."
+  },
+  {
+    "name": "Mercado Libre",
+    "slug": "mercado-libre",
+    "website": "https://www.mercadolibre.com",
+    "domain": "mercadolibre.com",
+    "avatar_url": "https://logo.clearbit.com/mercadolibre.com",
+    "description": "E-commerce and fintech company in Latin America."
+  },
+  {
+    "name": "Automattic",
+    "slug": "automattic",
+    "website": "https://automattic.com",
+    "domain": "automattic.com",
+    "avatar_url": "https://logo.clearbit.com/automattic.com",
+    "description": "Company behind WordPress.com and WooCommerce."
+  },
+  {
+    "name": "WordPress",
+    "slug": "wordpress",
+    "website": "https://wordpress.com",
+    "domain": "wordpress.com",
+    "avatar_url": "https://logo.clearbit.com/wordpress.com",
+    "description": "Content management and publishing platform."
+  },
+  {
+    "name": "Wix",
+    "slug": "wix",
+    "website": "https://www.wix.com",
+    "domain": "wix.com",
+    "avatar_url": "https://logo.clearbit.com/wix.com",
+    "description": "Website builder platform."
+  },
+  {
+    "name": "Squarespace",
+    "slug": "squarespace",
+    "website": "https://www.squarespace.com",
+    "domain": "squarespace.com",
+    "avatar_url": "https://logo.clearbit.com/squarespace.com",
+    "description": "Website building and hosting platform."
+  }
+]

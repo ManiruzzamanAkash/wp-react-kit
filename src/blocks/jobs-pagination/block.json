@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wrc/jobs-pagination",
+  "title": "Jobs Pagination",
+  "category": "jobplace-jobs",
+  "textdomain": "jobplace",
+  "ancestor": [
+    "wrc/jobs-list"
+  ],
+  "supports": {
+    "interactivity": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "render": "file:./view.php",
+  "editorScript": "file:./index.js",
+  "style": [
+    "jobplace-jobs-board",
+    "file:./style-index.css"
+  ],
+  "viewScriptModule": [
+    "@jobplace/jobs"
+  ],
+  "usesContext": [
+    "query"
+  ]
+}

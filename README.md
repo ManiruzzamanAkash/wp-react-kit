@@ -1,5 +1,5 @@
 # WP-React-Kit
-A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, WordPress Playwright e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
+A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, @wordpress/components, @wordpress/dataviews, SCSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, WordPress Playwright e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -10,20 +10,21 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 3. React
 4. React Router
 5. TypeScript
-6. Tailwind CSS [Nested + ]
-7. Scss
-8. PostCSS
-9. Eslint
-10. WP-Data
-11. WP-Data Redux Store [Redux Saga, Generator function, Thunk, Saga Middleware]
-12. React Components
-13. React CRUD Operations - Create, Reade, Update, Delete, Status changes and so many...
-14. Internationalization - WP i18n
-15. PHPUnit Test [Test + Fix]
-16. JestUnit Test
-17. WordPress Playwright e2e Test
-18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
-19. Gutenberg blocks, Dynamic blocks
+6. Scss
+7. PostCSS
+8. Eslint
+9. WP-Data
+10. WP-Data Redux Store [Redux Saga, Generator function, Thunk, Saga Middleware]
+11. React Components
+12. React CRUD Operations - Create, Reade, Update, Delete, Status changes and so many...
+13. Internationalization - WP i18n
+14. PHPUnit Test [Test + Fix]
+15. JestUnit Test
+16. WordPress Playwright e2e Test
+17. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
+18. Gutenberg blocks — admin + **public job board** (Interactivity API)
+19. Block patterns with editor **Replace** layouts (jobs list + job detail)
+20. Auto-created **Jobs** page on plugin activation
 
 ### Quick Start
 ```sh
@@ -89,12 +90,12 @@ npm run test:unit
 
 Playwright doc link: https://playwright.dev/docs/running-tests
 
-**Requirements:**
-- Must have docker installed and running by ensuring these commands -
+**First-time setup**
+```sh
+npm run test:e2e:prepare
 ```
-npm run env:stop
-npm run env:start
-```
+
+**Requirements:** Docker running (`npm run env:start`).
 
 **Normal e2e test**
 ```sh
@@ -133,67 +134,38 @@ Where, `/wpex` is the project root folder inside `/htdocs`.
 
 Or, it could be your custom processed URL.
 
-### REST API's
+### REST API
 
-**Postman API Link** - https://www.getpostman.com/collections/f94073131fc1411506e8
+Namespace: **`job-place/v1`** — base URL `{site_url}/wp-json/job-place/v1`.
 
-#### REST API Documentation
+Replace `{site_url}` with your install (e.g. `http://foodfruitservice.local` or `http://localhost/wpex`).
 
-1. **Job Types**
-    - Method: `GET`
-    - URL: http://localhost/wpex/wp-json/job-place/v1/job-types
-1. **Companies dropdown**
-    - Method: `GET`
-    - URL: http://localhost/wpex/wp-json/job-place/v1/companies/dropdown
-1. **Job Lists**
-    - Method: `GET`
-    - URL: http://localhost/wpex/wp-json/job-place/v1/jobs
-1. **Job Details**
-    - Method: `GET`
-    - URL By ID: http://localhost/wpex/wp-json/job-place/v1/jobs/1
-    - URL By Slug: http://localhost/wpex/wp-json/job-place/v1/jobs/first-job
-1. **Create Job**
-    - Method: `POST`
-    - URL: http://localhost/wpex/wp-json/job-place/v1/Jobs
-    - Body:
-    ```json
-    {
-        "title": "Simple Job Post",
-        "slug": "simple-job-post",
-        "description": "Simple job post description",
-        "company_id": 1,
-        "job_type_id": 2,
-        "is_active": 1
-    }
-    ```
-1. **Update Job**
-    - Method: `PUT`
-    - URL: http://localhost/wpex/wp-json/job-place/v1/jobs/1
-    - Body:
-    ```json
-    {
-        "title": "Simple Job Post Updated",
-        "slug": "simple-job-post-updated",
-        "description": "Simple job post description",
-        "company_id": 1,
-        "job_type_id": 2,
-        "is_active": 1
-    }
-    ```
-1. **Delete Jobs**
-    - Method: `DELETE`
-    - URL: http://localhost/wpex/wp-json/job-place/v1/jobs
-    - Body:
-    ```json
-    {
-        "ids": [1, 2]
-    }
-    ```
+| Resource | Methods | Route |
+|---|---|---|
+| Job types | `GET` | `/job-types` |
+| Jobs | `GET`, `POST`, `DELETE` | `/jobs`, `/jobs/stats`, `/jobs/{id\|slug}` |
+| Jobs | `PUT` / `PATCH` | `/jobs/{id}` |
+| Companies | `GET`, `POST`, `DELETE` | `/companies`, `/companies/stats`, `/companies/dropdown`, `/companies/{id}` |
+| Companies | `PUT` / `PATCH` | `/companies/{id}` |
+| Job categories | `GET`, `POST`, `DELETE` | `/job-categories`, `/job-categories/stats`, `/job-categories/{id}` |
+| Job categories | `PUT` / `PATCH` | `/job-categories/{id}` |
+| Settings | `GET`, `PUT` / `PATCH` | `/settings` (`manage_options`) |
 
-**Detailed Documentation** -
-[View Detailed documentations with parameters and responses of the REST API](https://github.com/ManiruzzamanAkash/wp-react-kit/blob/main/Rest-API-Docs.MD)
+**Postman:** import [`docs/postman/Job-Place-v1.postman_collection.json`](docs/postman/Job-Place-v1.postman_collection.json) and set the `site_url` collection variable. The old [Postman cloud collection](https://www.getpostman.com/collections/f94073131fc1411506e8) predates v1.0.0 and is no longer maintained.
+
+**Full reference (parameters, filters, response shapes, examples):** [`Rest-API-Docs.MD`](Rest-API-Docs.MD)
 
 ### Version & Changelogs
+
+See [`changelog.txt`](changelog.txt) for the full history.
+
+**v1.0.0 - 31/05/2026**
+
+1. **Feat:** Jobs DataViews admin, categories, companies, and settings.
+2. **Feat:** Public job board blocks with Interactivity API search and pagination.
+3. **Feat:** Block patterns with editor **Replace** for list and detail layouts.
+4. **Enhancement:** Full admin refactor with `@wordpress/components` and `@wordpress/dataviews`.
+
 **v0.9.0 - 20/12/2024**
 
 1. Fix: Updated PHP version support > 8.0 and some more library support
@@ -318,58 +290,129 @@ https://github.com/ManiruzzamanAkash/wp-react-kit/releases/tag/vPhpOOP
 </details>
 
 
-### Demo With React Router & Menu
+### Screenshots
 
-![Demo Plugin](https://i.ibb.co/vPp9Mm9/Wp-Scripts-Demo.png "Demo in WordPress plugin")
+Screenshots live in [`demo-screenshots/`](demo-screenshots/).
 
-### Final Demos
+#### Front-end job board
 
-**Job List Page**
+**Block editor — Jobs List block**
 
-![Job List Page](https://i.ibb.co/0MXQ7y7/Job-List.png "Job List Page")
+![Jobs List block in the editor](demo-screenshots/01-block-editor-jobs.png "Jobs List block in the editor")
 
-**Job List Page with Pagination in different primary color**
+**Block editor — layout patterns (Replace)**
 
-![Job List Page with Pagination](https://i.ibb.co/1vr6tXS/Job-Pagination.png "Job List Page with Pagination")
+![Jobs board layout patterns](demo-screenshots/02-block-editor-jobs-patterns.png "Jobs board layout patterns")
 
-**Job List Page with search**
+**Published jobs page**
 
-![Job List Page with Search](https://i.ibb.co/nr3pTXM/Jobs-Search.png "Job List Page with Search")
+![Front-end jobs board](demo-screenshots/03-block-frontend-jobs.png "Front-end jobs board")
 
-**Job Create Page**
+#### wp-admin (Job Manager)
 
-![Job Create Page](https://i.ibb.co/ZXzgjzr/Job-Create.png "Job Create Page")
+**Dashboard**
 
+![Job Manager dashboard](demo-screenshots/04-admin-dashboard.png "Job Manager dashboard")
 
-**Job Edit Page**
+**Jobs list**
 
-![Job Edit Page](https://i.ibb.co/2Sqpck3/Job-Edit.png "Job Edit Page")
+![Jobs list with DataViews](demo-screenshots/05-admin-jobs-list.png "Jobs list with DataViews")
 
-![Job Edit Page Loading](https://i.ibb.co/hfxNg7G/Job-Create-Preloading.png "Job Edit Page Loading")
+**Jobs list — filters**
 
-**Job Delete**
+![Jobs list filters](demo-screenshots/05-1-admin-jobs-list-filter.png "Jobs list filters")
 
-![Job Delete popup](
-https://i.ibb.co/yfXBT8b/Job-Delete-Popup.png
- "Job Delete popup")
+**Create job**
 
- **Responsive views**
+![Create job form](demo-screenshots/06-admin-jobs-create.png "Create job form")
 
-![Mobile responsive views-1](
-https://i.ibb.co/Ws6n1HW/Mobile-View-List.png
- "Mobile responsive views-1")
+**Companies**
 
-![Mobile responsive views-2](
-https://i.ibb.co/QYgvD83/Mobile-View-Selected-Job.png
- "Mobile responsive views-2")
+![Companies list](demo-screenshots/07-admin-jobs-companies.png "Companies list")
 
- ## Gutenberg blocks
- Inside `src/blocks` you'll find gutenberg block for ready block setup. We've made blocks like dynamic block so that future changes would not create any issue.
+**Companies — side drawer**
 
- **Demo preview -**
- ![React Kit Header Block demo](
- https://i.ibb.co/V2m7bPt/wp-react-kit-block-demo.png
- "React Kit Header Block demo")
+![Company side drawer](demo-screenshots/07-1-admin-jobs-companies-drawer.png "Company side drawer")
+
+**Job categories**
+
+![Job categories list](demo-screenshots/08-admin-jobs-categories.png "Job categories list")
+
+**Settings**
+
+![Job Manager settings](demo-screenshots/09-admin-settings-forms.png "Job Manager settings")
+
+## Job board (front-end blocks)
+
+Interactive job listings for block themes and classic themes with the block editor.
+Requires `npm run build` so `build/blocks/*` exists.
+
+### Quick setup
+
+1. Activate the plugin — a **Jobs** page is created at `/jobs/` (customizable slug).
+2. Edit the page in the Site Editor or block editor.
+3. Select the **Jobs List** block → use **Replace** in the toolbar to pick a layout pattern.
+4. Publish. Search and pagination work without full page reloads (Interactivity API).
+
+Plugin row links: **View Jobs Board** / **Edit Jobs Board**.
+
+### Block overview
+
+| Block | Purpose |
+|-------|---------|
+| `wrc/jobs-list` | Board wrapper (query, search, list, pagination) |
+| `wrc/jobs-template` | Layout repeated for each job |
+| `wrc/job-page` | Single job detail (used in `single-job` template) |
+| Field blocks | Title, company, location, salary, badges, apply button, etc. |
+
+### Patterns (`templates/patterns/`)
+
+**Jobs list:** Default, Grid, Compact, Featured  
+**Job detail:** Default, Compact, Split  
+
+Patterns register against `blockTypes` so **Replace** only shows relevant layouts.
+Categories: `jobplace_jobs`, `jobplace_jobs_list`, `jobplace_job_detail`.
+
+### Single job pages
+
+- Block template: `templates/templates/single-job.html`
+- Permalink settings: Job Manager → permalinks (see admin app)
+- Router: `includes/Routing/JobDetailRouter.php`
+
+### SEO-friendly markup
+
+- List uses `role="list"`; each job is an `<article>`.
+- Job titles link to the detail URL.
+- Text fields are escaped in PHP `view.php` templates.
+
+### Settings
+
+Open **Job Manager → Settings** in wp-admin (`#/settings`).
+
+| Setting | What it does |
+|---------|----------------|
+| Global job detail layout | Picks a job detail pattern (Default, Compact, Split) for all `/jobs/{slug}/` URLs |
+| Jobs list page | Which WordPress page contains the Jobs List block |
+| Default jobs per page | Fallback page size for listings |
+| Default apply button text | Label when Apply blocks have no custom text |
+
+REST: `GET/PUT /wp-json/job-place/v1/settings`. Permalink base is still under **Settings → Permalinks** in WordPress.
+
+### Developer notes
+
+- Block sources: `src/blocks/` — editor JS + `view.php` render callbacks.
+- Interactivity store: `src/scripts/jobs/` (`@jobplace/jobs`).
+- Global settings: `includes/Common/Settings.php`, `src/pages/settings/SettingsPage.tsx`.
+- Shared styles: `src/styles/jobs-board.scss` (BEM: nest `&__element` under block roots).
+- Agent/docs detail: see `AGENTS.md` and `CLAUDE.md`.
+
+## Gutenberg blocks (legacy demo)
+
+Inside `src/blocks` you'll also find sample blocks (e.g. header). Job board blocks
+use the `wrc/*` namespace and dynamic PHP templates.
+
+See the **Screenshots** section above for current Job Manager and job board demos.
+The legacy `wrc/header` sample block remains under `src/blocks/header/`.
 
 ## Contribution
 

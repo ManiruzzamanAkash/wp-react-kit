@@ -5,6 +5,9 @@ import HomePage from '../pages/HomePage';
 import JobsPage from '../pages/jobs/JobsPage';
 import CreateJob from '../pages/jobs/CreateJob';
 import EditJob from '../pages/jobs/EditJob';
+import JobCategoriesPage from '../pages/job-categories/JobCategoriesPage';
+import CompaniesPage from '../pages/companies/CompaniesPage';
+import SettingsPage from '../pages/settings/SettingsPage';
 
 const routes = [
     {
@@ -22,6 +25,18 @@ const routes = [
     {
         path: '/jobs/edit/:id',
         element: EditJob,
+    },
+    {
+        path: '/job-categories',
+        element: JobCategoriesPage,
+    },
+    {
+        path: '/companies',
+        element: CompaniesPage,
+    },
+    {
+        path: '/settings',
+        element: SettingsPage,
     },
 ];
 

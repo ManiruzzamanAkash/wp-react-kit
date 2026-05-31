@@ -1,0 +1,1 @@
+<span <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => 'jobplace-job-badge jobplace-job-badge--remote' ] ) ); ?><?php echo wp_kses_data( wp_interactivity_data_wp_context( [ 'remoteLabel' => $attributes['label'] ?? __( 'Remote', 'jobplace' ) ] ) ); ?> data-wp-bind--hidden="!state.isRemoteJob" hidden data-wp-text="state.remoteBadgeLabel"></span>

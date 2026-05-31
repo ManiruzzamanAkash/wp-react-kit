@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name:       WP React Kit
- * Description:       A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...
+ * Plugin Name:       Job Manager
+ * Description:       Manage jobs, companies, and categories from a React-powered WordPress admin.
  * Requires at least: 5.8
  * Requires PHP:      7.4
- * Version:           0.9.0
+ * Version:           1.0.0
  * Tested upto:       6.7.1
  * Author:            Maniruzzaman Akash<manirujjamanakash@gmail.com>
  * License:           GPL-2.0-or-later
@@ -164,6 +164,7 @@ final class Wp_React_Kit {
     public function activate() {
         // Run the installer to create necessary migrations and seeders.
         $this->install();
+        flush_rewrite_rules();
     }
 
     /**
@@ -185,7 +186,10 @@ final class Wp_React_Kit {
      * @since 0.2.0
      */
     public function flush_rewrite_rules() {
-        // fix rewrite rules
+        if ( get_option( 'jobplace_flush_rewrite_rules' ) ) {
+            flush_rewrite_rules();
+            delete_option( 'jobplace_flush_rewrite_rules' );
+        }
     }
 
     /**
@@ -210,13 +214,16 @@ final class Wp_React_Kit {
     public function includes() {
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin_menu'] = new Akash\JobPlace\Admin\Menu();
+            $this->container['upgrader']   = new Akash\JobPlace\Setup\Upgrader();
         }
 
         // Common classes
         $this->container['assets']   = new Akash\JobPlace\Assets\Manager();
         $this->container['blocks']   = new Akash\JobPlace\Blocks\Manager();
         $this->container['rest_api'] = new Akash\JobPlace\REST\Api();
-        $this->container['jobs']     = new Akash\JobPlace\Jobs\Manager();
+        $this->container['jobs']           = new Akash\JobPlace\Jobs\Manager();
+        $this->container['job_categories'] = new Akash\JobPlace\Jobs\JobCategoryManager();
+        $this->container['companies']      = new Akash\JobPlace\Jobs\CompanyManager();
     }
 
     /**
@@ -306,6 +313,18 @@ final class Wp_React_Kit {
      * @return array
      */
     public function plugin_action_links( $links ) {
+        $pages = new \Akash\JobPlace\WordPress\Pages\PageService();
+        $jobs_url = $pages->url( 'jobs' );
+        $jobs_edit = $pages->edit_url( 'jobs' );
+
+        if ( $jobs_url ) {
+            $links[] = '<a href="' . esc_url( $jobs_url ) . '">' . __( 'View Jobs Board', 'jobplace' ) . '</a>';
+        }
+
+        if ( $jobs_edit ) {
+            $links[] = '<a href="' . esc_url( $jobs_edit ) . '">' . __( 'Edit Jobs Board', 'jobplace' ) . '</a>';
+        }
+
         $links[] = '<a href="' . admin_url( 'admin.php?page=jobplace#/settings' ) . '">' . __( 'Settings', 'jobplace' ) . '</a>';
         $links[] = '<a href="https://github.com/ManiruzzamanAkash/wp-react-kit#quick-start" target="_blank">' . __( 'Documentation', 'jobplace' ) . '</a>';
 

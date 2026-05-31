@@ -3,6 +3,7 @@
 namespace Akash\JobPlace\Setup;
 
 use Akash\JobPlace\Common\Keys;
+use Akash\JobPlace\Setup\Upgrader;
 
 /**
  * Class Installer.
@@ -32,6 +33,10 @@ class Installer {
         // Run the database seeders.
         $seeder = new \Akash\JobPlace\Databases\Seeder\Manager();
         $seeder->run();
+
+        // Create default front-end pages (jobs board).
+        $page_seeder = new PageSeeder();
+        $page_seeder->seed();
     }
 
     /**
@@ -56,8 +61,10 @@ class Installer {
         global $wpdb;
 
         // Register the tables to wpdb global.
-        $wpdb->jobplace_job_types = $wpdb->prefix . 'jobplace_job_types';
-        $wpdb->jobplace_jobs      = $wpdb->prefix . 'jobplace_jobs';
+        $wpdb->jobplace_job_types      = $wpdb->prefix . 'jobplace_job_types';
+        $wpdb->jobplace_job_categories = $wpdb->prefix . 'jobplace_job_categories';
+        $wpdb->jobplace_companies      = $wpdb->prefix . 'jobplace_companies';
+        $wpdb->jobplace_jobs           = $wpdb->prefix . 'jobplace_jobs';
     }
 
     /**
@@ -76,6 +83,7 @@ class Installer {
         }
 
         update_option( Keys::JOB_PLACE_VERSION, JOB_PLACE_VERSION );
+        update_option( Keys::JOB_PLACE_DB_VERSION, Upgrader::DB_VERSION );
     }
 
     /**
@@ -92,6 +100,8 @@ class Installer {
 
         // Run the database table migrations.
         \Akash\JobPlace\Databases\Migrations\JobTypeMigration::migrate();
+        \Akash\JobPlace\Databases\Migrations\JobCategoryMigration::migrate();
+        \Akash\JobPlace\Databases\Migrations\CompanyMigration::migrate();
         \Akash\JobPlace\Databases\Migrations\JobsMigration::migrate();
     }
 }

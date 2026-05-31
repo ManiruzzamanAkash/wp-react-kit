@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wrc/jobs-no-results",
+  "title": "Jobs No Results",
+  "category": "jobplace-jobs",
+  "textdomain": "jobplace",
+  "ancestor": [
+    "wrc/jobs-list"
+  ],
+  "attributes": {
+    "message": {
+      "type": "string",
+      "default": "No jobs found."
+    }
+  },
+  "supports": {
+    "interactivity": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "render": "file:./view.php",
+  "editorScript": "file:./index.js",
+  "style": [
+    "jobplace-jobs-board",
+    "file:./style-index.css"
+  ],
+  "viewScriptModule": [
+    "@jobplace/jobs"
+  ],
+  "usesContext": [
+    "query"
+  ]
+}

@@ -1,8 +1,13 @@
 /**
  * Internal dependencies.
  */
-import { Select2SingleRow } from '../../components/inputs/Select2Input';
-import { IJob, IJobFormData, IResponseGenerator } from '../../interfaces';
+import {
+    IJob,
+    IJobFormData,
+    IJobStats,
+    IResponseGenerator,
+    Select2SingleRow,
+} from '../../interfaces';
 import { jobsEndpoint } from './endpoint';
 import * as Types from './types';
 import { jobDefaultFormData } from './default-state';
@@ -22,6 +27,13 @@ const actions = {
         };
     },
 
+    setJobStats(stats: IJobStats) {
+        return {
+            type: Types.GET_JOB_STATS,
+            stats,
+        };
+    },
+
     setCompanyDropdowns(companyDropdowns: Array<Select2SingleRow>) {
         return {
             type: Types.GET_COMPANIES_DROPDOWN,
@@ -33,6 +45,13 @@ const actions = {
         return {
             type: Types.GET_JOB_TYPES,
             jobTypes,
+        };
+    },
+
+    setJobCategories(jobCategories: Array<Select2SingleRow>) {
+        return {
+            type: Types.GET_JOB_CATEGORIES,
+            jobCategories,
         };
     },
 
@@ -116,12 +135,18 @@ const actions = {
                 };
             }
 
+            yield actions.setSavingJobs(false);
+
             if (response?.id > 0) {
                 yield actions.setFormData({ ...jobDefaultFormData });
-                yield actions.setSavingJobs(false);
             }
+
+            return response;
         } catch (error) {
             yield actions.setSavingJobs(false);
+
+            // Let the caller handle the error.
+            throw error;
         }
     },
 
@@ -167,8 +192,13 @@ const actions = {
             }
 
             yield actions.setDeletingJobs(false);
+
+            return responseDeleteJobs;
         } catch (error) {
             yield actions.setDeletingJobs(false);
+
+            // Let the caller handle the error.
+            throw error;
         }
     },
 };
