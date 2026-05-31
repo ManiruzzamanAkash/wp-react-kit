@@ -29,7 +29,6 @@ class CompanyRestApiTest extends \WP_UnitTestCase {
      * Setup test environment.
      */
     protected function setUp() : void {
-        // Initialize REST Server.
         global $wp_rest_server;
 
         parent::setUp();
@@ -57,25 +56,35 @@ class CompanyRestApiTest extends \WP_UnitTestCase {
      * @group company-rest-api
      */
     public function test_company_dropdown_list_endpoint() {
+        global $wpdb;
+
         $endpoint = '/' . $this->namespace . '/' . $this->base . '/dropdown';
         $request  = new \WP_REST_Request( 'GET', $endpoint );
         $response = $this->server->dispatch( $request );
         $data     = $response->get_data();
 
-        // It must be an array.
         $this->assertTrue( is_array( $data ) );
         $this->assertEquals( count( $data ), 0 );
 
-        // Set company meta to administrator user.
-        $user = get_user_by( 'id', 1 );
-        if ( $user ) {
-            update_user_meta( 1, 'user_type', 'company' );
+        $now = current_datetime()->format( 'Y-m-d H:i:s' );
+        $wpdb->insert(
+            $wpdb->prefix . 'jobplace_companies',
+            [
+                'name'        => 'Test Company',
+                'slug'        => 'test-company',
+                'email'       => 'test@example.com',
+                'website'     => '',
+                'description' => '',
+                'avatar_url'  => '',
+                'created_at'  => $now,
+                'updated_at'  => $now,
+            ]
+        );
 
-            $response = $this->server->dispatch( $request );
-            $data     = $response->get_data();
+        $response = $this->server->dispatch( $request );
+        $data     = $response->get_data();
 
-            // Length must be 1
-            $this->assertEquals( count( $data ), 1 );
-        }
+        $this->assertEquals( count( $data ), 1 );
+        $this->assertEquals( 'Test Company', $data[0]['name'] );
     }
 }

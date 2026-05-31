@@ -200,16 +200,17 @@ class Job extends BaseModel {
             return null;
         }
 
-        $user = get_user_by( 'id', $job->company_id );
+        $company = new Company();
+        $row     = $company->get( (int) $job->company_id, 'id, name, avatar_url' );
 
-        if ( empty( $user ) ) {
+        if ( empty( $row ) ) {
             return null;
         }
 
         return [
-            'id'         => $job->company_id,
-            'name'       => $user->display_name,
-            'avatar_url' => get_avatar_url( $user->ID ),
+            'id'         => (int) $row->id,
+            'name'       => $row->name,
+            'avatar_url' => $row->avatar_url,
         ];
     }
 }
