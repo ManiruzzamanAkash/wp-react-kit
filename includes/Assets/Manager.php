@@ -43,7 +43,7 @@ class Manager {
             'job-place-css' => [
                 'src'     => JOB_PLACE_BUILD . '/index.css',
                 'version' => JOB_PLACE_VERSION,
-                'deps'    => [],
+                'deps'    => [ 'wp-components' ],
             ],
         ];
     }

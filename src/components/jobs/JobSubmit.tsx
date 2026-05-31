@@ -3,6 +3,8 @@
  */
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelect } from '@wordpress/data';
+import { Button } from '@wordpress/components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { __ } from '@wordpress/i18n';
@@ -11,7 +13,6 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies.
  */
 import jobStore from '../../data/jobs';
-import Button from '../button/Button';
 import { IJobFormData } from '../../interfaces';
 import { jobDefaultFormData } from '../../data/jobs/default-state';
 
@@ -103,23 +104,24 @@ export default function JobSubmit() {
     return (
         <>
             <Button
-                text={__('Cancel', 'jobplace')}
-                type="default"
+                variant="secondary"
                 onClick={backToJobsPage}
-                buttonCustomClass="mr-3"
-            />
+                style={{ marginRight: 12 }}
+            >
+                {__('Cancel', 'jobplace')}
+            </Button>
 
             <Button
-                text={
-                    jobsSaving
-                        ? __('Saving…', 'jobplace')
-                        : __('Save', 'jobplace')
-                }
-                type="primary"
-                icon={faCheckCircle}
+                variant="primary"
+                icon={<FontAwesomeIcon icon={faCheckCircle} />}
+                isBusy={jobsSaving}
                 disabled={jobsSaving}
                 onClick={onSubmit}
-            />
+            >
+                {jobsSaving
+                    ? __('Saving…', 'jobplace')
+                    : __('Save', 'jobplace')}
+            </Button>
         </>
     );
 }

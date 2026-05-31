@@ -3,13 +3,14 @@
  */
 import { useEffect, useState } from '@wordpress/element';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@wordpress/components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
-import Button from '../../components/button/Button';
 import Layout from '../../components/layout/Layout';
 import Table from '../../components/table/Table';
 import TableLoading from '../../components/loading/TableLoading';
@@ -121,11 +122,12 @@ export default function JobsPage() {
             </div>
             <div className="flex-1 text-left">
                 <Button
-                    text={__('New', 'jobplace')}
-                    type="primary"
-                    icon={faPlus}
+                    variant="primary"
+                    icon={<FontAwesomeIcon icon={faPlus} />}
                     onClick={() => navigate('/jobs/new')}
-                />
+                >
+                    {__('New', 'jobplace')}
+                </Button>
             </div>
         </div>
     );

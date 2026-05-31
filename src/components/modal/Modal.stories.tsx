@@ -3,13 +3,12 @@
  */
 import { useState } from '@wordpress/element';
 import { ComponentMeta } from '@storybook/react';
-import { __ } from '@wordpress/i18n';
+import { Button } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import Modal from './Modal';
-import Button from '../button/Button';
 
 export default {
     title: 'Common/Modal',
@@ -21,11 +20,9 @@ export const DefaultModal = () => {
 
     return (
         <div>
-            <Button
-                text="Open Modal"
-                type="primary"
-                onClick={() => setOpen(true)}
-            />
+            <Button variant="primary" onClick={() => setOpen(true)}>
+                Open Modal
+            </Button>
 
             <Modal
                 title={'Are you sure to delete the items...'}

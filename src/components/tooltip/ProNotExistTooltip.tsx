@@ -2,12 +2,12 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { Button } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import Tooltip from './Tooltip';
-import Button from '../button/Button';
 import { hasPro } from '../../../utils/global-data';
 
 export interface IProNotExistTooltip {
@@ -25,13 +25,12 @@ const ProNotExistTooltip = ({ desc }: IProNotExistTooltip) => {
                     <Tooltip
                         innerContent={
                             <Button
+                                variant="secondary"
                                 text={__('PRO', 'cp')}
                                 style={{
                                     padding: '5px 12px',
                                     marginLeft: 10,
-                                    border: 0,
                                 }}
-                                buttonCustomClass="bg-amber-400"
                             />
                         }
                     >

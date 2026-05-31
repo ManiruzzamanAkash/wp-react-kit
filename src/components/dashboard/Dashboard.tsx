@@ -2,12 +2,8 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { Button } from '@wordpress/components';
 import { useNavigate } from 'react-router-dom';
-
-/**
- * Internal dependencies.
- */
-import Button from '../button/Button';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -24,11 +20,12 @@ const Dashboard = () => {
 
                 <div className="mt-4">
                     <Button
-                        type="primary"
+                        variant="primary"
                         style={{ backgroundColor: '#00a0d2' }}
-                        text={__('View Jobs', 'jobplace')}
                         onClick={() => navigate('/jobs')}
-                    />
+                    >
+                        {__('View Jobs', 'jobplace')}
+                    </Button>
                 </div>
             </div>
         </div>
