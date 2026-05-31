@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wrc/jobs-template",
+	"title": "Job Template",
+	"description": "Template for a single job in the list.",
+	"category": "jobplace-jobs",
+	"textdomain": "jobplace",
+	"ancestor": ["wrc/jobs-list"],
+	"usesContext": ["query"],
+	"supports": {
+		"interactivity": true,
+		"html": false,
+		"layout": true,
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true
+		}
+	},
+	"render": "file:./view.php",
+	"editorScript": "file:./index.js",
+	"style": ["jobplace-jobs-board", "file:./style-index.css"],
+	"viewScriptModule": ["@jobplace/jobs"]
+}

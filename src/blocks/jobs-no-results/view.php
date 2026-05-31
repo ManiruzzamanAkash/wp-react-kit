@@ -1,0 +1,1 @@
+<div <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => 'jobplace-jobs-no-results' ] ) ); ?><?php echo wp_kses_data( wp_interactivity_data_wp_context( [ 'noResultsLabel' => $attributes['message'] ?? __( 'No jobs found.', 'jobplace' ) ] ) ); ?> data-wp-bind--hidden="state.hasJobs" hidden data-wp-text="state.noResultsLabel"></div>
