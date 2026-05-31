@@ -30,6 +30,12 @@ const reducer = (state = jobDefaultState, action: any) => {
                 jobTypes: action.jobTypes,
             };
 
+        case Types.GET_JOB_CATEGORIES:
+            return {
+                ...state,
+                jobCategories: action.jobCategories,
+            };
+
         case Types.GET_COMPANIES_DROPDOWN:
             return {
                 ...state,

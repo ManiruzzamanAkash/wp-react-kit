@@ -48,6 +48,13 @@ const actions = {
         };
     },
 
+    setJobCategories(jobCategories: Array<Select2SingleRow>) {
+        return {
+            type: Types.GET_JOB_CATEGORIES,
+            jobCategories,
+        };
+    },
+
     setFormData(form: IJobFormData) {
         return {
             type: Types.SET_JOB_FORM_DATA,

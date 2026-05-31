@@ -45,9 +45,14 @@ export interface IJob {
     is_remote?: boolean | number;
 
     /**
-     * Job category or department.
+     * Job category or department (legacy free-text field).
      */
     category?: string;
+
+    /**
+     * Job category ID (references a job category term).
+     */
+    job_category_id?: number;
 
     /**
      * Required experience level.
@@ -126,6 +131,15 @@ export interface IJob {
         id: number;
         name: string;
     };
+
+    /**
+     * Expanded job category object returned by the REST API.
+     */
+    job_category?: {
+        id: number;
+        name: string;
+        slug?: string;
+    } | null;
 
     /**
      * Expanded company object returned by the REST API.
@@ -211,6 +225,11 @@ export interface IJobs {
      * All job types as array of {label, value}.
      */
     jobTypes: Array<ISelect2Input>;
+
+    /**
+     * All job categories as array of {label, value}.
+     */
+    jobCategories: Array<ISelect2Input>;
 
     /**
      * Is jobs loading.

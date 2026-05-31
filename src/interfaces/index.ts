@@ -19,3 +19,6 @@ export * from './select2';
 
 // Job types
 export * from './jobs';
+
+// Job category types
+export * from './job-categories';

@@ -4,6 +4,7 @@
 import actions from './actions';
 import {
     companiesDropdownEndpoint,
+    jobCategoriesEndpoint,
     jobsEndpoint,
     jobsStatsEndpoint,
     jobTypesEndpoint,
@@ -14,6 +15,7 @@ import {
     IJobTypes,
     IResponseGenerator,
 } from '../../interfaces';
+import { IJobCategory } from '../../interfaces/job-categories';
 import { formatSelect2Data } from '../../utils/Select2Helper';
 import { prepareJobDataForDatabase } from './utils';
 
@@ -74,6 +76,16 @@ const resolvers = {
         const jobTypes: Array<IJobTypes> = response.data;
 
         yield actions.setJobTypes(formatSelect2Data(jobTypes));
+    },
+
+    *getJobCategories() {
+        const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
+            `${ jobCategoriesEndpoint }?per_page=100&page=1&orderby=name&order=ASC`
+        );
+
+        const jobCategories: Array<IJobCategory> = response.data;
+
+        yield actions.setJobCategories(formatSelect2Data(jobCategories));
     },
 
     *getCompaniesDropdown() {
