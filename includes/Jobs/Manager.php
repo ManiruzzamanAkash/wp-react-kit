@@ -42,8 +42,24 @@ class Manager {
 
         if ( ! empty( $args['search'] ) ) {
             global $wpdb;
-            $like = '%' . $wpdb->esc_like( sanitize_text_field( wp_unslash( $args['search'] ) ) ) . '%';
-            $args['where'][] = $wpdb->prepare( ' title LIKE %s OR description LIKE %s ', $like, $like );
+
+            $search = sanitize_text_field( wp_unslash( $args['search'] ) );
+            $like   = '%' . $wpdb->esc_like( $search ) . '%';
+            $parts  = [
+                $wpdb->prepare( 'title LIKE %s', $like ),
+                $wpdb->prepare( 'description LIKE %s', $like ),
+                $wpdb->prepare( 'location LIKE %s', $like ),
+                $wpdb->prepare( 'category LIKE %s', $like ),
+                $wpdb->prepare( 'experience_level LIKE %s', $like ),
+            ];
+
+            $companies_table = $wpdb->prefix . 'jobplace_companies';
+            $parts[]         = $wpdb->prepare(
+                "company_id IN ( SELECT id FROM {$companies_table} WHERE name LIKE %s )",
+                $like
+            );
+
+            $args['where'][] = '( ' . implode( ' OR ', $parts ) . ' )';
         }
 
         if ( ! empty( $args['status'] ) ) {

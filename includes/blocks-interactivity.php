@@ -121,7 +121,7 @@ add_action(
 		);
 
 		add_action(
-			'wp_footer',
+			'wp_head',
 			function () {
 				?>
 				<script>
@@ -133,7 +133,8 @@ add_action(
 					); ?>;
 				</script>
 				<?php
-			}
+			},
+			1
 		);
 
 		$jobs_service_asset = include $build_path . 'jobs-service/index.asset.php';

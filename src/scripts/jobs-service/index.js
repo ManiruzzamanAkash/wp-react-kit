@@ -2,69 +2,59 @@
  * REST helpers for the jobs board interactivity store.
  */
 import apiFetch from '@jobplace/api-fetch';
-import { getContext } from '@wordpress/interactivity';
 
 const { addQueryArgs } = wp.url;
 
 export const basePath = 'job-place/v1/jobs';
 
 export const buildQuery = ( query = {} ) => {
-	const context = getContext();
-	const merged = {
-		...( context?.query || {} ),
-		...query,
-	};
-
 	const params = {
-		page: merged.page || 1,
-		per_page: merged.perPage || 10,
-		orderby: merged.orderby || 'id',
-		order: merged.order || 'desc',
+		page: query.page || 1,
+		per_page: query.perPage || 10,
+		orderby: query.orderby || 'id',
+		order: query.order || 'desc',
+		status: query.status || 'published',
 	};
 
-	if ( merged.search ) {
-		params.search = merged.search;
-	}
-
-	if ( merged.status ) {
-		params.status = merged.status;
+	if ( query.search?.trim?.() ) {
+		params.search = query.search.trim();
 	}
 
 	[ 'is_featured', 'is_remote', 'is_negotiable' ].forEach( ( flag ) => {
-		if ( undefined !== merged[ flag ] && '' !== merged[ flag ] ) {
-			params[ flag ] = merged[ flag ];
+		if ( undefined !== query[ flag ] && '' !== query[ flag ] ) {
+			params[ flag ] = query[ flag ];
 		}
 	} );
 
 	[ 'job_type_id', 'job_category_id', 'company_id' ].forEach( ( idField ) => {
-		if ( merged[ idField ] ) {
-			params[ idField ] = merged[ idField ];
+		if ( query[ idField ] ) {
+			params[ idField ] = query[ idField ];
 		}
 	} );
 
-	if ( merged.experience_level ) {
-		params.experience_level = merged.experience_level;
+	if ( query.experience_level ) {
+		params.experience_level = query.experience_level;
 	}
 
 	return params;
 };
 
-export function* fetchJobs( query = {} ) {
+export async function fetchJobs( query = {} ) {
 	const params = buildQuery( query );
 
-	return yield apiFetch( {
+	return apiFetch( {
 		path: addQueryArgs( basePath, params ),
 		parse: false,
 	} );
 }
 
-export function* parseJobsResponse( response ) {
+export async function parseJobsResponse( response ) {
 	const total = parseInt( response.headers.get( 'X-WP-Total' ) || '0', 10 );
 	const totalPages = parseInt(
 		response.headers.get( 'X-WP-TotalPages' ) || '0',
 		10
 	);
-	const jobs = yield response.json();
+	const jobs = await response.json();
 
 	return {
 		jobs,

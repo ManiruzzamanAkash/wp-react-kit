@@ -2,6 +2,7 @@
  * Jobs board interactivity store.
  */
 import { store, getContext, getElement, withSyncEvent } from '@wordpress/interactivity';
+import { getBoardUrlParams, syncBoardUrlParams } from './board-url';
 
 const { __, sprintf, _n } = wp.i18n;
 
@@ -290,15 +291,27 @@ const { state, actions } = store( 'jobplace/jobs', {
 	callbacks: {
 		*init() {
 			const context = getContext();
-			if ( context?.jobs?.length ) {
-				state.jobs = context.jobs;
-				state.total = context.total || context.jobs.length;
-				state.totalPages = context.totalPages || 1;
-				state.page = context.page || 1;
-				state.search = context.query?.search || '';
-			} else {
-				yield actions.refreshJobs();
+			const urlParams = getBoardUrlParams();
+			const search =
+				urlParams.search || context?.query?.search || '';
+			const page = urlParams.page || context?.page || 1;
+
+			state.search = search;
+			state.page = page;
+
+			const shouldFetch =
+				Boolean( urlParams.search ) ||
+				urlParams.page > 1 ||
+				! context?.jobs?.length;
+
+			if ( shouldFetch ) {
+				yield actions.refreshJobs( { page, search } );
+				return;
 			}
+
+			state.jobs = context.jobs;
+			state.total = context.total || context.jobs.length;
+			state.totalPages = context.totalPages || 1;
 		},
 
 		*onChangeJobs() {
@@ -317,20 +330,29 @@ const { state, actions } = store( 'jobplace/jobs', {
 				);
 
 				const context = getContext();
-				const response = yield fetchJobs( {
+				const mergedQuery = {
 					...( context?.query || {} ),
 					...query,
 					page: query.page || state.page,
 					search: query.search ?? state.search,
-				} );
+				};
 
+				const response = yield fetchJobs( mergedQuery );
 				const parsed = yield parseJobsResponse( response );
+
 				state.jobs = parsed.jobs;
 				state.total = parsed.total;
 				state.totalPages = parsed.totalPages;
-				state.page = query.page || state.page;
+				state.page = mergedQuery.page || state.page;
+				state.search = mergedQuery.search ?? state.search;
+
+				syncBoardUrlParams( {
+					search: state.search,
+					page: state.page,
+				} );
 			} catch ( error ) {
-				state.error = error?.message || __( 'Unable to load jobs.', 'jobplace' );
+				state.error =
+					error?.message || __( 'Unable to load jobs.', 'jobplace' );
 			} finally {
 				state.loading = false;
 			}
@@ -365,8 +387,16 @@ const { state, actions } = store( 'jobplace/jobs', {
 		*submitSearch( event ) {
 			event?.preventDefault?.();
 			const { ref } = getElement();
-			const input = ref?.querySelector?.( 'input[type="search"]' );
-			state.search = input?.value || '';
+			let value = '';
+
+			if ( ref?.matches?.( 'input[type="search"]' ) ) {
+				value = ref.value || '';
+			} else {
+				value =
+					ref?.querySelector?.( 'input[type="search"]' )?.value || '';
+			}
+
+			state.search = value.trim();
 			state.page = 1;
 			yield actions.refreshJobs( { page: 1, search: state.search } );
 		},
@@ -376,6 +406,10 @@ const { state, actions } = store( 'jobplace/jobs', {
 			state.page = 1;
 			yield actions.refreshJobs( { page: 1, search: '' } );
 		},
+
+		updateSearch: withSyncEvent( function ( event ) {
+			state.search = event?.target?.value || '';
+		} ),
 
 		handleSearchKeydown: withSyncEvent( function* ( event ) {
 			if ( event.key === 'Enter' ) {

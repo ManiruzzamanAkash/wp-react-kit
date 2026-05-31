@@ -55,9 +55,17 @@ class JobsQuery {
 	 * @param \WP_Block $block Block instance.
 	 * @return array{jobs: array<int, array>, total: int, totalPages: int, page: int, perPage: int}
 	 */
-	public static function query( $block ): array {
+	public static function query( $block, array $query_override = [] ): array {
 		$attributes = is_object( $block ) ? ( $block->attributes ?? [] ) : [];
-		$args       = self::get_query_args( $attributes );
+
+		if ( ! empty( $query_override ) ) {
+			$attributes['query'] = wp_parse_args(
+				$query_override,
+				$attributes['query'] ?? []
+			);
+		}
+
+		$args = self::get_query_args( $attributes );
 
 		$count_args           = $args;
 		$count_args['count']  = 1;

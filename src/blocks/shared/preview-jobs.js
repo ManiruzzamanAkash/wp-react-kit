@@ -13,6 +13,25 @@ const matchesQuery = ( job, query = {} ) => {
 		return false;
 	}
 
+	if ( query.search?.trim?.() ) {
+		const term = query.search.trim().toLowerCase();
+		const haystack = [
+			job.title,
+			job.description,
+			job.location,
+			job.category,
+			job.experience_level,
+			job.company?.name,
+		]
+			.filter( Boolean )
+			.join( ' ' )
+			.toLowerCase();
+
+		if ( ! haystack.includes( term ) ) {
+			return false;
+		}
+	}
+
 	if (
 		undefined !== query.is_featured &&
 		null !== query.is_featured &&
