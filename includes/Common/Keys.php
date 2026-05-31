@@ -92,4 +92,22 @@ class Keys {
      * @since 0.3.0
      */
     const JOB_SEEDER_RAN = 'jobplace_job_seeder_ran';
+
+    /**
+     * Job detail permalink settings key.
+     *
+     * @var string
+     *
+     * @since 0.16.0
+     */
+    const JOB_PLACE_PERMALINKS = 'jobplace_permalinks';
+
+    /**
+     * Jobs board page ID option key.
+     *
+     * @var string
+     *
+     * @since 0.16.0
+     */
+    const JOB_PLACE_JOBS_PAGE_ID = 'jobplace_jobs_page_id';
 }
