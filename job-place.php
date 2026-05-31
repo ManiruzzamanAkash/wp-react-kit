@@ -219,6 +219,7 @@ final class Wp_React_Kit {
         $this->container['rest_api'] = new Akash\JobPlace\REST\Api();
         $this->container['jobs']           = new Akash\JobPlace\Jobs\Manager();
         $this->container['job_categories'] = new Akash\JobPlace\Jobs\JobCategoryManager();
+        $this->container['companies']      = new Akash\JobPlace\Jobs\CompanyManager();
     }
 
     /**

@@ -1,0 +1,3002 @@
+[
+  {
+    "name": "Walmart",
+    "slug": "walmart",
+    "website": "https://www.walmart.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Amazon",
+    "slug": "amazon",
+    "website": "https://www.amazon.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "State Grid",
+    "slug": "state-grid",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Saudi Aramco",
+    "slug": "saudi-aramco",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sinopec",
+    "slug": "sinopec",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China National Petroleum",
+    "slug": "china-national-petroleum",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Apple",
+    "slug": "apple",
+    "website": "https://www.apple.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "UnitedHealth Group",
+    "slug": "unitedhealth-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Berkshire Hathaway",
+    "slug": "berkshire-hathaway",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "CVS Health",
+    "slug": "cvs-health",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Volkswagen",
+    "slug": "volkswagen",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Toyota Motor",
+    "slug": "toyota-motor",
+    "website": "https://www.toyota.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "McKesson",
+    "slug": "mckesson",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Samsung Electronics",
+    "slug": "samsung-electronics",
+    "website": "https://www.samsung.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Glencore",
+    "slug": "glencore",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China State Construction Engineering",
+    "slug": "china-state-construction-engineering",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Ping An Insurance",
+    "slug": "ping-an-insurance",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Costco Wholesale",
+    "slug": "costco-wholesale",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Alphabet",
+    "slug": "alphabet",
+    "website": "https://abc.xyz",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Microsoft",
+    "slug": "microsoft",
+    "website": "https://www.microsoft.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Industrial & Commercial Bank of China",
+    "slug": "industrial-and-commercial-bank-of-china",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Construction Bank",
+    "slug": "china-construction-bank",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hon Hai Precision Industry",
+    "slug": "hon-hai-precision-industry",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Agricultural Bank of China",
+    "slug": "agricultural-bank-of-china",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Railway Engineering Group",
+    "slug": "china-railway-engineering-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Railway Construction",
+    "slug": "china-railway-construction",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Life Insurance",
+    "slug": "china-life-insurance",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Mobile",
+    "slug": "china-mobile",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Cigna",
+    "slug": "cigna",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Carrefour",
+    "slug": "carrefour",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bank of China",
+    "slug": "bank-of-china",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "JD.com",
+    "slug": "jd-com",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Home Depot",
+    "slug": "home-depot",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Minmetals",
+    "slug": "china-minmetals",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Baowu Steel Group",
+    "slug": "china-baowu-steel-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Elevance Health",
+    "slug": "elevance-health",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Communications Construction",
+    "slug": "china-communications-construction",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Resources",
+    "slug": "china-resources",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Post Group",
+    "slug": "china-post-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Telecommunications",
+    "slug": "china-telecommunications",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Merchants Group",
+    "slug": "china-merchants-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China FAW Group",
+    "slug": "china-faw-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Southern Power Grid",
+    "slug": "china-southern-power-grid",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Energy Investment",
+    "slug": "china-energy-investment",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Huaneng Group",
+    "slug": "china-huaneng-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Datang",
+    "slug": "china-datang",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Huadian",
+    "slug": "china-huadian",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China Three Gorges",
+    "slug": "china-three-gorges",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "China National Offshore Oil",
+    "slug": "china-national-offshore-oil",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PetroChina",
+    "slug": "petrochina",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Exxon Mobil",
+    "slug": "exxon-mobil",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Shell",
+    "slug": "shell",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BP",
+    "slug": "bp",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Chevron",
+    "slug": "chevron",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "TotalEnergies",
+    "slug": "totalenergies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ConocoPhillips",
+    "slug": "conocophillips",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Marathon Petroleum",
+    "slug": "marathon-petroleum",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Valero Energy",
+    "slug": "valero-energy",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Phillips 66",
+    "slug": "phillips-66",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Eni",
+    "slug": "eni",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Equinor",
+    "slug": "equinor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Repsol",
+    "slug": "repsol",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Pemex",
+    "slug": "pemex",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rosneft",
+    "slug": "rosneft",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lukoil",
+    "slug": "lukoil",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Gazprom",
+    "slug": "gazprom",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Enbridge",
+    "slug": "enbridge",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Enterprise Products Partners",
+    "slug": "enterprise-products-partners",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Plains GP Holdings",
+    "slug": "plains-gp-holdings",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kinder Morgan",
+    "slug": "kinder-morgan",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "JPMorgan Chase",
+    "slug": "jpmorgan-chase",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bank of America",
+    "slug": "bank-of-america",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Wells Fargo",
+    "slug": "wells-fargo",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Citigroup",
+    "slug": "citigroup",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Goldman Sachs",
+    "slug": "goldman-sachs",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Morgan Stanley",
+    "slug": "morgan-stanley",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "HSBC",
+    "slug": "hsbc",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Barclays",
+    "slug": "barclays",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BNP Paribas",
+    "slug": "bnp-paribas",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Deutsche Bank",
+    "slug": "deutsche-bank",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "UBS",
+    "slug": "ubs",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Credit Suisse",
+    "slug": "credit-suisse",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Santander",
+    "slug": "santander",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mitsubishi UFJ Financial",
+    "slug": "mitsubishi-ufj-financial",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sumitomo Mitsui Financial",
+    "slug": "sumitomo-mitsui-financial",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mizuho Financial",
+    "slug": "mizuho-financial",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nomura Holdings",
+    "slug": "nomura-holdings",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "American Express",
+    "slug": "american-express",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Capital One",
+    "slug": "capital-one",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "US Bancorp",
+    "slug": "us-bancorp",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PNC Financial Services",
+    "slug": "pnc-financial-services",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Truist Financial",
+    "slug": "truist-financial",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Charles Schwab",
+    "slug": "charles-schwab",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BlackRock",
+    "slug": "blackrock",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fidelity Investments",
+    "slug": "fidelity-investments",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Visa",
+    "slug": "visa",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mastercard",
+    "slug": "mastercard",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PayPal",
+    "slug": "paypal",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "American International Group",
+    "slug": "american-international-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "MetLife",
+    "slug": "metlife",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Prudential Financial",
+    "slug": "prudential-financial",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Allstate",
+    "slug": "allstate",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Progressive",
+    "slug": "progressive",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Travelers",
+    "slug": "travelers",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Chubb",
+    "slug": "chubb",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Zurich Insurance",
+    "slug": "zurich-insurance",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "AXA",
+    "slug": "axa",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Allianz",
+    "slug": "allianz",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Generali",
+    "slug": "generali",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Tokio Marine",
+    "slug": "tokio-marine",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nestle",
+    "slug": "nestle",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Unilever",
+    "slug": "unilever",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Procter & Gamble",
+    "slug": "procter-and-gamble",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PepsiCo",
+    "slug": "pepsico",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Coca-Cola",
+    "slug": "coca-cola",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mondelez International",
+    "slug": "mondelez-international",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Danone",
+    "slug": "danone",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kellogg",
+    "slug": "kellogg",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "General Mills",
+    "slug": "general-mills",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Campbell Soup",
+    "slug": "campbell-soup",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kraft Heinz",
+    "slug": "kraft-heinz",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hershey",
+    "slug": "hershey",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Colgate-Palmolive",
+    "slug": "colgate-palmolive",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kimberly-Clark",
+    "slug": "kimberly-clark",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Clorox",
+    "slug": "clorox",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Estee Lauder",
+    "slug": "estee-lauder",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "L'Oreal",
+    "slug": "l-oreal",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Reckitt Benckiser",
+    "slug": "reckitt-benckiser",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Henkel",
+    "slug": "henkel",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Beiersdorf",
+    "slug": "beiersdorf",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Johnson & Johnson",
+    "slug": "johnson-and-johnson",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Pfizer",
+    "slug": "pfizer",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Merck",
+    "slug": "merck",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "AbbVie",
+    "slug": "abbvie",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bristol-Myers Squibb",
+    "slug": "bristol-myers-squibb",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Eli Lilly",
+    "slug": "eli-lilly",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Amgen",
+    "slug": "amgen",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Gilead Sciences",
+    "slug": "gilead-sciences",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Regeneron Pharmaceuticals",
+    "slug": "regeneron-pharmaceuticals",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Moderna",
+    "slug": "moderna",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Novartis",
+    "slug": "novartis",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Roche",
+    "slug": "roche",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sanofi",
+    "slug": "sanofi",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "AstraZeneca",
+    "slug": "astrazeneca",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "GlaxoSmithKline",
+    "slug": "glaxosmithkline",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bayer",
+    "slug": "bayer",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Boehringer Ingelheim",
+    "slug": "boehringer-ingelheim",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Takeda Pharmaceutical",
+    "slug": "takeda-pharmaceutical",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Novo Nordisk",
+    "slug": "novo-nordisk",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Biogen",
+    "slug": "biogen",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Abbott Laboratories",
+    "slug": "abbott-laboratories",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Medtronic",
+    "slug": "medtronic",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Stryker",
+    "slug": "stryker",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Boston Scientific",
+    "slug": "boston-scientific",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Zimmer Biomet",
+    "slug": "zimmer-biomet",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Danaher",
+    "slug": "danaher",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Thermo Fisher Scientific",
+    "slug": "thermo-fisher-scientific",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "GE HealthCare",
+    "slug": "ge-healthcare",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Philips",
+    "slug": "philips",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Siemens Healthineers",
+    "slug": "siemens-healthineers",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "McDonald's",
+    "slug": "mcdonald-s",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Starbucks",
+    "slug": "starbucks",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Yum! Brands",
+    "slug": "yum-brands",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Chipotle Mexican Grill",
+    "slug": "chipotle-mexican-grill",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Domino's Pizza",
+    "slug": "domino-s-pizza",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Restaurant Brands International",
+    "slug": "restaurant-brands-international",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Darden Restaurants",
+    "slug": "darden-restaurants",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Subway",
+    "slug": "subway",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Burger King",
+    "slug": "burger-king",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Wendy's",
+    "slug": "wendy-s",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nike",
+    "slug": "nike",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Adidas",
+    "slug": "adidas",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "LVMH",
+    "slug": "lvmh",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kering",
+    "slug": "kering",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hermes",
+    "slug": "hermes",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Richemont",
+    "slug": "richemont",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Burberry",
+    "slug": "burberry",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Gap",
+    "slug": "gap",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "H&M",
+    "slug": "handm",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Inditex",
+    "slug": "inditex",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Zara",
+    "slug": "zara",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Uniqlo",
+    "slug": "uniqlo",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fast Retailing",
+    "slug": "fast-retailing",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Target",
+    "slug": "target",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lowe's",
+    "slug": "lowe-s",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "TJX Companies",
+    "slug": "tjx-companies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Ross Stores",
+    "slug": "ross-stores",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Dollar General",
+    "slug": "dollar-general",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Dollar Tree",
+    "slug": "dollar-tree",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Best Buy",
+    "slug": "best-buy",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "IKEA",
+    "slug": "ikea",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Wayfair",
+    "slug": "wayfair",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "eBay",
+    "slug": "ebay",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Etsy",
+    "slug": "etsy",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Shopify",
+    "slug": "shopify",
+    "website": "https://www.shopify.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Alibaba Group",
+    "slug": "alibaba-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Tencent",
+    "slug": "tencent",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Baidu",
+    "slug": "baidu",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ByteDance",
+    "slug": "bytedance",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Meituan",
+    "slug": "meituan",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Pinduoduo",
+    "slug": "pinduoduo",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "NetEase",
+    "slug": "netease",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Xiaomi",
+    "slug": "xiaomi",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Huawei",
+    "slug": "huawei",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lenovo",
+    "slug": "lenovo",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Dell Technologies",
+    "slug": "dell-technologies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "HP Inc",
+    "slug": "hp-inc",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "HPE",
+    "slug": "hpe",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Cisco Systems",
+    "slug": "cisco-systems",
+    "website": "https://www.cisco.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Oracle",
+    "slug": "oracle",
+    "website": "https://www.oracle.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "SAP",
+    "slug": "sap",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Salesforce",
+    "slug": "salesforce",
+    "website": "https://www.salesforce.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Adobe",
+    "slug": "adobe",
+    "website": "https://www.adobe.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Intuit",
+    "slug": "intuit",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ServiceNow",
+    "slug": "servicenow",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Workday",
+    "slug": "workday",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Snowflake",
+    "slug": "snowflake",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Palantir Technologies",
+    "slug": "palantir-technologies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "CrowdStrike",
+    "slug": "crowdstrike",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Datadog",
+    "slug": "datadog",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "IBM",
+    "slug": "ibm",
+    "website": "https://www.ibm.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Intel",
+    "slug": "intel",
+    "website": "https://www.intel.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "AMD",
+    "slug": "amd",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "NVIDIA",
+    "slug": "nvidia",
+    "website": "https://www.nvidia.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Qualcomm",
+    "slug": "qualcomm",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Broadcom",
+    "slug": "broadcom",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Texas Instruments",
+    "slug": "texas-instruments",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Applied Materials",
+    "slug": "applied-materials",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lam Research",
+    "slug": "lam-research",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ASML",
+    "slug": "asml",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "TSMC",
+    "slug": "tsmc",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Micron Technology",
+    "slug": "micron-technology",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "SK Hynix",
+    "slug": "sk-hynix",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sony",
+    "slug": "sony",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Panasonic",
+    "slug": "panasonic",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "LG Electronics",
+    "slug": "lg-electronics",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hitachi",
+    "slug": "hitachi",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Toshiba",
+    "slug": "toshiba",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fujitsu",
+    "slug": "fujitsu",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Canon",
+    "slug": "canon",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nintendo",
+    "slug": "nintendo",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Electronic Arts",
+    "slug": "electronic-arts",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Activision Blizzard",
+    "slug": "activision-blizzard",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Take-Two Interactive",
+    "slug": "take-two-interactive",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Ubisoft",
+    "slug": "ubisoft",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Spotify",
+    "slug": "spotify",
+    "website": "https://www.spotify.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Netflix",
+    "slug": "netflix",
+    "website": "https://www.netflix.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Disney",
+    "slug": "disney",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Warner Bros Discovery",
+    "slug": "warner-bros-discovery",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Comcast",
+    "slug": "comcast",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Paramount Global",
+    "slug": "paramount-global",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fox Corporation",
+    "slug": "fox-corporation",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "News Corp",
+    "slug": "news-corp",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "New York Times",
+    "slug": "new-york-times",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Reuters",
+    "slug": "reuters",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bloomberg",
+    "slug": "bloomberg",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Verizon",
+    "slug": "verizon",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "AT&T",
+    "slug": "atandt",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "T-Mobile US",
+    "slug": "t-mobile-us",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Deutsche Telekom",
+    "slug": "deutsche-telekom",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Vodafone",
+    "slug": "vodafone",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Orange",
+    "slug": "orange",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Telefonica",
+    "slug": "telefonica",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BT Group",
+    "slug": "bt-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rogers Communications",
+    "slug": "rogers-communications",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bell Canada",
+    "slug": "bell-canada",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Telstra",
+    "slug": "telstra",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Singtel",
+    "slug": "singtel",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Reliance Industries",
+    "slug": "reliance-industries",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Tata Group",
+    "slug": "tata-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Infosys",
+    "slug": "infosys",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "TCS",
+    "slug": "tcs",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Wipro",
+    "slug": "wipro",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "HCL Technologies",
+    "slug": "hcl-technologies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Accenture",
+    "slug": "accenture",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Deloitte",
+    "slug": "deloitte",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PwC",
+    "slug": "pwc",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "EY",
+    "slug": "ey",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "KPMG",
+    "slug": "kpmg",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "McKinsey & Company",
+    "slug": "mckinsey-and-company",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Boston Consulting Group",
+    "slug": "boston-consulting-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Bain & Company",
+    "slug": "bain-and-company",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Capgemini",
+    "slug": "capgemini",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Cognizant",
+    "slug": "cognizant",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DXC Technology",
+    "slug": "dxc-technology",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Infosys McCamish",
+    "slug": "infosys-mccamish",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fiserv",
+    "slug": "fiserv",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fidelity National Information Services",
+    "slug": "fidelity-national-information-services",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Global Payments",
+    "slug": "global-payments",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Adyen",
+    "slug": "adyen",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Stripe",
+    "slug": "stripe",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Square",
+    "slug": "square",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Block",
+    "slug": "block",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Robinhood",
+    "slug": "robinhood",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Coinbase",
+    "slug": "coinbase",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Charles River Laboratories",
+    "slug": "charles-river-laboratories",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "IQVIA",
+    "slug": "iqvia",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "LabCorp",
+    "slug": "labcorp",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Quest Diagnostics",
+    "slug": "quest-diagnostics",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "HCA Healthcare",
+    "slug": "hca-healthcare",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mayo Clinic",
+    "slug": "mayo-clinic",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Cleveland Clinic",
+    "slug": "cleveland-clinic",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kaiser Permanente",
+    "slug": "kaiser-permanente",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Anthem",
+    "slug": "anthem",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Humana",
+    "slug": "humana",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Centene",
+    "slug": "centene",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Molina Healthcare",
+    "slug": "molina-healthcare",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Tenet Healthcare",
+    "slug": "tenet-healthcare",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Universal Health Services",
+    "slug": "universal-health-services",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DaVita",
+    "slug": "davita",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Boeing",
+    "slug": "boeing",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Airbus",
+    "slug": "airbus",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lockheed Martin",
+    "slug": "lockheed-martin",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Northrop Grumman",
+    "slug": "northrop-grumman",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Raytheon Technologies",
+    "slug": "raytheon-technologies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "General Dynamics",
+    "slug": "general-dynamics",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BAE Systems",
+    "slug": "bae-systems",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rolls-Royce",
+    "slug": "rolls-royce",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Safran",
+    "slug": "safran",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Embraer",
+    "slug": "embraer",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "General Motors",
+    "slug": "general-motors",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Ford Motor",
+    "slug": "ford-motor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Stellantis",
+    "slug": "stellantis",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Tesla",
+    "slug": "tesla",
+    "website": "https://www.tesla.com",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rivian",
+    "slug": "rivian",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lucid Motors",
+    "slug": "lucid-motors",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Toyota",
+    "slug": "toyota",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Honda Motor",
+    "slug": "honda-motor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nissan Motor",
+    "slug": "nissan-motor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hyundai Motor",
+    "slug": "hyundai-motor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Kia",
+    "slug": "kia",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BMW Group",
+    "slug": "bmw-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mercedes-Benz Group",
+    "slug": "mercedes-benz-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Volkswagen Group",
+    "slug": "volkswagen-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Audi",
+    "slug": "audi",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Porsche",
+    "slug": "porsche",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Ferrari",
+    "slug": "ferrari",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lamborghini",
+    "slug": "lamborghini",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Volvo Group",
+    "slug": "volvo-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Scania",
+    "slug": "scania",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Caterpillar",
+    "slug": "caterpillar",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Deere & Company",
+    "slug": "deere-and-company",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "CNH Industrial",
+    "slug": "cnh-industrial",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Komatsu",
+    "slug": "komatsu",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hitachi Construction Machinery",
+    "slug": "hitachi-construction-machinery",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "3M",
+    "slug": "3m",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Honeywell",
+    "slug": "honeywell",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "General Electric",
+    "slug": "general-electric",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Siemens",
+    "slug": "siemens",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ABB",
+    "slug": "abb",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Schneider Electric",
+    "slug": "schneider-electric",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Emerson Electric",
+    "slug": "emerson-electric",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rockwell Automation",
+    "slug": "rockwell-automation",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Illinois Tool Works",
+    "slug": "illinois-tool-works",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Parker-Hannifin",
+    "slug": "parker-hannifin",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Eaton",
+    "slug": "eaton",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fortive",
+    "slug": "fortive",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Dover Corporation",
+    "slug": "dover-corporation",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Stanley Black & Decker",
+    "slug": "stanley-black-and-decker",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Whirlpool",
+    "slug": "whirlpool",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Carrier Global",
+    "slug": "carrier-global",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Trane Technologies",
+    "slug": "trane-technologies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Johnson Controls",
+    "slug": "johnson-controls",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Daikin",
+    "slug": "daikin",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Mitsubishi Electric",
+    "slug": "mitsubishi-electric",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "LG Chem",
+    "slug": "lg-chem",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DuPont",
+    "slug": "dupont",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Dow Inc",
+    "slug": "dow-inc",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "LyondellBasell",
+    "slug": "lyondellbasell",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BASF",
+    "slug": "basf",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Air Liquide",
+    "slug": "air-liquide",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Praxair",
+    "slug": "praxair",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sherwin-Williams",
+    "slug": "sherwin-williams",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PPG Industries",
+    "slug": "ppg-industries",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "AkzoNobel",
+    "slug": "akzonobel",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nippon Paint",
+    "slug": "nippon-paint",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Freeport-McMoRan",
+    "slug": "freeport-mcmoran",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Newmont",
+    "slug": "newmont",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BHP",
+    "slug": "bhp",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rio Tinto",
+    "slug": "rio-tinto",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Anglo American",
+    "slug": "anglo-american",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Glencore",
+    "slug": "glencore-2",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ArcelorMittal",
+    "slug": "arcelormittal",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nucor",
+    "slug": "nucor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "United States Steel",
+    "slug": "united-states-steel",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "POSCO",
+    "slug": "posco",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nippon Steel",
+    "slug": "nippon-steel",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Alcoa",
+    "slug": "alcoa",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Southern Copper",
+    "slug": "southern-copper",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "First Quantum Minerals",
+    "slug": "first-quantum-minerals",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "FedEx",
+    "slug": "fedex",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "UPS",
+    "slug": "ups",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DHL Group",
+    "slug": "dhl-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Maersk",
+    "slug": "maersk",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "CMA CGM",
+    "slug": "cma-cgm",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Evergreen Marine",
+    "slug": "evergreen-marine",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "COSCO Shipping",
+    "slug": "cosco-shipping",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Union Pacific",
+    "slug": "union-pacific",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BNSF Railway",
+    "slug": "bnsf-railway",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "CSX Corporation",
+    "slug": "csx-corporation",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Norfolk Southern",
+    "slug": "norfolk-southern",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Canadian National Railway",
+    "slug": "canadian-national-railway",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Canadian Pacific Kansas City",
+    "slug": "canadian-pacific-kansas-city",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Delta Air Lines",
+    "slug": "delta-air-lines",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "American Airlines",
+    "slug": "american-airlines",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "United Airlines",
+    "slug": "united-airlines",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Southwest Airlines",
+    "slug": "southwest-airlines",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Lufthansa",
+    "slug": "lufthansa",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Air France-KLM",
+    "slug": "air-france-klm",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "IAG",
+    "slug": "iag",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Emirates",
+    "slug": "emirates",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Qatar Airways",
+    "slug": "qatar-airways",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Singapore Airlines",
+    "slug": "singapore-airlines",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Cathay Pacific",
+    "slug": "cathay-pacific",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "ANA Holdings",
+    "slug": "ana-holdings",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Marriott International",
+    "slug": "marriott-international",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hilton Worldwide",
+    "slug": "hilton-worldwide",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Hyatt Hotels",
+    "slug": "hyatt-hotels",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Accor",
+    "slug": "accor",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "IHG Hotels & Resorts",
+    "slug": "ihg-hotels-and-resorts",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Booking Holdings",
+    "slug": "booking-holdings",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Expedia Group",
+    "slug": "expedia-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Airbnb",
+    "slug": "airbnb",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Trip.com Group",
+    "slug": "trip-com-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Royal Caribbean Group",
+    "slug": "royal-caribbean-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Carnival Corporation",
+    "slug": "carnival-corporation",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Norwegian Cruise Line",
+    "slug": "norwegian-cruise-line",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Wynn Resorts",
+    "slug": "wynn-resorts",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Las Vegas Sands",
+    "slug": "las-vegas-sands",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "MGM Resorts",
+    "slug": "mgm-resorts",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Blackstone",
+    "slug": "blackstone",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "KKR",
+    "slug": "kkr",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Apollo Global Management",
+    "slug": "apollo-global-management",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Carlyle Group",
+    "slug": "carlyle-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "TPG",
+    "slug": "tpg",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Brookfield Asset Management",
+    "slug": "brookfield-asset-management",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Oaktree Capital Management",
+    "slug": "oaktree-capital-management",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Warburg Pincus",
+    "slug": "warburg-pincus",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Silver Lake",
+    "slug": "silver-lake",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sequoia Capital",
+    "slug": "sequoia-capital",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Andreessen Horowitz",
+    "slug": "andreessen-horowitz",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "SoftBank Group",
+    "slug": "softbank-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Rakuten",
+    "slug": "rakuten",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "MercadoLibre",
+    "slug": "mercadolibre",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Nubank",
+    "slug": "nubank",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Grab",
+    "slug": "grab",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Sea Limited",
+    "slug": "sea-limited",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "GoTo Group",
+    "slug": "goto-group",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Flipkart",
+    "slug": "flipkart",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Zomato",
+    "slug": "zomato",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Swiggy",
+    "slug": "swiggy",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "BYJU'S",
+    "slug": "byju-s",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Ola",
+    "slug": "ola",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Paytm",
+    "slug": "paytm",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "PhonePe",
+    "slug": "phonepe",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Revolut",
+    "slug": "revolut",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Monzo",
+    "slug": "monzo",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "N26",
+    "slug": "n26",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Klarna",
+    "slug": "klarna",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Affirm",
+    "slug": "affirm",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "SpaceX",
+    "slug": "spacex",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Blue Origin",
+    "slug": "blue-origin",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Palantir",
+    "slug": "palantir",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Anduril Industries",
+    "slug": "anduril-industries",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Shield AI",
+    "slug": "shield-ai",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "OpenAI",
+    "slug": "openai",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Anthropic",
+    "slug": "anthropic",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DeepMind",
+    "slug": "deepmind",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Databricks",
+    "slug": "databricks",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Canva",
+    "slug": "canva",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Figma",
+    "slug": "figma",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Notion",
+    "slug": "notion",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Slack",
+    "slug": "slack",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Zoom Video Communications",
+    "slug": "zoom-video-communications",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Atlassian",
+    "slug": "atlassian",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "HubSpot",
+    "slug": "hubspot",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Twilio",
+    "slug": "twilio",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DocuSign",
+    "slug": "docusign",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Okta",
+    "slug": "okta",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Palo Alto Networks",
+    "slug": "palo-alto-networks",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fortinet",
+    "slug": "fortinet",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Check Point Software",
+    "slug": "check-point-software",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Zscaler",
+    "slug": "zscaler",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "SentinelOne",
+    "slug": "sentinelone",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "MongoDB",
+    "slug": "mongodb",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Elastic",
+    "slug": "elastic",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "GitLab",
+    "slug": "gitlab",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "GitHub",
+    "slug": "github",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "GitKraken",
+    "slug": "gitkraken",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "JetBrains",
+    "slug": "jetbrains",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Red Hat",
+    "slug": "red-hat",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "VMware",
+    "slug": "vmware",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Citrix",
+    "slug": "citrix",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Splunk",
+    "slug": "splunk",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Cloudflare",
+    "slug": "cloudflare",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Akamai Technologies",
+    "slug": "akamai-technologies",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Fastly",
+    "slug": "fastly",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "DigitalOcean",
+    "slug": "digitalocean",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "Linode",
+    "slug": "linode",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  },
+  {
+    "name": "OVHcloud",
+    "slug": "ovhcloud",
+    "website": "",
+    "description": "Fortune Global 500 company."
+  }
+]

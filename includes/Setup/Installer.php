@@ -59,6 +59,7 @@ class Installer {
         // Register the tables to wpdb global.
         $wpdb->jobplace_job_types      = $wpdb->prefix . 'jobplace_job_types';
         $wpdb->jobplace_job_categories = $wpdb->prefix . 'jobplace_job_categories';
+        $wpdb->jobplace_companies      = $wpdb->prefix . 'jobplace_companies';
         $wpdb->jobplace_jobs           = $wpdb->prefix . 'jobplace_jobs';
     }
 
@@ -96,6 +97,7 @@ class Installer {
         // Run the database table migrations.
         \Akash\JobPlace\Databases\Migrations\JobTypeMigration::migrate();
         \Akash\JobPlace\Databases\Migrations\JobCategoryMigration::migrate();
+        \Akash\JobPlace\Databases\Migrations\CompanyMigration::migrate();
         \Akash\JobPlace\Databases\Migrations\JobsMigration::migrate();
     }
 }

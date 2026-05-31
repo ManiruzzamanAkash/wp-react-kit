@@ -3,6 +3,7 @@
 namespace Akash\JobPlace\Setup;
 
 use Akash\JobPlace\Common\Keys;
+use Akash\JobPlace\Databases\Migrations\CompanyMigration;
 use Akash\JobPlace\Databases\Migrations\JobCategoryMigration;
 use Akash\JobPlace\Databases\Migrations\JobsMigration;
 use Akash\JobPlace\Databases\Migrations\JobTypeMigration;
@@ -25,7 +26,7 @@ class Upgrader {
      *
      * @var string
      */
-    const DB_VERSION = '0.13.0';
+    const DB_VERSION = '0.15.1';
 
     /**
      * Constructor.
@@ -34,6 +35,7 @@ class Upgrader {
      */
     public function __construct() {
         add_action( 'admin_init', [ $this, 'maybe_upgrade' ] );
+        add_action( 'admin_init', [ $this, 'maybe_seed_top_companies' ], 11 );
     }
 
     /**
@@ -59,12 +61,39 @@ class Upgrader {
         global $wpdb;
         $wpdb->jobplace_job_types      = $wpdb->prefix . 'jobplace_job_types';
         $wpdb->jobplace_job_categories = $wpdb->prefix . 'jobplace_job_categories';
+        $wpdb->jobplace_companies      = $wpdb->prefix . 'jobplace_companies';
         $wpdb->jobplace_jobs           = $wpdb->prefix . 'jobplace_jobs';
 
         JobTypeMigration::migrate();
         JobCategoryMigration::migrate();
+        CompanyMigration::migrate();
         JobsMigration::migrate();
 
         update_option( Keys::JOB_PLACE_DB_VERSION, self::DB_VERSION );
+    }
+
+    /**
+     * Seed Fortune Global 500 companies for existing installs.
+     *
+     * @since 0.15.0
+     *
+     * @return void
+     */
+    public function maybe_seed_top_companies(): void {
+        $ran_version = (int) get_option( Keys::COMPANY_SEEDER_VERSION, 0 );
+
+        if ( $ran_version >= \Akash\JobPlace\Databases\Seeder\CompanySeeder::VERSION ) {
+            return;
+        }
+
+        if ( ! get_option( Keys::JOB_PLACE_INSTALLED ) ) {
+            return;
+        }
+
+        global $wpdb;
+        $wpdb->jobplace_companies = $wpdb->prefix . 'jobplace_companies';
+
+        $seeder = new \Akash\JobPlace\Databases\Seeder\CompanySeeder();
+        $seeder->run();
     }
 }

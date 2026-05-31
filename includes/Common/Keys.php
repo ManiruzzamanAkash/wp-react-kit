@@ -58,6 +58,33 @@ class Keys {
     const JOB_CATEGORY_SEEDER_RAN = 'jobplace_job_category_seeder_ran';
 
     /**
+     * Company seeder ran key.
+     *
+     * @var string
+     *
+     * @since 0.14.0
+     */
+    const COMPANY_SEEDER_RAN = 'jobplace_company_seeder_ran';
+
+    /**
+     * Fortune Global 500 company seeder ran key.
+     *
+     * @var string
+     *
+     * @since 0.15.0
+     */
+    const COMPANY_TOP500_SEEDER_RAN = 'jobplace_company_top500_seeder_ran';
+
+    /**
+     * Company seeder version key.
+     *
+     * @var string
+     *
+     * @since 0.15.1
+     */
+    const COMPANY_SEEDER_VERSION = 'jobplace_company_seeder_version';
+
+    /**
      * Job seeder ran key.
      *
      * @var string
