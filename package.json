@@ -1,6 +1,6 @@
 {
   "name": "jobplace",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...",
   "main": "src/index.tsx",
   "scripts": {
@@ -18,10 +18,11 @@
     "zip": "node assets/js/zip",
     "version": "node assets/js/version-replace",
     "release": "npm run build && npm run makepot && npm run version && npm run zip",
-    "test:e2e": "npx playwright test --config ./tests/e2e/playwright.config.ts --reporter=list",
-    "test:e2e:watch": "npx playwright test --config ./tests/e2e/playwright.config.ts --debug",
-    "test:e2e:ui": "npx playwright test --config ./tests/e2e/playwright.config.ts --ui",
-    "test:e2e:tracing": "npx playwright test --config ./tests/e2e/playwright.config.ts --trace on"
+    "test:e2e:prepare": "npm run build && npm run env:start && npx playwright install chromium",
+    "test:e2e": "playwright test --reporter=list",
+    "test:e2e:watch": "playwright test --debug",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:tracing": "playwright test --trace on"
   },
   "author": "",
   "license": "ISC",
@@ -41,7 +42,7 @@
     "@wordpress/data": "^6.15.0",
     "@wordpress/dataviews": "^10.3.0",
     "@wordpress/e2e-test-utils": "^7.11.0",
-    "@wordpress/e2e-test-utils-playwright": "^0.1.0",
+    "@wordpress/e2e-test-utils-playwright": "^0.25.0",
     "@wordpress/e2e-tests": "^9.12.0",
     "@wordpress/eslint-plugin": "^12.4.0",
     "@wordpress/interactivity": "^6.15.0",

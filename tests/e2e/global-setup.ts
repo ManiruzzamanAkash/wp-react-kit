@@ -9,21 +9,25 @@ import type { FullConfig } from '@playwright/test';
  */
 import { RequestUtils } from '@wordpress/e2e-test-utils-playwright';
 
-async function globalSetup(config: FullConfig) {
-	const { storageState, baseURL } = config.projects[0].use;
+async function globalSetup( config: FullConfig ) {
+	const { storageState, baseURL } = config.projects[ 0 ].use;
 	const storageStatePath =
 		typeof storageState === 'string' ? storageState : undefined;
 
-	const requestContext = await request.newContext({
+	const requestContext = await request.newContext( {
 		baseURL,
-	});
+	} );
 
-	const requestUtils = await RequestUtils.setup({
-		storageStatePath
-	});
+	const requestUtils = await RequestUtils.setup( {
+		storageStatePath,
+	} );
 
 	// Authenticate and save the storageState to disk.
 	await requestUtils.setupRest();
+
+	// Reactivate the plugin to trigger activation hooks and seed demo data.
+	await requestUtils.deactivatePlugin( 'job-manager' );
+	await requestUtils.activatePlugin( 'job-manager' );
 
 	await requestContext.dispose();
 }

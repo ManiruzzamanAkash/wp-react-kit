@@ -1,4 +1,5 @@
 {
+    "core": null,
     "phpVersion": "7.4",
     "plugins": [
         "."
@@ -16,6 +17,8 @@
                 "./tests/e2e/gutenberg-test-plugin-disables-the-css-animations"
             ],
             "config": {
+                "FS_METHOD": "direct",
+                "WP_DEBUG": false,
                 "WP_TESTS_DOMAIN": "localhost"
             }
         }
