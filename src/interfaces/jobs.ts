@@ -308,7 +308,7 @@ export interface ICompanyDropdown {
     email: string;
 
     /**
-     * Username.
+     * Company slug.
      */
-    username: string;
+    slug?: string;
 }

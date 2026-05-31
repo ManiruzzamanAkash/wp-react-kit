@@ -17,22 +17,26 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faBriefcase,
+    faBuilding,
     faCircleCheck,
     faPenToSquare,
     faStar,
     faHouseLaptop,
     faHandshake,
     faPlus,
+    faTags,
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Internal dependencies
  */
 import jobStore from '../../data/jobs';
+import jobCategoriesStore from '../../data/job-categories';
+import companiesStore from '../../data/companies';
 import { IJobStats } from '../../interfaces';
 import './dashboard.scss';
 
-const STAT_CARDS = [
+const JOB_STAT_CARDS = [
     {
         key: 'total',
         label: __( 'Total jobs', 'jobplace' ),
@@ -71,6 +75,23 @@ const STAT_CARDS = [
     },
 ] as const;
 
+const ORG_STAT_CARDS = [
+    {
+        key: 'companies',
+        label: __( 'Companies', 'jobplace' ),
+        icon: faBuilding,
+        color: '#008a20',
+        route: '/companies',
+    },
+    {
+        key: 'categories',
+        label: __( 'Job categories', 'jobplace' ),
+        icon: faTags,
+        color: '#bd581a',
+        route: '/job-categories',
+    },
+] as const;
+
 const Dashboard = () => {
     const navigate = useNavigate();
 
@@ -78,20 +99,51 @@ const Dashboard = () => {
         ( select ) => select( jobStore ).getJobStats(),
         []
     );
+    const companyStats = useSelect(
+        ( select ) => select( companiesStore ).getCompanyStats(),
+        []
+    );
+    const categoryStats = useSelect(
+        ( select ) => select( jobCategoriesStore ).getCategoryStats(),
+        []
+    );
 
-    // Cached by the resolver, so the spinner only shows on the first load.
-    const isLoading: boolean = useSelect(
+    const isLoadingJobs: boolean = useSelect(
         ( select ) =>
             ! select( jobStore ).hasFinishedResolution( 'getJobStats', [] ),
         []
     );
+    const isLoadingCompanies: boolean = useSelect(
+        ( select ) =>
+            ! select( companiesStore ).hasFinishedResolution(
+                'getCompanyStats',
+                []
+            ),
+        []
+    );
+    const isLoadingCategories: boolean = useSelect(
+        ( select ) =>
+            ! select( jobCategoriesStore ).hasFinishedResolution(
+                'getCategoryStats',
+                []
+            ),
+        []
+    );
+
+    const isLoading =
+        isLoadingJobs || isLoadingCompanies || isLoadingCategories;
+
+    const orgStats = {
+        companies: companyStats?.total ?? 0,
+        categories: categoryStats?.total ?? 0,
+    };
 
     return (
         <div className="wprk-dashboard">
             <header className="wprk-dashboard__header">
                 <div>
                     <Heading level={ 2 } className="wprk-dashboard__title">
-                        { __( 'Job Place overview', 'jobplace' ) }
+                        { __( 'Dashboard', 'jobplace' ) }
                     </Heading>
                     <Text variant="muted">
                         { __(
@@ -114,39 +166,87 @@ const Dashboard = () => {
                     <Spinner />
                 </div>
             ) : (
-                <div className="wprk-dashboard__grid">
-                    { STAT_CARDS.map( ( card ) => (
-                        <Card key={ card.key } size="small">
-                            <CardBody>
-                                <Flex align="center" gap={ 4 }>
-                                    <FlexItem>
-                                        <span
-                                            className="wprk-dashboard__icon"
-                                            style={ {
-                                                backgroundColor: `${ card.color }1a`,
-                                                color: card.color,
-                                            } }
-                                        >
-                                            <FontAwesomeIcon
-                                                icon={ card.icon }
-                                            />
-                                        </span>
-                                    </FlexItem>
-                                    <FlexItem isBlock>
-                                        <div className="wprk-dashboard__stat">
-                                            { stats
-                                                ? stats[ card.key ] ?? 0
-                                                : 0 }
-                                        </div>
-                                        <Text variant="muted">
-                                            { card.label }
-                                        </Text>
-                                    </FlexItem>
-                                </Flex>
-                            </CardBody>
-                        </Card>
-                    ) ) }
-                </div>
+                <>
+                    <div className="wprk-dashboard__grid">
+                        { JOB_STAT_CARDS.map( ( card ) => (
+                            <Card key={ card.key } size="small">
+                                <CardBody>
+                                    <Flex align="center" gap={ 4 }>
+                                        <FlexItem>
+                                            <span
+                                                className="wprk-dashboard__icon"
+                                                style={ {
+                                                    backgroundColor: `${ card.color }1a`,
+                                                    color: card.color,
+                                                } }
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={ card.icon }
+                                                />
+                                            </span>
+                                        </FlexItem>
+                                        <FlexItem isBlock>
+                                            <div className="wprk-dashboard__stat">
+                                                { stats
+                                                    ? stats[ card.key ] ?? 0
+                                                    : 0 }
+                                            </div>
+                                            <Text variant="muted">
+                                                { card.label }
+                                            </Text>
+                                        </FlexItem>
+                                    </Flex>
+                                </CardBody>
+                            </Card>
+                        ) ) }
+                    </div>
+
+                    <section className="wprk-dashboard__section">
+                        <Heading
+                            level={ 3 }
+                            className="wprk-dashboard__section-title"
+                        >
+                            { __( 'Organizations', 'jobplace' ) }
+                        </Heading>
+
+                        <div className="wprk-dashboard__grid wprk-dashboard__grid--compact">
+                            { ORG_STAT_CARDS.map( ( card ) => (
+                                <Card
+                                    key={ card.key }
+                                    size="small"
+                                    className="wprk-dashboard__org-card"
+                                    onClick={ () => navigate( card.route ) }
+                                >
+                                    <CardBody>
+                                        <Flex align="center" gap={ 4 }>
+                                            <FlexItem>
+                                                <span
+                                                    className="wprk-dashboard__icon"
+                                                    style={ {
+                                                        backgroundColor: `${ card.color }1a`,
+                                                        color: card.color,
+                                                    } }
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={ card.icon }
+                                                    />
+                                                </span>
+                                            </FlexItem>
+                                            <FlexItem isBlock>
+                                                <div className="wprk-dashboard__stat">
+                                                    { orgStats[ card.key ] ?? 0 }
+                                                </div>
+                                                <Text variant="muted">
+                                                    { card.label }
+                                                </Text>
+                                            </FlexItem>
+                                        </Flex>
+                                    </CardBody>
+                                </Card>
+                            ) ) }
+                        </div>
+                    </section>
+                </>
             ) }
 
             <Card className="wprk-dashboard__cta">

@@ -6,6 +6,7 @@ import JobsPage from '../pages/jobs/JobsPage';
 import CreateJob from '../pages/jobs/CreateJob';
 import EditJob from '../pages/jobs/EditJob';
 import JobCategoriesPage from '../pages/job-categories/JobCategoriesPage';
+import CompaniesPage from '../pages/companies/CompaniesPage';
 
 const routes = [
     {
@@ -27,6 +28,10 @@ const routes = [
     {
         path: '/job-categories',
         element: JobCategoriesPage,
+    },
+    {
+        path: '/companies',
+        element: CompaniesPage,
     },
 ];
 

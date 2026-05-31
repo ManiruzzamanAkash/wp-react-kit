@@ -28,6 +28,38 @@ $edge: 32px;
         grid-template-columns: repeat( auto-fill, minmax( 220px, 1fr ) );
         gap: 16px;
         margin-bottom: 24px;
+
+        &--compact {
+            grid-template-columns: repeat( auto-fill, minmax( 240px, 1fr ) );
+            margin-bottom: 0;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        padding-top: 32px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    &__section-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #1e1e1e;
+    }
+
+    &__org-card {
+        cursor: pointer;
+        transition: box-shadow 0.15s ease;
+
+        &:hover {
+            box-shadow: 0 0 0 1px #2271b1;
+        }
     }
 
     &__icon {
@@ -49,5 +81,6 @@ $edge: 32px;
 
     &__cta {
         max-width: 100%;
+        margin-top: 8px;
     }
 }

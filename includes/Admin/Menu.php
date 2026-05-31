@@ -36,8 +36,9 @@ class Menu {
         add_menu_page( esc_attr__( 'WP React Kit', 'jobplace' ), esc_attr__( 'WP React Kit', 'jobplace' ), $capability, $slug, [ $this, 'plugin_page' ], $logo_icon, $menu_position );
 
         if ( current_user_can( $capability ) ) {
-            $submenu[ $slug ][] = [ esc_attr__( 'Home', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Dashboard', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Jobs', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/jobs' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Companies', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/companies' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Job categories', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/job-categories' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
         }
     }

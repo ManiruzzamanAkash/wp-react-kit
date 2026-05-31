@@ -16,6 +16,7 @@ import jobStore from '../../data/jobs';
 import { IJobFormData } from '../../interfaces';
 import BlockEditorField from './BlockEditorField';
 import DateField from './DateField';
+import CompanyField from './CompanyField';
 import './job-form.scss';
 
 const toOptions = ( items: Array< { label: string; value: any } > = [] ) =>
@@ -65,10 +66,6 @@ export default function JobForm() {
         ( select ) => select( jobStore ).getJobCategories(),
         []
     );
-    const companyDropdowns = useSelect(
-        ( select ) => select( jobStore ).getCompaniesDropdown(),
-        []
-    );
     const form: IJobFormData = useSelect(
         ( select ) => select( jobStore ).getForm(),
         []
@@ -98,10 +95,7 @@ export default function JobForm() {
             {
                 id: 'company_id',
                 label: __( 'Company', 'jobplace' ),
-                Edit: 'select',
-                elements: withPlaceholder( toOptions( companyDropdowns ) ),
-                getValue: ( { item } ) =>
-                    item.company_id ? String( item.company_id ) : '',
+                Edit: ( props: any ) => <CompanyField { ...props } />,
             },
             {
                 id: 'job_type_id',
@@ -235,7 +229,7 @@ export default function JobForm() {
                 ),
             },
         ],
-        [ jobTypes, jobCategories, companyDropdowns ]
+        [ jobTypes, jobCategories ]
     );
 
     const row = ( id: string, children: string[] ) => ( {
