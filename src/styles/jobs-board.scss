@@ -14,21 +14,41 @@
 }
 
 .jobplace-jobs-search {
+	--jobplace-search-control-height: 2.75rem;
+
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.75rem;
-	align-items: center;
+	align-items: stretch;
 
 	&__input {
 		flex: 1 1 220px;
 		min-width: 220px;
-		padding: 0.55rem 0.75rem;
+		min-height: var(--jobplace-search-control-height);
+		padding: 0 0.75rem;
 		border: 1px solid #dcdcde;
 		border-radius: 4px;
+		box-sizing: border-box;
 	}
 
 	.wp-block-buttons {
+		display: flex;
+		align-items: stretch;
 		margin: 0;
+	}
+
+	.wp-block-button {
+		display: flex;
+		align-items: stretch;
+		margin: 0;
+	}
+
+	.wp-block-button__link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: var(--jobplace-search-control-height);
+		box-sizing: border-box;
 	}
 }
 
@@ -39,7 +59,10 @@
 	padding: 1.25rem;
 	border: 1px solid #dcdcde;
 	border-radius: 8px;
-	background: #fff;
+
+	&:not(.has-background) {
+		background: #fff;
+	}
 
 	&__header {
 		display: flex;
