@@ -5,7 +5,7 @@
  * Description:       Manage jobs, companies, and categories from a React-powered WordPress admin.
  * Requires at least: 5.8
  * Requires PHP:      7.4
- * Version:           0.9.0
+ * Version:           1.0.0
  * Tested upto:       6.7.1
  * Author:            Maniruzzaman Akash<manirujjamanakash@gmail.com>
  * License:           GPL-2.0-or-later
