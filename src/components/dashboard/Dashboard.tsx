@@ -34,6 +34,7 @@ import jobStore from '../../data/jobs';
 import jobCategoriesStore from '../../data/job-categories';
 import companiesStore from '../../data/companies';
 import { IJobStats } from '../../interfaces';
+import { buildJobsListPath } from '../../utils/job-list-filters';
 import './dashboard.scss';
 
 const JOB_STAT_CARDS = [
@@ -169,7 +170,14 @@ const Dashboard = () => {
                 <>
                     <div className="wprk-dashboard__grid">
                         { JOB_STAT_CARDS.map( ( card ) => (
-                            <Card key={ card.key } size="small">
+                            <Card
+                                key={ card.key }
+                                size="small"
+                                className="wprk-dashboard__stat-card"
+                                onClick={ () =>
+                                    navigate( buildJobsListPath( card.key ) )
+                                }
+                            >
                                 <CardBody>
                                     <Flex align="center" gap={ 4 }>
                                         <FlexItem>

@@ -33,7 +33,7 @@ class Menu {
         $capability    = 'manage_options';
         $logo_icon     = JOB_PLACE_ASSETS . '/images/wp-react-kit-logo.png';
 
-        add_menu_page( esc_attr__( 'WP React Kit', 'jobplace' ), esc_attr__( 'WP React Kit', 'jobplace' ), $capability, $slug, [ $this, 'plugin_page' ], $logo_icon, $menu_position );
+        add_menu_page( esc_attr__( 'Job Manager', 'jobplace' ), esc_attr__( 'Job Manager', 'jobplace' ), $capability, $slug, [ $this, 'plugin_page' ], $logo_icon, $menu_position );
 
         if ( current_user_can( $capability ) ) {
             $submenu[ $slug ][] = [ esc_attr__( 'Dashboard', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited

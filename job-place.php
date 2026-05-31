@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name:       WP React Kit
- * Description:       A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more...
+ * Plugin Name:       Job Manager
+ * Description:       Manage jobs, companies, and categories from a React-powered WordPress admin.
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Version:           0.9.0

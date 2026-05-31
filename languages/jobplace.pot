@@ -1,7 +1,7 @@
 # Copyright (c) 2022 Maniruzzaman Akash. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP React Kit 0.6.0\n"
+"Project-Id-Version: Job Manager 0.9.0\n"
 "Report-Msgid-Bugs-To: https://github.com/ManiruzzamanAkash/wp-react-kit/issues\n"
 "Last-Translator: manirujjamanakash@gmail.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,11 +15,11 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: includes/Admin/Menu.php:36
-msgid "WP React Kit"
+msgid "Job Manager"
 msgstr ""
 
 #. Description of the plugin
-msgid "A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script and many more..."
+msgid "Manage jobs, companies, and categories from a React-powered WordPress admin."
 msgstr ""
 
 #. Author of the plugin
@@ -374,5 +374,5 @@ msgstr ""
 
 #: build/blocks/header/block.json
 msgctxt "block title"
-msgid "ReactKit Header"
+msgid "Job Manager Header"
 msgstr ""

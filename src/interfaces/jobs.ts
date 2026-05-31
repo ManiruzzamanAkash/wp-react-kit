@@ -264,9 +264,54 @@ export interface IJobFilter {
     page?: number;
 
     /**
+     * Items per page.
+     */
+    per_page?: number;
+
+    /**
      * Job search URL params.
      */
     search?: string;
+
+    /**
+     * Published or draft jobs.
+     */
+    status?: 'published' | 'draft';
+
+    /**
+     * Featured jobs only.
+     */
+    is_featured?: 0 | 1;
+
+    /**
+     * Remote-friendly jobs only.
+     */
+    is_remote?: 0 | 1;
+
+    /**
+     * Negotiable salary jobs only.
+     */
+    is_negotiable?: 0 | 1;
+
+    /**
+     * Filter by job type id.
+     */
+    job_type_id?: number;
+
+    /**
+     * Filter by job category id.
+     */
+    job_category_id?: number;
+
+    /**
+     * Filter by company id.
+     */
+    company_id?: number;
+
+    /**
+     * Filter by experience level slug.
+     */
+    experience_level?: string;
 }
 
 export interface IJobTypes {

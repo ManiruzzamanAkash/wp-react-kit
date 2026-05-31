@@ -4,6 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { format } from '@wordpress/date';
 import { Button } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import { useNavigate } from 'react-router-dom';
 import type { Field } from '@wordpress/dataviews/wp';
 
@@ -11,7 +12,25 @@ import type { Field } from '@wordpress/dataviews/wp';
  * Internal dependencies.
  */
 import { IJob } from '../../interfaces';
+import jobStore from '../../data/jobs';
 import { capitalize } from '../../utils/StringHelper';
+
+const EXPERIENCE_LEVELS = [
+    { value: 'entry', label: __( 'Entry level', 'jobplace' ) },
+    { value: 'mid', label: __( 'Mid level', 'jobplace' ) },
+    { value: 'senior', label: __( 'Senior', 'jobplace' ) },
+    { value: 'lead', label: __( 'Lead / Manager', 'jobplace' ) },
+];
+
+const toFilterOptions = (
+    items: Array< { label: string; value: string | number } > = []
+) =>
+    items
+        .filter( ( item ) => item.value !== '' && item.value !== 0 )
+        .map( ( item ) => ( {
+            value: String( item.value ),
+            label: item.label,
+        } ) );
 
 const STATUS_COLORS: Record< string, string > = {
     published: '#319f45',
@@ -91,6 +110,23 @@ const JobStatus = ( { status }: { status?: string } ) => {
 export const useJobFields = (): Field< IJob >[] => {
     const navigate = useNavigate();
 
+    const jobTypes = useSelect(
+        ( select ) => select( jobStore ).getJobTypes(),
+        []
+    );
+    const jobCategories = useSelect(
+        ( select ) => select( jobStore ).getJobCategories(),
+        []
+    );
+    const companies = useSelect(
+        ( select ) => select( jobStore ).getCompaniesDropdown(),
+        []
+    );
+
+    const jobTypeOptions = toFilterOptions( jobTypes );
+    const jobCategoryOptions = toFilterOptions( jobCategories );
+    const companyOptions = toFilterOptions( companies );
+
     return [
         {
             id: 'title',
@@ -128,21 +164,30 @@ export const useJobFields = (): Field< IJob >[] => {
             id: 'job_type',
             label: __( 'Job type', 'jobplace' ),
             enableSorting: false,
-            getValue: ( { item } ) => item.job_type?.name || '',
+            filterBy: {},
+            elements: jobTypeOptions,
+            getValue: ( { item } ) =>
+                item.job_type_id ? String( item.job_type_id ) : '',
             render: ( { item } ) => item.job_type?.name || '—',
         },
         {
             id: 'job_category',
             label: __( 'Category', 'jobplace' ),
             enableSorting: false,
-            getValue: ( { item } ) => item.job_category?.name || '',
+            filterBy: {},
+            elements: jobCategoryOptions,
+            getValue: ( { item } ) =>
+                item.job_category_id ? String( item.job_category_id ) : '',
             render: ( { item } ) => item.job_category?.name || '—',
         },
         {
             id: 'company',
             label: __( 'Company', 'jobplace' ),
             enableSorting: false,
-            getValue: ( { item } ) => item.company?.name || '',
+            filterBy: {},
+            elements: companyOptions,
+            getValue: ( { item } ) =>
+                item.company_id ? String( item.company_id ) : '',
             render: ( { item } ) => (
                 <span
                     style={ {
@@ -223,12 +268,59 @@ export const useJobFields = (): Field< IJob >[] => {
             id: 'status',
             label: __( 'Status', 'jobplace' ),
             enableSorting: false,
+            filterBy: { isPrimary: true },
             getValue: ( { item } ) => item.status || 'draft',
             elements: [
                 { value: 'published', label: __( 'Published', 'jobplace' ) },
                 { value: 'draft', label: __( 'Draft', 'jobplace' ) },
             ],
             render: ( { item } ) => <JobStatus status={ item.status } />,
+        },
+        {
+            id: 'is_featured',
+            label: __( 'Featured', 'jobplace' ),
+            type: 'boolean',
+            enableSorting: false,
+            filterBy: {},
+            getValue: ( { item } ) => !! item.is_featured,
+            render: ( { item } ) =>
+                item.is_featured ? __( 'Yes', 'jobplace' ) : __( 'No', 'jobplace' ),
+        },
+        {
+            id: 'is_remote',
+            label: __( 'Remote friendly', 'jobplace' ),
+            type: 'boolean',
+            enableSorting: false,
+            filterBy: {},
+            getValue: ( { item } ) => !! item.is_remote,
+            render: ( { item } ) =>
+                item.is_remote ? __( 'Yes', 'jobplace' ) : __( 'No', 'jobplace' ),
+        },
+        {
+            id: 'is_negotiable',
+            label: __( 'Negotiable salary', 'jobplace' ),
+            type: 'boolean',
+            enableSorting: false,
+            filterBy: {},
+            getValue: ( { item } ) => !! item.is_negotiable,
+            render: ( { item } ) =>
+                item.is_negotiable
+                    ? __( 'Yes', 'jobplace' )
+                    : __( 'No', 'jobplace' ),
+        },
+        {
+            id: 'experience_level',
+            label: __( 'Experience level', 'jobplace' ),
+            enableSorting: false,
+            filterBy: {},
+            elements: EXPERIENCE_LEVELS,
+            getValue: ( { item } ) => item.experience_level || '',
+            render: ( { item } ) =>
+                EXPERIENCE_LEVELS.find(
+                    ( level ) => level.value === item.experience_level
+                )?.label ||
+                item.experience_level ||
+                '—',
         },
     ];
 };

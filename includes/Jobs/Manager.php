@@ -46,6 +46,36 @@ class Manager {
             $args['where'][] = $wpdb->prepare( ' title LIKE %s OR description LIKE %s ', $like, $like );
         }
 
+        if ( ! empty( $args['status'] ) ) {
+            if ( 'published' === $args['status'] ) {
+                $args['where'][] = 'is_active = 1';
+            } elseif ( 'draft' === $args['status'] ) {
+                $args['where'][] = 'is_active = 0';
+            }
+        }
+
+        foreach ( [ 'is_featured', 'is_remote', 'is_negotiable' ] as $flag ) {
+            if ( isset( $args[ $flag ] ) && '' !== $args[ $flag ] ) {
+                global $wpdb;
+                $args['where'][] = $wpdb->prepare( "{$flag} = %d", absint( $args[ $flag ] ) );
+            }
+        }
+
+        foreach ( [ 'job_type_id', 'job_category_id', 'company_id' ] as $id_field ) {
+            if ( ! empty( $args[ $id_field ] ) ) {
+                global $wpdb;
+                $args['where'][] = $wpdb->prepare( "{$id_field} = %d", absint( $args[ $id_field ] ) );
+            }
+        }
+
+        if ( ! empty( $args['experience_level'] ) ) {
+            global $wpdb;
+            $args['where'][] = $wpdb->prepare(
+                'experience_level = %s',
+                sanitize_text_field( wp_unslash( $args['experience_level'] ) )
+            );
+        }
+
         if ( ! empty( $args['where'] ) ) {
             $args['where'] = ' WHERE ' . implode( ' AND ', $args['where'] );
         } else {

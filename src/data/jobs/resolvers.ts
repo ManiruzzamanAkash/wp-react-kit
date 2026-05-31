@@ -11,7 +11,6 @@ import {
 } from './endpoint';
 import {
     ICompanyDropdown,
-    IJobFilter,
     IJobTypes,
     IResponseGenerator,
 } from '../../interfaces';
@@ -20,32 +19,6 @@ import { formatSelect2Data } from '../../utils/Select2Helper';
 import { prepareJobDataForDatabase } from './utils';
 
 const resolvers = {
-    *getJobs(filters: IJobFilter) {
-        if (filters === undefined) {
-            filters = {};
-        }
-
-        const queryParam = new URLSearchParams(
-            filters as URLSearchParams
-        ).toString();
-
-        const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
-            `${jobsEndpoint}?${queryParam}`
-        );
-        let totalPage = 0;
-        let totalCount = 0;
-
-        if (response.headers !== undefined) {
-            totalPage = response.headers.get('X-WP-TotalPages');
-            totalCount = response.headers.get('X-WP-Total');
-        }
-
-        yield actions.setJobs(response.data);
-        yield actions.setTotalPage(totalPage);
-        yield actions.setTotal(totalCount);
-        return actions.setLoadingJobs(false);
-    },
-
     *getJobStats() {
         const response: IResponseGenerator = yield actions.fetchFromAPI(
             jobsStatsEndpoint

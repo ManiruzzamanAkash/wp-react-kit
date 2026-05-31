@@ -117,7 +117,8 @@ class JobsController extends RESTController {
 
         $args['count'] = 1;
         $total         = wp_react_kit()->jobs->all( $args );
-        $max_pages     = ceil( $total / (int) $args['limit'] );
+        $per_page      = ! empty( $args['per_page'] ) ? (int) $args['per_page'] : 10;
+        $max_pages     = ceil( $total / $per_page );
         $response      = rest_ensure_response( $data );
 
         $response->header( 'X-WP-Total', (int) $total );
@@ -773,10 +774,55 @@ class JobsController extends RESTController {
     public function get_collection_params(): array {
         $params = parent::get_collection_params();
 
-        $params['limit']['default']   = 10;
+        $params['per_page']['default'] = 10;
         $params['search']['default']  = '';
         $params['orderby']['default'] = 'id';
         $params['order']['default']   = 'DESC';
+
+        $params['status'] = [
+            'description' => __( 'Filter jobs by status.', 'jobplace' ),
+            'type'        => 'string',
+            'enum'        => [ 'published', 'draft' ],
+        ];
+
+        $params['is_featured'] = [
+            'description' => __( 'Filter featured jobs.', 'jobplace' ),
+            'type'        => 'integer',
+            'enum'        => [ 0, 1 ],
+        ];
+
+        $params['is_remote'] = [
+            'description' => __( 'Filter remote-friendly jobs.', 'jobplace' ),
+            'type'        => 'integer',
+            'enum'        => [ 0, 1 ],
+        ];
+
+        $params['is_negotiable'] = [
+            'description' => __( 'Filter negotiable salary jobs.', 'jobplace' ),
+            'type'        => 'integer',
+            'enum'        => [ 0, 1 ],
+        ];
+
+        $params['job_type_id'] = [
+            'description' => __( 'Filter by job type id.', 'jobplace' ),
+            'type'        => 'integer',
+        ];
+
+        $params['job_category_id'] = [
+            'description' => __( 'Filter by job category id.', 'jobplace' ),
+            'type'        => 'integer',
+        ];
+
+        $params['company_id'] = [
+            'description' => __( 'Filter by company id.', 'jobplace' ),
+            'type'        => 'integer',
+        ];
+
+        $params['experience_level'] = [
+            'description' => __( 'Filter by experience level.', 'jobplace' ),
+            'type'        => 'string',
+            'enum'        => [ 'entry', 'mid', 'senior', 'lead' ],
+        ];
 
         return $params;
     }
