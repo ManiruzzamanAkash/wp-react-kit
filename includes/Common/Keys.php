@@ -49,6 +49,15 @@ class Keys {
     const JOB_TYPE_SEEDER_RAN = 'jobplace_job_type_seeder_ran';
 
     /**
+     * Job category seeder ran key.
+     *
+     * @var string
+     *
+     * @since 0.13.0
+     */
+    const JOB_CATEGORY_SEEDER_RAN = 'jobplace_job_category_seeder_ran';
+
+    /**
      * Job seeder ran key.
      *
      * @var string

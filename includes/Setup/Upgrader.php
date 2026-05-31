@@ -3,6 +3,7 @@
 namespace Akash\JobPlace\Setup;
 
 use Akash\JobPlace\Common\Keys;
+use Akash\JobPlace\Databases\Migrations\JobCategoryMigration;
 use Akash\JobPlace\Databases\Migrations\JobsMigration;
 use Akash\JobPlace\Databases\Migrations\JobTypeMigration;
 
@@ -24,7 +25,7 @@ class Upgrader {
      *
      * @var string
      */
-    const DB_VERSION = '0.12.0';
+    const DB_VERSION = '0.13.0';
 
     /**
      * Constructor.
@@ -56,10 +57,12 @@ class Upgrader {
         // The custom table-name properties are only registered on activation,
         // so make sure they exist before the migrations reference them.
         global $wpdb;
-        $wpdb->jobplace_job_types = $wpdb->prefix . 'jobplace_job_types';
-        $wpdb->jobplace_jobs      = $wpdb->prefix . 'jobplace_jobs';
+        $wpdb->jobplace_job_types      = $wpdb->prefix . 'jobplace_job_types';
+        $wpdb->jobplace_job_categories = $wpdb->prefix . 'jobplace_job_categories';
+        $wpdb->jobplace_jobs           = $wpdb->prefix . 'jobplace_jobs';
 
         JobTypeMigration::migrate();
+        JobCategoryMigration::migrate();
         JobsMigration::migrate();
 
         update_option( Keys::JOB_PLACE_DB_VERSION, self::DB_VERSION );

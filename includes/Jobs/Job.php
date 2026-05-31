@@ -37,6 +37,7 @@ class Job extends BaseModel {
             'location'             => '',
             'is_remote'            => 0,
             'category'             => '',
+            'job_category_id'      => null,
             'experience_level'     => '',
             'vacancies'            => 1,
             'salary_min'           => null,
@@ -70,6 +71,7 @@ class Job extends BaseModel {
             'location'             => $this->sanitize( $data['location'], 'text' ),
             'is_remote'            => $this->sanitize( $data['is_remote'], 'switch' ),
             'category'             => $this->sanitize( $data['category'], 'text' ),
+            'job_category_id'      => $this->sanitize( $data['job_category_id'], 'number' ),
             'experience_level'     => $this->sanitize( $data['experience_level'], 'text' ),
             'vacancies'            => $this->sanitize( $data['vacancies'], 'number' ),
             'salary_min'           => $this->sanitize( $data['salary_min'], 'decimal' ),
@@ -94,7 +96,8 @@ class Job extends BaseModel {
      * @return array
      */
     public static function to_array( ?object $job ): array {
-        $job_type = static::get_job_type( $job );
+        $job_type     = static::get_job_type( $job );
+        $job_category = static::get_job_category( $job );
 
         $data = [
             'id'                   => (int) $job->id,
@@ -109,6 +112,8 @@ class Job extends BaseModel {
             'description'          => $job->description,
             'location'             => $job->location ?? '',
             'category'             => $job->category ?? '',
+            'job_category'         => $job_category,
+            'job_category_id'      => (int) ( $job->job_category_id ?? 0 ),
             'experience_level'     => $job->experience_level ?? '',
             'vacancies'            => (int) ( $job->vacancies ?? 1 ),
             'salary_min'           => isset( $job->salary_min ) && null !== $job->salary_min ? (float) $job->salary_min : null,
@@ -142,6 +147,26 @@ class Job extends BaseModel {
 
         $columns = 'id, name, slug';
         return $job_type->get( (int) $job->job_type_id, $columns );
+    }
+
+    /**
+     * Get job category of a job.
+     *
+     * @since 0.13.0
+     *
+     * @param object $job
+     *
+     * @return object|null
+     */
+    public static function get_job_category( ?object $job ): ?object {
+        if ( empty( $job->job_category_id ) ) {
+            return null;
+        }
+
+        $job_category = new JobCategory();
+
+        $columns = 'id, name, slug';
+        return $job_category->get( (int) $job->job_category_id, $columns );
     }
 
     /**

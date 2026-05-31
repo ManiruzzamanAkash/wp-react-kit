@@ -217,7 +217,8 @@ final class Wp_React_Kit {
         $this->container['assets']   = new Akash\JobPlace\Assets\Manager();
         $this->container['blocks']   = new Akash\JobPlace\Blocks\Manager();
         $this->container['rest_api'] = new Akash\JobPlace\REST\Api();
-        $this->container['jobs']     = new Akash\JobPlace\Jobs\Manager();
+        $this->container['jobs']           = new Akash\JobPlace\Jobs\Manager();
+        $this->container['job_categories'] = new Akash\JobPlace\Jobs\JobCategoryManager();
     }
 
     /**

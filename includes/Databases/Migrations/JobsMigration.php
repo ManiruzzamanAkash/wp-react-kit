@@ -32,6 +32,7 @@ class JobsMigration extends DBMigrator {
             `location` varchar(255) NULL,
             `is_remote` tinyint(1) NOT NULL DEFAULT 0,
             `category` varchar(191) NULL,
+            `job_category_id` int(10) unsigned NULL,
             `experience_level` varchar(20) NULL,
             `vacancies` int(10) unsigned NOT NULL DEFAULT 1,
             `salary_min` decimal(12,2) NULL,
@@ -56,6 +57,7 @@ class JobsMigration extends DBMigrator {
             KEY `is_active` (`is_active`),
             KEY `is_featured` (`is_featured`),
             KEY `job_type_id` (`job_type_id`),
+            KEY `job_category_id` (`job_category_id`),
             KEY `created_by` (`created_by`),
             KEY `updated_by` (`updated_by`)
         ) $charset_collate";
