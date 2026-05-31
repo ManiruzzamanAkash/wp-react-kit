@@ -4,6 +4,7 @@
 .phpunit.result.cache
 .DS_Store
 /dist
+auth.json
 
 # Playwright
 /test-results/
