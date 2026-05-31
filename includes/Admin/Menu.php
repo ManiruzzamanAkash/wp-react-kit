@@ -31,15 +31,16 @@ class Menu {
         $slug          = JOB_PLACE_SLUG;
         $menu_position = 50;
         $capability    = 'manage_options';
-        $logo_icon     = JOB_PLACE_ASSETS . '/images/wp-react-kit-logo.png';
+        $menu_icon = 'dashicons-businessperson';
 
-        add_menu_page( esc_attr__( 'Job Manager', 'jobplace' ), esc_attr__( 'Job Manager', 'jobplace' ), $capability, $slug, [ $this, 'plugin_page' ], $logo_icon, $menu_position );
+        add_menu_page( esc_attr__( 'Job Manager', 'jobplace' ), esc_attr__( 'Job Manager', 'jobplace' ), $capability, $slug, [ $this, 'plugin_page' ], $menu_icon, $menu_position );
 
         if ( current_user_can( $capability ) ) {
             $submenu[ $slug ][] = [ esc_attr__( 'Dashboard', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Jobs', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/jobs' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Companies', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/companies' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Job categories', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/job-categories' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Settings', 'jobplace' ), $capability, 'admin.php?page=' . $slug . '#/settings' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
         }
     }
 

@@ -14,6 +14,7 @@ import type { Field } from '@wordpress/dataviews/wp';
 import { IJob } from '../../interfaces';
 import jobStore from '../../data/jobs';
 import { capitalize } from '../../utils/StringHelper';
+import CompanyAvatar from './CompanyAvatar';
 
 const EXPERIENCE_LEVELS = [
     { value: 'entry', label: __( 'Entry level', 'jobplace' ) },
@@ -196,17 +197,12 @@ export const useJobFields = (): Field< IJob >[] => {
                         gap: 8,
                     } }
                 >
-                    { item.company?.avatar_url && (
-                        <img
-                            src={ item.company.avatar_url }
-                            alt=""
-                            style={ {
-                                width: 24,
-                                height: 24,
-                                borderRadius: '50%',
-                            } }
+                    { item.company?.name ? (
+                        <CompanyAvatar
+                            name={ item.company.name }
+                            avatarUrl={ item.company.avatar_url }
                         />
-                    ) }
+                    ) : null }
                     <span>{ item.company?.name || '—' }</span>
                 </span>
             ),

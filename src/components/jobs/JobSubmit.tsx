@@ -4,8 +4,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { Button } from '@wordpress/components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { store as noticesStore } from '@wordpress/notices';
 import { __ } from '@wordpress/i18n';
 
@@ -96,7 +94,6 @@ export default function JobSubmit() {
 
             <Button
                 variant="primary"
-                icon={ <FontAwesomeIcon icon={ faCheckCircle } /> }
                 isBusy={ jobsSaving }
                 disabled={ jobsSaving }
                 onClick={ onSubmit }

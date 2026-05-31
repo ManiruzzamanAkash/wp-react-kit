@@ -2,16 +2,27 @@ $edge: 32px;
 
 // Full-bleed white page that matches the Jobs list page alignment.
 .wprk-form-page {
+    --wprk-form-sticky-top: 32px;
+    --wprk-form-header-height: 104px;
+
     background: #fff;
     min-height: calc( 100vh - 120px );
 
+    @media screen and ( max-width: 782px ) {
+        --wprk-form-sticky-top: 46px;
+    }
+
     &__header {
+        position: sticky;
+        top: var( --wprk-form-sticky-top );
+        z-index: 20;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         gap: 16px;
         padding: 24px $edge;
         border-bottom: 1px solid #e0e0e0;
+        background: #fff;
     }
 
     &__heading {
@@ -72,7 +83,7 @@ $edge: 32px;
 
     &__sidebar {
         position: sticky;
-        top: 32px;
+        top: calc( var( --wprk-form-sticky-top, 32px ) + var( --wprk-form-header-height, 104px ) );
     }
 
     // DataForm renders each section as a card.
