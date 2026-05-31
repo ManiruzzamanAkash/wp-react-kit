@@ -36,6 +36,7 @@ class Upgrader {
     public function __construct() {
         add_action( 'admin_init', [ $this, 'maybe_upgrade' ] );
         add_action( 'admin_init', [ $this, 'maybe_seed_top_companies' ], 11 );
+        add_action( 'admin_init', [ $this, 'maybe_seed_pages' ], 12 );
     }
 
     /**
@@ -95,5 +96,25 @@ class Upgrader {
 
         $seeder = new \Akash\JobPlace\Databases\Seeder\CompanySeeder();
         $seeder->run();
+    }
+
+    /**
+     * Create default jobs board page for existing installs.
+     *
+     * @since 0.16.0
+     *
+     * @return void
+     */
+    public function maybe_seed_pages(): void {
+        if ( get_option( Keys::JOB_PLACE_JOBS_PAGE_ID ) ) {
+            return;
+        }
+
+        if ( ! get_option( Keys::JOB_PLACE_INSTALLED ) ) {
+            return;
+        }
+
+        $page_seeder = new PageSeeder();
+        $page_seeder->create_jobs_page();
     }
 }

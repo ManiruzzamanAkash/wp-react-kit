@@ -33,6 +33,10 @@ class Installer {
         // Run the database seeders.
         $seeder = new \Akash\JobPlace\Databases\Seeder\Manager();
         $seeder->run();
+
+        // Create default front-end pages (jobs board).
+        $page_seeder = new PageSeeder();
+        $page_seeder->seed();
     }
 
     /**
