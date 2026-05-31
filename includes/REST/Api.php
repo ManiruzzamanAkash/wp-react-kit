@@ -50,8 +50,8 @@ class Api {
      */
     public function register_rest_routes(): void {
         foreach ( $this->class_map as $controller ) {
-            $this->$controller = new $controller();
-            $this->$controller->register_routes();
+            $instance = new $controller();
+            $instance->register_routes();
         }
     }
 }

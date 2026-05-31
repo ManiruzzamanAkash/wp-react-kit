@@ -39,6 +39,7 @@
     "@wordpress/block-editor": "^10.5.0",
     "@wordpress/components": "^22.1.0",
     "@wordpress/data": "^6.15.0",
+    "@wordpress/dataviews": "^10.3.0",
     "@wordpress/e2e-test-utils": "^7.11.0",
     "@wordpress/e2e-test-utils-playwright": "^0.1.0",
     "@wordpress/e2e-tests": "^9.12.0",
@@ -60,8 +61,6 @@
     "puppeteer-testing-library": "^0.6.0",
     "react-router-dom": "^6.3.0",
     "replace-in-file": "^6.3.5",
-    "tailwind-merge": "^1.8.0",
-    "tailwindcss": "^3.1.7",
     "ts-jest": "^28.0.8"
   },
   "dependencies": {

@@ -1,206 +1,120 @@
 /**
  * External dependencies
  */
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useMemo, useRef, useState } from '@wordpress/element';
 import { useNavigate } from 'react-router-dom';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { Button } from '@wordpress/components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { DataViews } from '@wordpress/dataviews/wp';
+import type { View } from '@wordpress/dataviews/wp';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
-import Layout from '../../components/layout/Layout';
-import Table from '../../components/table/Table';
-import TableLoading from '../../components/loading/TableLoading';
-import PageHeading from '../../components/layout/PageHeading';
-import { useSelect, useDispatch } from '@wordpress/data';
+import Notices from '../../components/Notices';
 import store from '../../data/jobs';
-import {
-    useTableHeaderData,
-    useTableRowData,
-} from '../../components/jobs/use-table-data';
-import SelectCheckBox from '../../components/jobs/SelectCheckBox';
-import { Input } from '../../components/inputs/Input';
-import { IJob, IJobFilter } from '../../interfaces';
+import { useJobFields } from '../../components/jobs/job-fields';
+import { useJobActions } from '../../components/jobs/job-actions';
+import { IJob } from '../../interfaces';
+import './jobs-page.scss';
+
+const DEFAULT_PER_PAGE = 10;
 
 export default function JobsPage() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [page, setPage] = useState(
-        new URLSearchParams(location.search).get('pages') || 1
-    );
-    const searched = new URLSearchParams(location.search).get('s');
-    const [search, setSearch] = useState<string>(
-        typeof searched === 'string' ? searched : ''
-    );
-    const [checkedAll, setCheckedAll] = useState(false);
+    const { setFilters } = useDispatch( store );
 
-    const jobs: Array<IJob> = useSelect(
-        (select) => select(store).getJobs({}),
+    const fields = useJobFields();
+    const actions = useJobActions();
+
+    const [ view, setView ] = useState< View >( {
+        type: 'table',
+        search: '',
+        page: 1,
+        perPage: DEFAULT_PER_PAGE,
+        fields: [
+            'job_type',
+            'company',
+            'location',
+            'salary',
+            'vacancies',
+            'posted',
+            'status',
+        ],
+        titleField: 'title',
+        filters: [],
+        sort: {},
+        layout: {},
+    } );
+
+    const jobs: IJob[] = useSelect(
+        ( select ) => select( store ).getJobs( {} ),
         []
     );
-    const totalJobs: number = useSelect(
-        (select) => select(store).getTotal(),
+    const total: number = useSelect(
+        ( select ) => Number( select( store ).getTotal() ) || 0,
         []
     );
-    const jobFilters: IJobFilter = useSelect(
-        (select) => select(store).getFilter(),
+    const totalPages: number = useSelect(
+        ( select ) => Number( select( store ).getTotalPage() ) || 0,
         []
     );
-    const loadingJobs: boolean = useSelect(
-        (select) => select(store).getLoadingJobs(),
+    const isLoading: boolean = useSelect(
+        ( select ) => select( store ).getLoadingJobs(),
         []
     );
 
-    useEffect(() => {
-        dispatch(store).setFilters({
-            ...jobFilters,
-            page,
-            search,
-        });
-    }, [page, search]);
-
-    /**
-     * Process search-bar, tab and pagination clicks.
-     *
-     * @param  pagePassed
-     * @param  searchPassed
-     * @return {void}
-     */
-    const processAndNavigate = (
-        pagePassed: number = 0,
-        searchPassed: string | null = null
-    ) => {
-        const pageData = pagePassed === 0 ? page : pagePassed;
-        const searchData = searchPassed === '' ? search : searchPassed;
-        navigate(`/jobs?pages=${pageData}&s=${searchData}`);
-        setPage(pageData);
-
-        dispatch(store).setFilters({
-            ...jobFilters,
-            page: pageData,
-            search: searchData,
-        });
-    };
-
-    // TODO: Implement this later.
-    const [checked, setChecked] = useState<Array<number>>([]);
-    const checkJob = (jobId: number, isChecked = false) => {
-        const jobsData = [];
-        if (jobId === 0) {
-            if (isChecked) {
-                jobsData.push(...jobs.map((job) => job.id));
-            }
-            setChecked(jobsData);
-        } else {
-            setChecked([...checked, jobId]);
+    // The jobs store handles loading; the initial fetch is performed by the
+    // `getJobs` resolver, so skip the first effect run to avoid a double load.
+    const isFirstRender = useRef( true );
+    useEffect( () => {
+        if ( isFirstRender.current ) {
+            isFirstRender.current = false;
+            return;
         }
-    };
 
-    /**
-     * Handle Checked and unchecked.
-     */
-    useEffect(() => {
-        if (jobs.length === checked.length && checked.length > 0) {
-            setCheckedAll(true);
-        } else {
-            setCheckedAll(false);
-        }
-    }, [jobs, checked]);
+        setFilters( {
+            page: view.page ?? 1,
+            per_page: view.perPage ?? DEFAULT_PER_PAGE,
+            search: view.search ?? '',
+        } );
+    }, [ view.page, view.perPage, view.search, setFilters ] );
 
-    /**
-     * Get Page Content - Title and New Job button.
-     *
-     * @return JSX.Element
-     */
-    const pageTitleContent = (
-        <div className="flex">
-            <div className="flex-6 mr-3">
-                <PageHeading text={__('Jobs', 'jobplace')} />
-            </div>
-            <div className="flex-1 text-left">
-                <Button
-                    variant="primary"
-                    icon={<FontAwesomeIcon icon={faPlus} />}
-                    onClick={() => navigate('/jobs/new')}
-                >
-                    {__('New', 'jobplace')}
-                </Button>
-            </div>
-        </div>
+    const paginationInfo = useMemo(
+        () => ( { totalItems: total, totalPages } ),
+        [ total, totalPages ]
     );
-
-    /**
-     * Get Right Side Content - Jobs Search Input.
-     *
-     * @param  data
-     */
-    const pageRightSideContent = (
-        <Input
-            type="text"
-            placeholder={__('Search Jobs…', 'jobplace')}
-            onChange={(data) => {
-                setSearch(data.value);
-                processAndNavigate(page, data.value);
-            }}
-            value={search}
-            className="w-full md:w-80"
-        />
-    );
-
-    const tableResponsiveColumns = ['sl', 'title', 'actions'];
-    const tableHeaders = useTableHeaderData();
-    const tableRows = useTableRowData(jobs, checked);
 
     return (
-        <Layout
-            title={pageTitleContent}
-            slug="jobs"
-            hasRightSideContent={true}
-            rightSideContent={pageRightSideContent}
-        >
-            {loadingJobs ? (
-                <TableLoading
-                    headers={tableHeaders}
-                    responsiveColumns={tableResponsiveColumns}
-                    hasCheckbox={false}
-                    count={5}
-                />
-            ) : (
-                <>
-                    {checked.length > 0 && (
-                        <SelectCheckBox
-                            checked={checked}
-                            onChange={(response) => checkJob()}
-                        />
-                    )}
+        <div className="wprk-dataviews-page">
+            <header className="wprk-dataviews-page__header">
+                <div className="wprk-dataviews-page__heading">
+                    <h2>{ __( 'Jobs', 'jobplace' ) }</h2>
+                    <p>{ __( 'A list of all jobs.', 'jobplace' ) }</p>
+                </div>
+                <div className="wprk-dataviews-page__actions">
+                    <Button
+                        variant="primary"
+                        onClick={ () => navigate( '/jobs/new' ) }
+                    >
+                        { __( 'Add Job', 'jobplace' ) }
+                    </Button>
+                </div>
+            </header>
 
-                    <Table
-                        headers={tableHeaders}
-                        rows={tableRows}
-                        totalItems={totalJobs}
-                        perPage={10}
-                        onCheckAll={(isChecked: boolean) => {
-                            checkJob(0, isChecked);
-                            setCheckedAll(isChecked);
-                        }}
-                        responsiveColumns={tableResponsiveColumns}
-                        checkedAll={checkedAll}
-                        noDataMessage={__(
-                            'Sorry !! No jobs found…',
-                            'jobplace'
-                        )}
-                        currentPage={
-                            typeof page === 'number' ? parseInt(page) : 1
-                        }
-                        onChangePage={(page) =>
-                            processAndNavigate(page, search)
-                        }
-                    />
-                </>
-            )}
-        </Layout>
+            <DataViews
+                data={ jobs }
+                fields={ fields }
+                view={ view }
+                onChangeView={ setView }
+                actions={ actions }
+                paginationInfo={ paginationInfo }
+                isLoading={ isLoading }
+                getItemId={ ( item: IJob ) => String( item.id ) }
+                defaultLayouts={ { table: {} } }
+            />
+            <Notices />
+        </div>
     );
 }

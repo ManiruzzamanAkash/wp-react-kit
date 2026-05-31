@@ -18,6 +18,12 @@ const reducer = (state = jobDefaultState, action: any) => {
                 job: action.job,
             };
 
+        case Types.GET_JOB_STATS:
+            return {
+                ...state,
+                stats: action.stats,
+            };
+
         case Types.GET_JOB_TYPES:
             return {
                 ...state,

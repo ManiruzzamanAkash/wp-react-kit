@@ -5,6 +5,7 @@ import actions from './actions';
 import {
     companiesDropdownEndpoint,
     jobsEndpoint,
+    jobsStatsEndpoint,
     jobTypesEndpoint,
 } from './endpoint';
 import {
@@ -41,6 +42,14 @@ const resolvers = {
         yield actions.setTotalPage(totalPage);
         yield actions.setTotal(totalCount);
         return actions.setLoadingJobs(false);
+    },
+
+    *getJobStats() {
+        const response: IResponseGenerator = yield actions.fetchFromAPI(
+            jobsStatsEndpoint
+        );
+
+        yield actions.setJobStats(response);
     },
 
     *getJobDetail(id: number) {

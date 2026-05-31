@@ -1,5 +1,5 @@
 # WP-React-Kit
-A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, WordPress Playwright e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
+A simple starter kit to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, @wordpress/components, @wordpress/dataviews, SCSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, WordPress Playwright e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
 
 ----
 
@@ -10,20 +10,19 @@ A simple starter kit to work in WordPress plugin development using WordPress Res
 3. React
 4. React Router
 5. TypeScript
-6. Tailwind CSS [Nested + ]
-7. Scss
-8. PostCSS
-9. Eslint
-10. WP-Data
-11. WP-Data Redux Store [Redux Saga, Generator function, Thunk, Saga Middleware]
-12. React Components
-13. React CRUD Operations - Create, Reade, Update, Delete, Status changes and so many...
-14. Internationalization - WP i18n
-15. PHPUnit Test [Test + Fix]
-16. JestUnit Test
-17. WordPress Playwright e2e Test
-18. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
-19. Gutenberg blocks, Dynamic blocks
+6. Scss
+7. PostCSS
+8. Eslint
+9. WP-Data
+10. WP-Data Redux Store [Redux Saga, Generator function, Thunk, Saga Middleware]
+11. React Components
+12. React CRUD Operations - Create, Reade, Update, Delete, Status changes and so many...
+13. Internationalization - WP i18n
+14. PHPUnit Test [Test + Fix]
+15. JestUnit Test
+16. WordPress Playwright e2e Test
+17. PHP OOP plugin architecture [Traits + Interfaces + Abstract Classes]
+18. Gutenberg blocks, Dynamic blocks
 
 ### Quick Start
 ```sh

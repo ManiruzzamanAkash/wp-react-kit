@@ -3,6 +3,7 @@
 namespace Akash\JobPlace\Setup;
 
 use Akash\JobPlace\Common\Keys;
+use Akash\JobPlace\Setup\Upgrader;
 
 /**
  * Class Installer.
@@ -76,6 +77,7 @@ class Installer {
         }
 
         update_option( Keys::JOB_PLACE_VERSION, JOB_PLACE_VERSION );
+        update_option( Keys::JOB_PLACE_DB_VERSION, Upgrader::DB_VERSION );
     }
 
     /**

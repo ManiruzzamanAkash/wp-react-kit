@@ -1,0 +1,53 @@
+$edge: 32px;
+
+.wprk-dashboard {
+    background: #fff;
+    min-height: calc( 100vh - 120px );
+    padding: 24px $edge $edge;
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        margin: 0 0 4px;
+    }
+
+    &__loading {
+        display: flex;
+        justify-content: center;
+        padding: 48px 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat( auto-fill, minmax( 220px, 1fr ) );
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        font-size: 18px;
+    }
+
+    &__stat {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.1;
+        color: #1e1e1e;
+    }
+
+    &__cta {
+        max-width: 100%;
+    }
+}

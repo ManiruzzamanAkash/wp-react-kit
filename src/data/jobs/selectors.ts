@@ -17,6 +17,12 @@ const selectors = {
         return job;
     },
 
+    getJobStats(state: IJobs) {
+        const { stats } = state;
+
+        return stats;
+    },
+
     getJobTypes(state: IJobs) {
         const { jobTypes } = state;
 

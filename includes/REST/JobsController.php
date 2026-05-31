@@ -61,6 +61,17 @@ class JobsController extends RESTController {
         );
 
         register_rest_route(
+            $this->namespace, '/' . $this->base . '/stats',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [ $this, 'get_stats' ],
+                    'permission_callback' => [ $this, 'check_permission' ],
+                ],
+            ]
+        );
+
+        register_rest_route(
             $this->namespace, '/' . $this->base . '/(?P<id>[a-zA-Z0-9-]+)',
             [
                 [
@@ -276,6 +287,47 @@ class JobsController extends RESTController {
     }
 
     /**
+     * Retrieve aggregated job statistics for the dashboard.
+     *
+     * @since 0.11.0
+     *
+     * @param WP_REST_Request $request Full details about the request.
+     *
+     * @return WP_REST_Response
+     */
+    public function get_stats( $request ): WP_REST_Response {
+        $stats = [
+            'total'      => $this->count_jobs(),
+            'published'  => $this->count_jobs( 'is_active = 1' ),
+            'draft'      => $this->count_jobs( 'is_active = 0' ),
+            'featured'   => $this->count_jobs( 'is_featured = 1' ),
+            'remote'     => $this->count_jobs( 'is_remote = 1' ),
+            'negotiable' => $this->count_jobs( 'is_negotiable = 1' ),
+        ];
+
+        return rest_ensure_response( $stats );
+    }
+
+    /**
+     * Count jobs that match an optional raw WHERE clause.
+     *
+     * @since 0.11.0
+     *
+     * @param string $where Raw SQL condition (already trusted/static).
+     *
+     * @return int
+     */
+    protected function count_jobs( string $where = '' ): int {
+        $args = [ 'count' => 1 ];
+
+        if ( ! empty( $where ) ) {
+            $args['where'] = [ $where ];
+        }
+
+        return (int) wp_react_kit()->jobs->all( $args );
+    }
+
+    /**
      * Retrieves the group schema, conforming to JSON Schema.
      *
      * @since 0.3.0
@@ -351,6 +403,114 @@ class JobsController extends RESTController {
                         'sanitize_callback' => 'absint',
                     ],
                 ],
+                'location' => [
+                    'description' => __( 'Job location', 'jobplace' ),
+                    'type'        => 'string',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+                'is_remote' => [
+                    'description' => __( 'Whether the job is remote', 'jobplace' ),
+                    'type'        => 'boolean',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'rest_sanitize_boolean',
+                    ],
+                ],
+                'category' => [
+                    'description' => __( 'Job category or department', 'jobplace' ),
+                    'type'        => 'string',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+                'experience_level' => [
+                    'description' => __( 'Required experience level', 'jobplace' ),
+                    'type'        => 'string',
+                    'enum'        => [ '', 'entry', 'mid', 'senior', 'lead' ],
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+                'vacancies' => [
+                    'description' => __( 'Number of open positions', 'jobplace' ),
+                    'type'        => 'integer',
+                    'default'     => 1,
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'absint',
+                    ],
+                ],
+                'salary_min' => [
+                    'description' => __( 'Minimum salary', 'jobplace' ),
+                    'type'        => [ 'number', 'null' ],
+                    'context'     => [ 'view', 'edit' ],
+                ],
+                'salary_max' => [
+                    'description' => __( 'Maximum salary', 'jobplace' ),
+                    'type'        => [ 'number', 'null' ],
+                    'context'     => [ 'view', 'edit' ],
+                ],
+                'salary_currency' => [
+                    'description' => __( 'Salary currency code', 'jobplace' ),
+                    'type'        => 'string',
+                    'default'     => 'USD',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+                'salary_period' => [
+                    'description' => __( 'Salary period', 'jobplace' ),
+                    'type'        => 'string',
+                    'enum'        => [ 'hourly', 'monthly', 'yearly' ],
+                    'default'     => 'yearly',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+                'is_negotiable' => [
+                    'description' => __( 'Whether the salary is negotiable', 'jobplace' ),
+                    'type'        => 'boolean',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'rest_sanitize_boolean',
+                    ],
+                ],
+                'application_deadline' => [
+                    'description' => __( 'Application deadline', 'jobplace' ),
+                    'type'        => [ 'string', 'null' ],
+                    'context'     => [ 'view', 'edit' ],
+                ],
+                'apply_url' => [
+                    'description' => __( 'External application URL', 'jobplace' ),
+                    'type'        => 'string',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'esc_url_raw',
+                    ],
+                ],
+                'apply_email' => [
+                    'description' => __( 'Application email address', 'jobplace' ),
+                    'type'        => 'string',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'sanitize_email',
+                    ],
+                ],
+                'is_featured' => [
+                    'description' => __( 'Whether the job is featured', 'jobplace' ),
+                    'type'        => 'boolean',
+                    'context'     => [ 'view', 'edit' ],
+                    'arg_options' => [
+                        'sanitize_callback' => 'rest_sanitize_boolean',
+                    ],
+                ],
                 'created_by' => [
                     'description' => __( 'Created by user', 'jobplace' ),
                     'type'        => 'integer',
@@ -407,12 +567,26 @@ class JobsController extends RESTController {
      */
     protected function prepare_item_for_database( $request ) {
         $data = [];
-        $data['title']       = $request['title'];
-        $data['slug']        = $this->generate_unique_slug( $request );
-        $data['description'] = $request['description'];
-        $data['company_id']  = $request['company_id'];
-        $data['is_active']   = $request['is_active'];
-        $data['job_type_id'] = $request['job_type_id'];
+        $data['title']                = $request['title'];
+        $data['slug']                 = $this->generate_unique_slug( $request );
+        $data['description']          = $request['description'];
+        $data['company_id']           = $request['company_id'];
+        $data['is_active']            = $request['is_active'];
+        $data['job_type_id']          = $request['job_type_id'];
+        $data['location']             = $request['location'];
+        $data['is_remote']            = $request['is_remote'];
+        $data['category']             = $request['category'];
+        $data['experience_level']     = $request['experience_level'];
+        $data['vacancies']            = $request['vacancies'];
+        $data['salary_min']           = $request['salary_min'];
+        $data['salary_max']           = $request['salary_max'];
+        $data['salary_currency']      = $request['salary_currency'];
+        $data['salary_period']        = $request['salary_period'];
+        $data['is_negotiable']        = $request['is_negotiable'];
+        $data['application_deadline'] = $request['application_deadline'];
+        $data['apply_url']            = $request['apply_url'];
+        $data['apply_email']          = $request['apply_email'];
+        $data['is_featured']          = $request['is_featured'];
 
         if ( empty( $request['id'] ) ) {
             $data['created_by'] = empty( $request['created_by'] ) ? get_current_user_id() : absint( $request['created_by'] );

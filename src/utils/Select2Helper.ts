@@ -1,7 +1,7 @@
 /**
  * Internal dependencies.
  */
-import { ISelect2Input } from '../components/inputs/Select2Input';
+import { ISelect2Input } from '../interfaces/select2';
 
 /**
  * Format array to accept as select2 array.

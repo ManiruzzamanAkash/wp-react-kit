@@ -6,8 +6,8 @@ import { IJob } from '../../interfaces';
 export const prepareJobDataForDatabase = (job: IJob) => {
     const data = {
         ...job,
-        job_type_id: job.job_type.id,
-        company_id: job.company.id,
+        job_type_id: job.job_type?.id ?? job.job_type_id,
+        company_id: job.company?.id ?? job.company_id,
     };
 
     if (job.is_active !== undefined) {

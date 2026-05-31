@@ -36,6 +36,20 @@ trait InputSanitizer {
                 $sanitized = sanitize_email( wp_unslash( $value ) );
                 break;
 
+            case 'url':
+                $sanitized = esc_url_raw( wp_unslash( $value ) );
+                break;
+
+            case 'decimal':
+                $value     = wp_unslash( $value );
+                $sanitized = ( '' === $value || null === $value ) ? null : (float) $value;
+                break;
+
+            case 'date':
+                $value     = sanitize_text_field( wp_unslash( $value ) );
+                $sanitized = empty( $value ) ? null : $value;
+                break;
+
             case 'switch':
                 $sanitized = (bool) wp_unslash( $value );
                 break;

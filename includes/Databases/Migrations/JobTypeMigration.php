@@ -21,14 +21,15 @@ class JobTypeMigration extends DBMigrator {
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $schema_job_types = "CREATE TABLE IF NOT EXISTS `{$wpdb->jobplace_job_types}` (
+        // Use `CREATE TABLE` so dbDelta() can add new columns to existing tables.
+        $schema_job_types = "CREATE TABLE `{$wpdb->jobplace_job_types}` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `name` varchar(255) NOT NULL,
             `slug` varchar(255) NOT NULL,
             `description` varchar(255) NOT NULL,
             `created_at` datetime NOT NULL,
             `updated_at` datetime NOT NULL,
-            PRIMARY KEY (`id`),
+            PRIMARY KEY  (`id`),
             UNIQUE KEY `slug` (`slug`)
         ) $charset_collate;";
 

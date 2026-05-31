@@ -14,5 +14,8 @@ export interface IResponseGenerator {
     statusText?: string;
 }
 
+// Select2 types
+export * from './select2';
+
 // Job types
 export * from './jobs';

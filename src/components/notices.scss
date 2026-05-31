@@ -1,0 +1,15 @@
+// Float the snackbar notices in the bottom-right corner instead of
+// rendering them inline in the page.
+.wprk-snackbar-notices {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    left: auto;
+    z-index: 100000;
+    width: auto;
+    max-width: min( calc( 100% - 48px ), 480px );
+
+    .components-snackbar {
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,62 @@
+.wprk-dataviews-page {
+    background: #fff;
+    min-height: calc( 100vh - 120px );
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 24px 32px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    &__heading {
+        h2 {
+            margin: 0 0 4px;
+            padding: 0;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #1e1e1e;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            color: #757575;
+        }
+    }
+
+    &__actions {
+        flex-shrink: 0;
+    }
+
+    // Align every DataViews region to the page header edge.
+    $edge: 32px;
+
+    .dataviews__view-actions,
+    .dataviews-filters__container,
+    .dataviews-footer,
+    .dataviews-loading,
+    .dataviews-no-results {
+        padding-inline: $edge;
+    }
+
+    .dataviews-view-table tr th:first-child,
+    .dataviews-view-table tr td:first-child {
+        padding-inline-start: $edge;
+    }
+
+    .dataviews-view-table tr th:last-child,
+    .dataviews-view-table tr td:last-child {
+        padding-inline-end: $edge;
+    }
+
+    // Align the pagination footer with the WordPress look.
+    .dataviews-pagination {
+        padding: 12px $edge;
+        border-top: 1px solid #f0f0f0;
+    }
+}

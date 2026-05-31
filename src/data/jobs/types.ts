@@ -1,4 +1,5 @@
 export const GET_JOBS = 'GET_JOBS';
+export const GET_JOB_STATS = 'GET_JOB_STATS';
 export const GET_JOB_DETAIL = 'GET_JOB_DETAIL';
 export const GET_JOB_TYPES = 'GET_JOB_TYPES';
 export const GET_COMPANIES_DROPDOWN = 'GET_COMPANIES_DROPDOWN';

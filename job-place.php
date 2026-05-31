@@ -210,6 +210,7 @@ final class Wp_React_Kit {
     public function includes() {
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin_menu'] = new Akash\JobPlace\Admin\Menu();
+            $this->container['upgrader']   = new Akash\JobPlace\Setup\Upgrader();
         }
 
         // Common classes
